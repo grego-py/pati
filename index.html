@@ -487,6 +487,70 @@ th [data-k][data-tip],th[data-uk]{cursor:pointer}
 .ksc{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:3px}
 .ksc span{border:1px solid var(--line);font:700 8.5px/1 var(--f-mono);letter-spacing:-.2px;color:var(--ink);text-align:center;padding:3px 0;white-space:nowrap;overflow:hidden}
 
+/* ===== v7: Oscar ===== */
+.ohead,.orow{display:grid;grid-template-columns:64px minmax(0,5fr) minmax(0,2.3fr);gap:14px}
+.ohead{padding:4px 0 8px;border-bottom:1px solid var(--line)}
+.orow{padding:12px 0;border-bottom:1px solid var(--line);align-items:start}
+.oy{display:flex;flex-direction:column;gap:2px}.oy b{font:800 21px/1.1 var(--f-ui)}.oy span{font:400 10px/1.3 var(--f-ui);color:var(--muted)}
+.ol{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
+.oc{background:var(--box2);border:1px solid var(--line);padding:6px;display:flex;flex-direction:column;gap:3px;text-align:left;color:var(--ink);min-width:0;cursor:pointer}
+.oc.none{cursor:default;justify-content:center;min-height:120px}
+.oc img{width:100%;aspect-ratio:2/3;object-fit:cover;display:block;border:1px solid var(--line)}
+.oc .g{font:700 9px/1.2 var(--f-ui);text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+.oc .t{font:700 11px/1.25 var(--f-ui);overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.oc .p{font:400 10px/1.2 var(--f-mono);color:var(--muted)}
+.or{display:flex;flex-direction:column;gap:6px;border-left:3px solid var(--gold);padding-left:12px}
+.oe{display:flex;flex-direction:column;gap:1px;min-width:0}
+.oe .l{font:400 9px/1.2 var(--f-ui);text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+.oe .t{font:700 12px/1.3 var(--f-ui);text-align:left}
+.oe .w{font:400 11px/1.3 var(--f-ui)}
+.oe .p{font:400 10px/1.2 var(--f-mono);color:var(--muted)}
+@media (max-width:820px){.ohead{display:none}.orow{grid-template-columns:minmax(0,1fr)}.ol{grid-template-columns:repeat(3,minmax(0,1fr))}.or{border-left:0;border-top:3px solid var(--gold);padding:8px 0 0}}
+/* ===== v7: Crafting (Minecraft envanter yorumu) ===== */
+#mCraft .panel.mc{background:transparent;border:0;max-width:none;width:auto;align-items:center}
+.mcwin{--sl:40px;background:var(--box);padding:10px 12px 12px;border:2px solid #141610;box-shadow:inset 3px 3px 0 #f3f6e8,inset -3px -3px 0 var(--dark);border-radius:4px;display:flex;flex-direction:column;gap:8px;width:calc(var(--sl)*9 + 24px + 30px);max-width:calc(100vw - 16px);font-family:var(--f-mono);color:#3a3f32}
+.mchead{display:flex;justify-content:space-between;align-items:center}
+.mct{font:700 13px/1 var(--f-mono);color:#3a3f32}
+.mchead .xbtn{background:var(--dark);color:#fff;border:2px solid #141610;width:26px;height:26px;border-radius:0;box-shadow:inset 2px 2px 0 rgba(255,255,255,.25),inset -2px -2px 0 rgba(0,0,0,.35)}
+.mctop{display:flex;align-items:center;gap:14px;justify-content:center;padding:6px 0}
+.mcgrid{display:grid;grid-template-columns:repeat(3,var(--sl));gap:0}
+.mcs{width:var(--sl);height:var(--sl);background:#8b8f7c;border:2px solid;border-color:#3d4233 #f3f6e8 #f3f6e8 #3d4233;position:relative;display:flex;align-items:center;justify-content:center;user-select:none}
+.mcs:hover,.mcs.hov{background:#a9ad99}
+.mcs.ok{outline:3px solid #6fd04a;outline-offset:-3px;z-index:1}
+.mcs.bad{outline:3px solid #e0453a;outline-offset:-3px;z-index:1;opacity:.75}
+.mci{width:calc(var(--sl) - 12px);height:calc(var(--sl) - 12px);display:block;position:relative;cursor:grab;touch-action:none}
+.mci svg,#mcCur svg{width:100%;height:100%;display:block;image-rendering:pixelated}
+.mci b,#mcOut b{position:absolute;right:-6px;bottom:-7px;font:700 9px/1 var(--f-mono);color:#fff;text-shadow:1px 1px 0 #3f3f3f;pointer-events:none}
+.mcarrow{width:44px;height:30px}
+.mcslot.out{width:calc(var(--sl)*1.5);height:calc(var(--sl)*1.5);cursor:pointer}
+#mcOut canvas{width:calc(var(--sl)*1.5 - 14px);height:calc((var(--sl)*1.5 - 14px)*1.5);max-height:calc(var(--sl)*1.5 - 8px);width:auto;aspect-ratio:2/3;image-rendering:pixelated;display:block}
+.mcbtns{display:flex;flex-direction:column;gap:6px}
+.mcbtn{background:#8b8f7c;color:#fff;border:2px solid #141610;box-shadow:inset 2px 2px 0 rgba(255,255,255,.4),inset -2px -2px 0 rgba(0,0,0,.4);font:700 11px/1 var(--f-mono);text-shadow:1px 1px 0 #3f3f3f;padding:7px 10px;display:flex;align-items:center;gap:6px;cursor:pointer}
+.mcbtn:hover{background:#9fa58a;outline:2px solid #f3f6e8;outline-offset:-4px}
+.mcbtn svg{width:20px;height:20px}
+.mcmsg{min-height:16px;font:400 11px/1.5 var(--f-mono);color:#3a3f32}
+.mcmsg .warn{display:block;color:#7a1a10;font-weight:700}
+.mcres{display:flex;gap:4px;flex-wrap:wrap}.mcres:empty{display:none}
+.mcres button{width:42px;background:none;border:0;padding:0;display:flex;flex-direction:column;gap:2px;cursor:pointer;color:#3a3f32}
+.mcres img{width:42px;aspect-ratio:2/3;object-fit:cover;image-rendering:pixelated;border:2px solid #3d4233}
+.mcres span{font:400 8px/1.1 var(--f-mono);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mctabs{display:flex;gap:3px;margin-bottom:-10px;position:relative;z-index:1;padding-left:2px}
+.mctab{width:34px;height:34px;background:#a4a98f;border:2px solid #141610;border-bottom:0;padding:6px;cursor:pointer;box-shadow:inset 2px 2px 0 rgba(255,255,255,.35)}
+.mctab.on{background:var(--box);height:40px;margin-top:-6px;box-shadow:inset 2px 2px 0 #f3f6e8}
+.mctab svg{width:100%;height:100%;display:block}
+.mcinvbox{border:2px solid #141610;background:var(--box);padding:6px;box-shadow:inset 2px 2px 0 #f3f6e8,inset -2px -2px 0 var(--dark);display:flex;flex-direction:column;gap:5px}
+.mcinvh{display:flex;justify-content:space-between;align-items:center;gap:8px;font:700 11px/1 var(--f-mono)}
+#mcQ{background:#141610;color:#f3f6e8;border:2px solid #8b8f7c;font:400 12px/1 var(--f-mono);padding:4px 6px;width:170px;border-radius:0}
+.mcinv{display:grid;grid-template-columns:repeat(9,var(--sl));height:calc(var(--sl)*5);overflow-y:auto;overflow-x:hidden;scrollbar-width:thin;scrollbar-color:#3d4233 #8b8f7c;padding-right:0;width:calc(var(--sl)*9 + 12px)}
+.mchotw{display:flex;gap:6px;align-items:center;margin-top:6px}
+.mchot{display:grid;grid-template-columns:repeat(9,var(--sl))}
+#mcTrash{width:30px;height:30px}
+#mcTrash svg{width:70%;height:70%}
+#mcCur{position:fixed;z-index:10000;width:36px;height:36px;pointer-events:none}
+#mcTip{position:fixed;z-index:10001;pointer-events:none;background:#1a0f22;border:2px solid #3b1a6b;outline:1px solid #100010;padding:5px 7px;display:flex;flex-direction:column;gap:2px;max-width:240px;font-family:var(--f-mono)}
+#mcTip b{color:#fff;font:700 12px/1.3 var(--f-mono)}#mcTip span{color:#a8a8a8;font:400 10px/1.3 var(--f-mono)}#mcTip i{color:#e5b600;font:700 10px/1.3 var(--f-mono);font-style:normal}
+@media (max-width:480px){.mcwin{--sl:33px;padding:8px}.mcinv{height:calc(var(--sl)*6)}.mctop{gap:8px}.mcarrow{width:26px}#mcQ{width:120px}}
+
 /* Duyarlı düzen: tablo dar ekranda karta dönüşür */
 @media (max-width:1000px){
   .msort{display:block}
@@ -570,6 +634,8 @@ th [data-k][data-tip],th[data-uk]{cursor:pointer}
       <button class="btn f-bold" type="button" id="scBtn" data-tip="Pati ve IMDb puanlarını karşılaştıran dağılım grafiği.">Pati ve IMDb</button>
       <button class="btn f-bold" type="button" id="cmpBtn">Üye karşılaştır</button>
       <button class="btn f-bold" type="button" id="quizBtn" data-tip="15 filme puan ver, sana en çok benzeyen üyeleri ve onların sevdiği filmleri gör.">Kime benziyorum?</button>
+      <button class="btn f-bold" type="button" id="oscBtn" data-tip="Her film yılı için patilerin en sevdiği filmler ve o yılın Oscar kazananları, yan yana. Karşılaştırma değil, bilgilendirme.">Oscar</button>
+      <button class="btn f-bold" type="button" id="craftBtn" data-tip="Envanterden malzemeleri (üye, yıl, yönetmen, tür, puan) ızgaraya koy, çekiçle film craft et.">Crafting</button>
       <button class="btn f-bold" type="button" id="katBtn" data-tip="Filmleri afiş duvarı olarak gösterir: son 1 yıl, Pati, ortalama puan, rastgele ya da üyeye göre. Afişe tıklayınca büyür.">Katalog</button>
       <button class="btn f-bold on" type="button" id="rndBtn" data-tip="Şu anki filtrelere uyan filmlerden rastgele birini açar.">Ne izlesem?</button>
       <button class="btn f-bold ghost iconbtn" type="button" id="themeBtn"></button>
@@ -625,7 +691,7 @@ th [data-k][data-tip],th[data-uk]{cursor:pointer}
 
   <footer class="foot f-kucuk">
     <span id="footNote"></span>
-    <span>Klavye kısayolları için ? · Sürüm v6 · 8 Kasım 2026</span>
+    <span>Klavye kısayolları için ? · Sürüm v7 · 8 Kasım 2026</span>
   </footer>
 </div>
 
@@ -776,6 +842,30 @@ th [data-k][data-tip],th[data-uk]{cursor:pointer}
       <span class="f-ana" id="katInfo"></span><div class="kat" id="katGrid"></div></div>
   </div>
 </div>
+
+<div class="modal" id="mOsc" hidden role="dialog" aria-modal="true" aria-label="Oscar">
+  <div class="panel full">
+    <div class="phead"><span class="f-bold">Oscar · patiler ve Akademi, film yılına göre</span><button class="xbtn" type="button" data-close aria-label="Kapat">✕</button></div>
+    <div class="pbody"><span class="f-kucuk muted">Tür ile Oscar arasında bir bağ yok; bu sayfa karşılaştırma değil, yan yana bilgilendirme. Sol: forumun en çok yazdığı 5 türde o yıl çıkmış filmler arasından Pati puanı en yüksek olan (her film yalnızca bir türde gösterilir). Sağ: o yılın filmlerine verilen Oscar'lar (En İyi Film, Yönetmen, Erkek ve Kadın Oyuncu, Uluslararası/Yabancı Film). Oscar'ın film yılı ile IMDb yılı arada bir yıl kayabilir.</span><div id="oscOut"></div></div>
+  </div>
+</div>
+
+<div class="modal" id="mCraft" hidden role="dialog" aria-modal="true" aria-label="Crafting">
+  <div class="panel mc">
+    <div class="mcwin">
+      <div class="mchead"><span class="mct">Crafting</span><button class="xbtn" type="button" data-close aria-label="Kapat">✕</button></div>
+      <div class="mctop"><div class="mcgrid" id="mcGrid"></div><svg class="mcarrow" viewBox="0 0 22 15" shape-rendering="crispEdges" aria-hidden="true"><path fill="#8b8f7c" d="M0 5h14V0h2v1h1v1h1v1h1v1h1v1h1v1h1v3h-1v1h-1v1h-1v1h-1v1h-1v1h-1v1h-2v-5H0z"/></svg><div class="mcs mcslot out" id="mcOut" data-tip="Çıktı: craft edilen film. Tıklayınca kartı açılır."></div>
+        <div class="mcbtns"><button class="mcbtn" type="button" id="mcHammer" data-tip="Izgaradaki tüm malzemeleri birleştiren filmi bul."><svg viewBox="0 0 12 12" shape-rendering="crispEdges" aria-hidden="true"><path fill="#9aa0a6" d="M1 1h7v1h1v1h1v2H8V4H6v1H5V4H4V3H1z"/><path fill="#7a5230" d="M5 5h1v1h1v1h1v1h1v1h1v1h1v2h-2v-1H8V9H7V8H6V7H5z"/><path fill="#141610" d="M1 0h7v1H1z"/></svg>Craft</button><button class="mcbtn" type="button" id="mcClear" data-tip="Izgarayı boşalt.">Temizle</button></div></div>
+      <div class="mcmsg" id="mcMsg"></div><div class="mcres" id="mcRes"></div>
+      <div class="mctabs" id="mcTabs"></div>
+      <div class="mcinvbox"><div class="mcinvh"><span id="mcInvT"></span><span style="display:flex;gap:6px;align-items:center"><input id="mcQ" type="text" placeholder="Malzeme ara..." autocomplete="off" hidden><div class="mcs" id="mcTrash" data-tip="Çöp: elindeki malzemeyi buraya bırak."><svg viewBox="0 0 10 10" shape-rendering="crispEdges" aria-hidden="true"><path fill="#e0453a" d="M1 0h2v1h1v1h2V1h1V0h2v2H8v1H7v1H6v2h1v1h1v1h1v2H7V9H6V8H4v1H3v1H1V8h1V7h1V6h1V4H3V3H2V2H1z"/></svg></div></span></div><div class="mcinv" id="mcInv"></div>
+        <div class="mchotw"><div class="mchot" id="mcHot"></div></div>
+        <span class="f-kucuk" style="font-family:var(--f-mono);font-size:10px">Malzemeyi tut ve ızgaraya sürükle ya da tıkla, sonra ızgarada bir yuvaya tıkla. Izgaradaki malzemeyi geri almak için tıkla, silmek için sağ tıkla ya da çöpe at. Alt satır son kullandıkların. Sayı: o malzemeyle eşleşen film adedi.</span></div>
+    </div>
+  </div>
+</div>
+<div id="mcCur" hidden></div>
+<div id="mcTip" hidden></div>
 
 <div class="modal" id="mKeys" hidden role="dialog" aria-modal="true" aria-label="Klavye kısayolları">
   <div class="panel" style="max-width:420px">
@@ -1948,6 +2038,176 @@ function katClose(silent){if(!katZoom)return;const {c,z,fl,info}=katZoom;katZoom
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&katZoom){e.stopPropagation();katClose()}},true);
 
 $('shClose').dataset.x='1';document.querySelector('.side .slab').insertAdjacentHTML('afterend',RNAV.map(([k,tip,ic])=>`<button class="rb sug" type="button" data-rn="${k}" data-tip="${esc(tip)}" aria-label="${esc(tip)}">${ic}</button>`).join(''));
+
+/* ===== v7: Oscar ===== */
+/* [film yılı, En İyi Film, Yönetmen (film), Erkek Oyuncu (film), Kadın Oyuncu (film), Uluslararası/Yabancı Film]; tören yılı = film yılı + 1 */
+const OSCAR=[
+ [2000,'Gladiator',['Steven Soderbergh','Traffic'],['Russell Crowe','Gladiator'],['Julia Roberts','Erin Brockovich'],'Crouching Tiger, Hidden Dragon'],
+ [2001,'A Beautiful Mind',['Ron Howard','A Beautiful Mind'],['Denzel Washington','Training Day'],['Halle Berry',"Monster's Ball"],"No Man's Land"],
+ [2002,'Chicago',['Roman Polanski','The Pianist'],['Adrien Brody','The Pianist'],['Nicole Kidman','The Hours'],'Nowhere in Africa'],
+ [2003,'The Lord of the Rings: The Return of the King',['Peter Jackson','The Lord of the Rings: The Return of the King'],['Sean Penn','Mystic River'],['Charlize Theron','Monster'],'The Barbarian Invasions'],
+ [2004,'Million Dollar Baby',['Clint Eastwood','Million Dollar Baby'],['Jamie Foxx','Ray'],['Hilary Swank','Million Dollar Baby'],'The Sea Inside'],
+ [2005,'Crash',['Ang Lee','Brokeback Mountain'],['Philip Seymour Hoffman','Capote'],['Reese Witherspoon','Walk the Line'],'Tsotsi'],
+ [2006,'The Departed',['Martin Scorsese','The Departed'],['Forest Whitaker','The Last King of Scotland'],['Helen Mirren','The Queen'],'The Lives of Others'],
+ [2007,'No Country for Old Men',['Joel ve Ethan Coen','No Country for Old Men'],['Daniel Day-Lewis','There Will Be Blood'],['Marion Cotillard','La Vie en Rose'],'The Counterfeiters'],
+ [2008,'Slumdog Millionaire',['Danny Boyle','Slumdog Millionaire'],['Sean Penn','Milk'],['Kate Winslet','The Reader'],'Departures'],
+ [2009,'The Hurt Locker',['Kathryn Bigelow','The Hurt Locker'],['Jeff Bridges','Crazy Heart'],['Sandra Bullock','The Blind Side'],'The Secret in Their Eyes'],
+ [2010,"The King's Speech",['Tom Hooper',"The King's Speech"],['Colin Firth',"The King's Speech"],['Natalie Portman','Black Swan'],'In a Better World'],
+ [2011,'The Artist',['Michel Hazanavicius','The Artist'],['Jean Dujardin','The Artist'],['Meryl Streep','The Iron Lady'],'A Separation'],
+ [2012,'Argo',['Ang Lee','Life of Pi'],['Daniel Day-Lewis','Lincoln'],['Jennifer Lawrence','Silver Linings Playbook'],'Amour'],
+ [2013,'12 Years a Slave',['Alfonso Cuarón','Gravity'],['Matthew McConaughey','Dallas Buyers Club'],['Cate Blanchett','Blue Jasmine'],'The Great Beauty'],
+ [2014,'Birdman',['Alejandro G. Iñárritu','Birdman'],['Eddie Redmayne','The Theory of Everything'],['Julianne Moore','Still Alice'],'Ida'],
+ [2015,'Spotlight',['Alejandro G. Iñárritu','The Revenant'],['Leonardo DiCaprio','The Revenant'],['Brie Larson','Room'],'Son of Saul'],
+ [2016,'Moonlight',['Damien Chazelle','La La Land'],['Casey Affleck','Manchester by the Sea'],['Emma Stone','La La Land'],'The Salesman'],
+ [2017,'The Shape of Water',['Guillermo del Toro','The Shape of Water'],['Gary Oldman','Darkest Hour'],['Frances McDormand','Three Billboards Outside Ebbing, Missouri'],'A Fantastic Woman'],
+ [2018,'Green Book',['Alfonso Cuarón','Roma'],['Rami Malek','Bohemian Rhapsody'],['Olivia Colman','The Favourite'],'Roma'],
+ [2019,'Parasite',['Bong Joon Ho','Parasite'],['Joaquin Phoenix','Joker'],['Renée Zellweger','Judy'],'Parasite'],
+ [2020,'Nomadland',['Chloé Zhao','Nomadland'],['Anthony Hopkins','The Father'],['Frances McDormand','Nomadland'],'Another Round'],
+ [2021,'CODA',['Jane Campion','The Power of the Dog'],['Will Smith','King Richard'],['Jessica Chastain','The Eyes of Tammy Faye'],'Drive My Car'],
+ [2022,'Everything Everywhere All at Once',['Daniel Kwan ve Daniel Scheinert','Everything Everywhere All at Once'],['Brendan Fraser','The Whale'],['Michelle Yeoh','Everything Everywhere All at Once'],'All Quiet on the Western Front'],
+ [2023,'Oppenheimer',['Christopher Nolan','Oppenheimer'],['Cillian Murphy','Oppenheimer'],['Emma Stone','Poor Things'],'The Zone of Interest'],
+ [2024,'Anora',['Sean Baker','Anora'],['Adrien Brody','The Brutalist'],['Mikey Madison','Anora'],"I'm Still Here"],
+ [2025,'One Battle After Another',['Paul Thomas Anderson','One Battle After Another'],['Michael B. Jordan','Sinners'],['Jessie Buckley','Hamnet'],'Sentimental Value']
+];
+const OSC_G=Object.entries(DATA.reduce((a,f)=>{(f.genres||[]).forEach(g=>a[g]=(a[g]||0)+1);return a},{})).sort((a,b)=>b[1]-a[1]).slice(0,5).map(x=>x[0]);
+const oscFind=(title,y)=>{const n=nmz(title);return DATA.find(f=>Math.abs((f.year||0)-y)<=1&&[f.title,f.alt].filter(Boolean).some(t=>{const m=nmz(t);return m===n||m.startsWith(n+' ')||n.startsWith(m+' ')}))||null};
+function oscRow(y){
+  const used=new Set();const picks=OSC_G.map(g=>{const c=DATA.filter(f=>f.year===y&&(f.genres||[]).includes(g)&&f.nv>0&&!used.has(f.tt)).sort((a,b)=>b.pati-a.pati||b.nv-a.nv)[0];if(c)used.add(c.tt);return [g,c]});
+  const left=picks.map(([g,f])=>f?`<button class="oc" type="button" data-share="${f.tt}"><img src="${f.poster}" alt="" loading="lazy"><span class="g">${esc(gTR(g))}</span><span class="t">${esc(f.title)}</span><span class="p">Pati ${fmt1(f.pati)} · ${f.nv} puan</span></button>`:`<div class="oc none"><span class="g">${esc(gTR(g))}</span><span class="t muted">Puanlanmış film yok</span></div>`).join('');
+  const o=OSCAR.find(r=>r[0]===y);
+  const ent=(lab,film,who)=>{const f=oscFind(film,y);return `<div class="oe"><span class="l">${lab}</span>${f?`<button class="linkbtn t" type="button" data-share="${f.tt}">${esc(film)}</button><span class="p">${f.pati!=null?'Pati '+fmt1(f.pati):'forumda puansız'}</span>`:`<span class="t">${esc(film)}</span>`}${who?`<span class="w">${esc(who)}</span>`:''}</div>`};
+  const right=o?ent('En İyi Film',o[1])+ent('Yönetmen',o[2][1],o[2][0])+ent('Erkek Oyuncu',o[3][1],o[3][0])+ent('Kadın Oyuncu',o[4][1],o[4][0])+ent(y>=2019?'Uluslararası Film':'Yabancı Film',o[5])
+    :`<div class="oe"><span class="t muted">${y+1} töreni henüz yapılmadı.</span></div>`;
+  return `<div class="orow"><div class="oy"><b>${y}</b><span>tören ${y+1}</span></div><div class="ol">${left}</div><div class="or">${right}</div></div>`;
+}
+function openOscar(){
+  const ys=[];for(let y=2026;y>=2000;y--)ys.push(y);
+  $('oscOut').innerHTML=`<div class="ohead"><span></span><span class="f-kucuk muted">Patilerin en çok puan verdiği filmler: forumun en çok yazdığı 5 türde (${OSC_G.map(gTR).join(', ')}) o yıl çıkmış filmler arasında Pati puanı en yüksek olan</span><span class="f-kucuk muted">O yılın filmlerine verilen Oscar'lar (ertesi yılın töreni). Forumda yazılmışsa tıklanabilir.</span></div>`+ys.map(oscRow).join('');
+  openModal($('mOsc'))}
+$('oscBtn').addEventListener('click',openOscar);
+
+/* ===== v7: Crafting ===== */
+const PXC={k:'#1d2016',w:'#f3f6e8',r:'#b8322a',p:'#e88a8a',y:'#e5b600',s:'#9aa0a6',g:'#6b705c',b:'#7a5230',o:'#e07b20',n:'#3c8a2c',u:'#2c5f8a',d:'#4d5740',l:'#c9d2ae'};
+function pxSvg(rows,pal=PXC){const H=rows.length,W=rows[0].length;let s=`<svg viewBox="0 0 ${W} ${H}" shape-rendering="crispEdges" aria-hidden="true">`;
+  rows.forEach((r,y)=>{let x=0;while(x<W){const c=r[x];if(c==='.'||c===' '){x++;continue}let e=x;while(e<W&&r[e]===c)e++;s+=`<rect x="${x}" y="${y}" width="${e-x}" height="1" fill="${pal[c]||c}"/>`;x=e}});return s+'</svg>'}
+/* 3x5 piksel yazı */
+const PF={'0':['111','101','101','101','111'],'1':['010','110','010','010','111'],'2':['111','001','111','100','111'],'3':['111','001','111','001','111'],'4':['101','101','111','001','001'],'5':['111','100','111','001','111'],'6':['111','100','111','101','111'],'7':['111','001','010','010','010'],'8':['111','101','111','101','111'],'9':['111','101','111','001','111'],
+ '>':['100','010','001','010','100'],'<':['001','010','100','010','001'],',':['0','0','0','1','1'],'%':['101','001','010','100','101'],
+ A:['010','101','111','101','101'],B:['110','101','110','101','110'],D:['110','101','101','101','110'],E:['111','100','110','100','111'],I:['111','010','010','010','111'],L:['100','100','100','100','111'],M:['101','111','111','101','101'],P:['110','101','110','100','100'],R:['110','101','110','101','101'],T:['111','010','010','010','010']};
+function pxText(grid,txt,y0,col){const gl=[...txt].map(c=>PF[c]||PF['0']);const w=gl.reduce((a,g)=>a+g[0].length,0)+gl.length-1;let x=Math.floor((grid[0].length-w)/2);
+  gl.forEach(g=>{for(let r=0;r<5;r++)for(let c=0;c<g[0].length;c++)if(g[r][c]==='1'&&grid[y0+r])grid[y0+r][x+c]=col;x+=g[0].length+1})}
+const blank=(w,h,c='.')=>Array.from({length:h},()=>Array(w).fill(c));
+const toRows=g=>g.map(r=>r.join(''));
+function scoreIcon(top,name,bg,fg){const g=blank(16,16,'B');for(let i=0;i<16;i++){g[0][i]=g[15][i]=g[i][0]=g[i][15]='K'}pxText(g,top,2,'F');pxText(g,name,9,'F');return pxSvg(toRows(g),{B:bg,K:'#141610',F:fg})}
+function yearIcon(y){const g=blank(16,16,'W');for(let i=0;i<16;i++){g[15][i]='K';g[i][0]=g[i][15]='K'}for(let r=0;r<4;r++)for(let i=0;i<16;i++)g[r][i]=r===0?'K':'R';g[0][4]=g[0][11]='.';g[1][4]=g[1][11]='K';pxText(g,String(y),7,'K');return pxSvg(toRows(g),{W:'#f3f6e8',K:'#141610',R:'#b8322a'})}
+const hashN=s=>{let h=2166136261;for(const c of String(s))h=Math.imul(h^c.charCodeAt(0),16777619);return h>>>0};
+function faceIcon(n){const h=hashN(n);const sk=['#f1c9a5','#e0ac7e','#c68863','#8d5a3b','#f5d6c0'][h%5],hr=['#2b1d12','#5a3a1e','#a8742c','#d9b45a','#1d2016','#7a2e1e','#8a8f80'][(h>>3)%7],ey=['#2c5f8a','#3c8a2c','#5a3a1e','#1d2016'][(h>>6)%4],st=(h>>8)%3,bd=(h>>10)%4===0;
+  const R=['HHHHHHHH','HHHHHHHH',st===0?'HSSSSSSH':st===1?'HHSSSSHH':'SSSSSSSS','SWESSEWS','SSSNNSSS',bd?'SHMMMMHS':'SSMMMMSS',bd?'HHHHHHHH':'SSSSSSSS',bd?'HHHHHHHH':'SSSSSSSS'];
+  return pxSvg(R,{H:hr,S:sk,W:'#f3f6e8',E:ey,N:'rgba(0,0,0,.18)',M:'#7a3a2a'})}
+function clapIcon(n){const c=['#b8322a','#2c5f8a','#3c8a2c','#b08a00','#7a3c8a','#4d5740'][hashN(n)%6];
+  return pxSvg(['KWKWKWKWKK','WKWKWKWKWK','KKKKKKKKKK','CCCCCCCCCC','CLLLLLLLLC','CLKKKKKKLC','CLLLLLLLLC','CLKKKKLLLC','CLLLLLLLLC','CCCCCCCCCC'],{K:'#141610',W:'#f3f6e8',C:c,L:'#e4e9d3'})}
+const GI={
+ Romance:['..........','.rr...rr..','rppr.rrrr.','rprrrrrrr.','rrrrrrrrr.','.rrrrrrr..','..rrrrr...','...rrr....','....r.....','..........'],
+ Horror:['..wwwwww..','.wwwwwwww.','wwwwwwwwww','wkkwwwwkkw','wkkwwwwkkw','wwwwkkwwww','.wwwwwwww.','..wkwkwk..','..wwwwww..','..........'],
+ Comedy:['..yyyyyy..','.yyyyyyyy.','yykyyyykyy','yykyyyykyy','yyyyyyyyyy','ykyyyyyyky','yykkkkkkyy','.yyyyyyyy.','..yyyyyy..','..........'],
+ Action:['........ws','.......wsw','......wsw.','.....wsw..','y...wsw...','.y.wsw....','..ysw.....','..by......','.b..y.....','b.........'],
+ Drama:['.wwwwwww..','wwwwwwwww.','wkkwwwkkw.','wwwwwwwww.','wwwwwwwww.','wwkkkkkww.','wkwwwwwkw.','.wwwwwww..','..wwwww...','..........'],
+ Adventure:['..bbbbbb..','.bwwwwwwb.','bwwwwrrwwb','bwwwrrwwwb','bwwwrkwwwb','bwwwkwwwwb','bwwkkwwwwb','.bwwwwwwb.','..bbbbbb..','..........'],
+ Crime:['..........','..........','.kkkkkkkk.','.kgggggkk.','.kkkkkkkk.','....kkk...','....kk.k..','...kk.....','...kk.....','..........'],
+ Thriller:['..........','...kkkk...','.kkwwwwkk.','kwwwuuwwwk','kwwukkuwwk','kwwwuuwwwk','.kkwwwwkk.','...kkkk...','..........','..........'],
+ 'Sci-Fi':['....ww....','...wwww...','...wuuw...','...wuuw...','...wwww...','..rwwwwr..','.rrwwwwrr.','...oyyo...','....yy....','....o.....'],
+ Mystery:['..kkkk....','.kwwwwk...','kwuwwwwk..','kwwwwwwk..','kwwwwwwk..','.kwwwwk...','..kkkkbb..','......bbb.','.......bbb','........b.'],
+ Fantasy:['....y.....','....y.....','...yyy....','yyyyyyyyy.','.yyyyyyy..','..yyyyy...','..yy.yy...','.yy...yy..','.y.....y..','..........'],
+ Music:['....kkkkk.','....kkkkk.','....k...k.','....k...k.','....k...k.','..kkk.kkk.','.kkkkkkkk.','.kkk.kkk..','..........','..........'],
+ Biography:['.rrrrrrr..','.rwwwwwr..','.rwkkkwr..','.rwwwwwr..','.rwkkkwr..','.rwwwwwr..','.rwkkkwr..','.rwwwwwr..','.rrrrrrr..','..........'],
+ War:['.ssssssss.','.sggrrggs.','.sggrrggs.','.srrrrrrs.','.sggrrggs.','..sgrrgs..','..sggggs..','...sggs...','....ss....','..........'],
+ Family:['....rr....','...rrrr...','..rrrrrr..','.rrrrrrrr.','..wwwwww..','..wbbwkw..','..wbbwkw..','..wbbwww..','..wbbwww..','..........'],
+ Sport:['..kkkkkk..','.kwwkkwwk.','kwwwkkwwwk','kkwwwwwwkk','kkkwwwwkkk','kkwwwwwwkk','kwwwkkwwwk','.kwwkkwwk.','..kkkkkk..','..........'],
+ Documentary:['..........','.kk.kk....','kkkkkkkk..','kggggggkk.','kgwwgggkkk','kgwwgggkkk','kggggggkk.','kkkkkkkk..','..........','..........'],
+ Animation:['........kk','.......kyk','......kyk.','.....kyk..','....kyk...','...kyk....','..kyk.....','.kok......','.kk.......','k.........'],
+ Western:['....nn....','....nn.n..','.n..nn.n..','.n..nnnn..','.nnnnnn...','....nn....','....nn....','....nn....','..bbbbbb..','..........'],
+ History:['.bbbbbbbb.','byyyyyyyyb','.ykkkkkky.','.yyyyyyyy.','.ykkkkkky.','.yyyyyyyy.','.ykkkkky..','byyyyyyyyb','.bbbbbbbb.','..........']
+};
+const reel=c=>pxSvg(['...CCCC...','..CCCCCC..','.CCwCCwCC.','CCCCCCCCCC','CwCCkkCCwC','CCCCkkCCCC','.CCwCCwCC.','..CCCCCC..','...CCCC...','..........'],{...PXC,C:c});
+const genreIcon=g=>GI[g]?pxSvg(GI[g]):reel(['#b8322a','#2c5f8a','#3c8a2c','#b08a00','#7a3c8a'][hashN(g)%5]);
+/* Malzemeler */
+const SITES=[['PATI','Pati',f=>f.pati,'#e5b600','#141610',[[8,'>'],[7,'>'],[6,'<'],[5,'<']]],['IMDB','IMDb',f=>f.imdb,'#f5c518','#141610',[[8,'>'],[7,'>'],[6,'<'],[5,'<']]],
+ ['META','Metacritic',f=>f.meta,'#3c8a2c','#f3f6e8',[[80,'>'],[60,'>'],[40,'<']]],['RT','Rotten Tomatoes',f=>f.rt,'#c8361f','#f3f6e8',[[90,'>'],[60,'>'],[40,'<']]],['LB','Letterboxd',f=>f.lb,'#2c3440','#f3f6e8',[[4,'>'],[3,'>'],[2,'<']]]];
+const MC={items:new Map(),tabs:[],tab:'u',grid:Array(9).fill(null),hot:[],held:null};
+function mcAdd(tab,id,name,lore,icon,test){const it={id,tab,name,lore,icon,test,n:null};MC.items.set(id,it);return it}
+function mcBuild(){if(MC.tabs.length)return;
+  [...U.values()].filter(u=>u.films.length>=3).sort((a,b)=>b.films.length-a.films.length).forEach(u=>mcAdd('u','u:'+u.name,u.name,'Üye · yazdığı filmler',faceIcon(u.name),f=>f.members.includes(u.name)));
+  const yc=new Map();DATA.forEach(f=>f.year&&yc.set(f.year,(yc.get(f.year)||0)+1));[...yc.entries()].filter(([,c])=>c>=3).sort((a,b)=>b[0]-a[0]).forEach(([y])=>mcAdd('y','y:'+y,String(y),'Yıl · o yıl çıkan filmler',yearIcon(y),f=>f.year===y));
+  [...DIRS.entries()].filter(([,v])=>v.length>=2).sort((a,b)=>b[1].length-a[1].length||a[0].localeCompare(b[0],'tr')).forEach(([d])=>mcAdd('d','d:'+d,d,'Yönetmen',clapIcon(d),f=>(f.directors||[]).includes(d)));
+  Object.entries(DATA.reduce((a,f)=>{(f.genres||[]).forEach(g=>a[g]=(a[g]||0)+1);return a},{})).filter(([,c])=>c>=3).sort((a,b)=>b[1]-a[1]).forEach(([g])=>mcAdd('g','g:'+g,gTR(g),'Tür',genreIcon(g),f=>(f.genres||[]).includes(g)));
+  SITES.forEach(([code,name,get,bg,fg,th])=>th.forEach(([v,op])=>{const lab=op+String(v).replace('.',',');mcAdd('s',`s:${code}${op}${v}`,`${name} ${op==='>'?v+' ve üstü':v+' altı'}`,op==='>'?`${name} puanı ${v} ve üstü olan filmler`:`${name} puanı ${v} altında olan filmler`,scoreIcon(lab,code,bg,fg),f=>{const x=get(f);return x!=null&&(op==='>'?x>=v:x<v)})}));
+  MC.items.forEach(it=>{it.n=DATA.filter(it.test).length});
+  MC.tabs=[['u','Üyeler'],['y','Yıllar'],['d','Yönetmenler'],['g','Türler'],['s','Puanlar'],['q','Ara']];
+  const tabIcon={u:faceIcon('Grego'),y:yearIcon(2014),d:clapIcon('x'),g:genreIcon('Action'),s:scoreIcon('>7','PATI','#e5b600','#141610'),q:pxSvg(GI.Mystery)};
+  $('mcTabs').innerHTML=MC.tabs.map(([k,l])=>`<button type="button" class="mctab" data-mct="${k}" data-tip="${l}" aria-label="${l}">${tabIcon[k]}</button>`).join('');
+  $('mcGrid').innerHTML=Array.from({length:9},(_,i)=>`<div class="mcs" data-gs="${i}"></div>`).join('');
+  $('mcHot').innerHTML=Array.from({length:9},(_,i)=>`<div class="mcs" data-hs="${i}"></div>`).join('');
+}
+const mcItemHTML=it=>it?`<span class="mci" data-it="${esc(it.id)}">${it.icon}<b>${it.n>99?'99+':it.n}</b></span>`:'';
+function mcInv(){const q=nmz($('mcQ').value);let list=[...MC.items.values()].filter(it=>MC.tab==='q'?(q.length>=2&&nmz(it.name).includes(q)):it.tab===MC.tab);if(MC.tab==='q')list=list.slice(0,180);
+  const tl=MC.tabs.find(t=>t[0]===MC.tab)[1];$('mcInvT').textContent=MC.tab==='q'?(q.length>=2?`Ara · ${list.length} malzeme`:'Ara · en az 2 harf yaz'):`${tl} · ${list.length}`;
+  const pad=Math.max(45,Math.ceil(list.length/9)*9);
+  $('mcInv').innerHTML=Array.from({length:pad},(_,i)=>`<div class="mcs">${mcItemHTML(list[i])}</div>`).join('');
+  document.querySelectorAll('.mctab').forEach(b=>b.classList.toggle('on',b.dataset.mct===MC.tab));$('mcQ').hidden=MC.tab!=='q'}
+function mcDraw(){document.querySelectorAll('#mcGrid .mcs').forEach((s,i)=>{s.innerHTML=mcItemHTML(MC.items.get(MC.grid[i]));s.classList.remove('ok','bad')});
+  document.querySelectorAll('#mcHot .mcs').forEach((s,i)=>s.innerHTML=mcItemHTML(MC.items.get(MC.hot[i])));}
+function mcClearOut(){$('mcOut').innerHTML='';$('mcOut').dataset.tt='';$('mcMsg').innerHTML='';$('mcRes').innerHTML=''}
+function mcPut(i,id){MC.grid[i]=id;if(id){MC.hot=[id,...MC.hot.filter(x=>x!==id)].slice(0,9)}mcClearOut();mcDraw()}
+/* elde tutulan malzeme */
+const cur=()=>$('mcCur');
+function hold(id,x,y){MC.held=id;const c=cur();c.innerHTML=id?MC.items.get(id).icon:'';c.hidden=!id;if(id)moveCur(x,y);hideMcTip()}
+function moveCur(x,y){const c=cur();c.style.left=(x-18)+'px';c.style.top=(y-18)+'px'}
+let mcDown=null;
+function slotAt(x,y){const el=document.elementFromPoint(x,y);return el&&el.closest('#mCraft .mcs, #mcTrash, #mcInv')}
+$('mCraft').addEventListener('pointerdown',e=>{
+  const s=e.target.closest('.mcs');const tr=e.target.closest('#mcTrash');
+  if(e.target.closest('#mcOut,#mcHammer,.mctab,#mcQ,[data-close],#mcRes button,#mcClear'))return;
+  if(MC.held){ /* elde bir şey varken tıklama: bırak */
+    if(s&&s.dataset.gs!=null){const i=+s.dataset.gs,old=MC.grid[i];mcPut(i,MC.held);hold(old,e.clientX,e.clientY);e.preventDefault();return}
+    hold(null);e.preventDefault();return}
+  if(!s||tr)return;const itEl=s.querySelector('.mci');if(!itEl)return;const id=itEl.dataset.it;
+  if(s.dataset.gs!=null){MC.grid[+s.dataset.gs]=null;mcClearOut();mcDraw()}
+  hold(id,e.clientX,e.clientY);mcDown={x:e.clientX,y:e.clientY,moved:false};e.preventDefault()});
+document.addEventListener('pointermove',e=>{if(!MC.held)return;moveCur(e.clientX,e.clientY);if(mcDown&&Math.hypot(e.clientX-mcDown.x,e.clientY-mcDown.y)>6)mcDown.moved=true;
+  document.querySelectorAll('#mCraft .mcs.hov').forEach(x=>x.classList.remove('hov'));const s=slotAt(e.clientX,e.clientY);if(s&&s.classList&&s.classList.contains('mcs'))s.classList.add('hov')});
+document.addEventListener('pointerup',e=>{if(!mcDown)return;const d=mcDown;mcDown=null;if(!d.moved||!MC.held)return; /* tıkla-taşı: elde kalır */
+  document.querySelectorAll('#mCraft .mcs.hov').forEach(x=>x.classList.remove('hov'));
+  const s=slotAt(e.clientX,e.clientY);if(s&&s.dataset&&s.dataset.gs!=null){const i=+s.dataset.gs,old=MC.grid[i];mcPut(i,MC.held);hold(old,e.clientX,e.clientY);return}
+  hold(null)});
+/* sağ tık: ızgaradan çıkar */
+$('mcGrid').addEventListener('contextmenu',e=>{const s=e.target.closest('.mcs');if(!s)return;e.preventDefault();MC.grid[+s.dataset.gs]=null;mcClearOut();mcDraw()});
+/* ipucu */
+function hideMcTip(){$('mcTip').hidden=true}
+$('mCraft').addEventListener('mouseover',e=>{const it=e.target.closest('.mci');if(!it||MC.held){hideMcTip();return}const m=MC.items.get(it.dataset.it);const t=$('mcTip');
+  t.innerHTML=`<b>${esc(m.name)}</b><span>${esc(m.lore)}</span><i>${m.n} film</i>`;t.hidden=false;const r=it.getBoundingClientRect();t.style.left=Math.min(innerWidth-t.offsetWidth-8,r.right+8)+'px';t.style.top=Math.max(8,r.top-8)+'px'});
+$('mCraft').addEventListener('mouseout',e=>{if(!e.relatedTarget||!e.relatedTarget.closest||!e.relatedTarget.closest('.mci'))hideMcTip()});
+/* çekiç */
+function pixPoster(f){const c=document.createElement('canvas');c.width=16;c.height=24;const x=c.getContext('2d');const im=new Image();im.onload=()=>{x.imageSmoothingEnabled=true;x.drawImage(im,0,0,16,24)};im.src=f.poster;return c}
+function mcCraft(){const ids=[...new Set(MC.grid.filter(Boolean))];mcClearOut();document.querySelectorAll('#mcGrid .mcs').forEach(s=>s.classList.remove('ok','bad'));
+  if(!ids.length){$('mcMsg').innerHTML='Önce envanterden ızgaraya malzeme koy.';return}
+  const its=ids.map(id=>MC.items.get(id));const res=DATA.filter(f=>its.every(it=>it.test(f))).sort((a,b)=>(b.pati??-1)-(a.pati??-1)||(b.imdb??0)-(a.imdb??0));
+  if(res.length){const f=res[0];const o=$('mcOut');o.dataset.tt=f.tt;o.appendChild(pixPoster(f));o.insertAdjacentHTML('beforeend',`<b>${res.length>99?'99+':res.length}</b>`);
+    $('mcMsg').innerHTML=`Craft edildi: <b>${esc(f.title)}</b> (${f.year??'?'})${res.length>1?` ve ${res.length-1} film daha`:''}. Çıktıya tıklayınca kart açılır.`;
+    $('mcRes').innerHTML=res.slice(1,13).map(x=>`<button type="button" data-share="${x.tt}" title="${esc(x.title)}"><img src="${x.poster}" alt=""><span>${esc(x.title)}</span></button>`).join('');
+    document.querySelectorAll('#mcGrid .mcs').forEach((s,i)=>{if(MC.grid[i])s.classList.add('ok')});return}
+  /* sonuç yok: birlikte film veren en büyük grup */
+  let best=null;const n=ids.length;
+  for(let m=(1<<n)-1;m>0;m--){const sub=its.filter((_,i)=>m&(1<<i));if(best&&sub.length<=best.sub.length)continue;const r=DATA.filter(f=>sub.every(it=>it.test(f)));if(r.length)best={sub,r}}
+  const okIds=new Set(best?best.sub.map(x=>x.id):[]);
+  document.querySelectorAll('#mcGrid .mcs').forEach((s,i)=>{if(MC.grid[i])s.classList.add(okIds.has(MC.grid[i])?'ok':'bad')});
+  $('mcMsg').innerHTML=`<span class="warn">Çok fazla malzeme ekledin, bunları çıkarırsan ben de sana bir şeyler çıkarabilirim.</span>${best?` Yeşil çerçeveli ${best.sub.length} malzeme birlikte ${best.r.length} film veriyor; kırmızıları çıkar.`:''}`}
+$('mcHammer').addEventListener('click',mcCraft);
+$('mcOut').addEventListener('click',()=>{const tt=$('mcOut').dataset.tt;if(tt)openCard(tt)});
+$('mcClear').addEventListener('click',()=>{MC.grid=Array(9).fill(null);mcClearOut();mcDraw()});
+$('mcTabs').addEventListener('click',e=>{const b=e.target.closest('[data-mct]');if(!b)return;MC.tab=b.dataset.mct;mcInv();if(MC.tab==='q')$('mcQ').focus()});
+$('mcQ').addEventListener('input',mcInv);
+$('craftBtn').addEventListener('click',()=>{mcBuild();mcInv();mcDraw();openModal($('mCraft'))});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&MC.held){hold(null);e.stopImmediatePropagation()}},true);
 
 loadUrl();dash();render(true);fromHash();if(SHARED.length)openShared();
 })();
