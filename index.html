@@ -817,6 +817,28 @@ html.round .fbpop,html.round .fbb fieldset{border-radius:12px}
   .fom .fomi .msgi{display:inline-flex}
 }
 
+/* ===== v8.3 ===== */
+.devnote{margin-top:6px;display:inline-flex;align-items:center;gap:8px;background:var(--box2);border:1px solid var(--line);border-left:3px solid var(--gold);padding:4px 6px 4px 10px;color:var(--ink)}
+.devnote button{border:0;background:none;color:var(--muted);cursor:pointer;font-size:12px;padding:0 4px}
+.devnote[hidden]{display:none}
+/* crafting her temada açık renk */
+.mcwin{background:#c9d2ae;color:#3a3f32;box-shadow:inset 3px 3px 0 #f3f6e8,inset -3px -3px 0 #4d5740}
+.mcwin .mct,.mcwin .mcinvh,.mcwin .mcmsg,.mcwin .f-kucuk{color:#3a3f32}
+.mcinvbox{background:#c9d2ae;box-shadow:inset 2px 2px 0 #f3f6e8,inset -2px -2px 0 #4d5740}
+.mctab.on{background:#c9d2ae}
+.poptap{text-align:center;font:400 10px var(--f-ui);color:#9aa287;padding-top:6px}
+#uPop{pointer-events:none}
+@media (hover:none){#uPop{pointer-events:auto}}
+@media (max-width:600px){
+  .headbtns{flex-wrap:nowrap!important;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:4px;scrollbar-width:none}
+  .headbtns::-webkit-scrollbar{display:none}
+  .headbtns .btn{flex:none}
+  .side{position:sticky!important;bottom:0;z-index:4;background:rgba(32,37,26,.94);padding:6px;border-radius:12px;box-shadow:0 -4px 16px rgba(0,0,0,.35);overflow-x:auto;flex-wrap:nowrap!important;justify-content:flex-start!important;max-width:100%}
+  .side .rb{flex:none;width:36px;height:36px}
+  .side .slab{writing-mode:vertical-rl;transform:rotate(180deg);flex:none}
+  .trend,.tstrip{min-width:640px}
+}
+
 /* Duyarlı düzen: tablo dar ekranda karta dönüşür */
 @media (max-width:1000px){
   .msort{display:block}
@@ -894,12 +916,13 @@ html.round .fbpop,html.round .fbb fieldset{border-radius:12px}
       <div class="f-kucuk muted">Paticik Forumları › Vizyon › Bugün Ne Seyrettiniz?</div>
       <h1 class="f-buyuk">Bugün Ne Seyrettiniz? Film Listesi</h1>
       <div class="f-ana muted" id="sub"></div>
+      <div class="devnote f-kucuk" id="devNote">Tüm özellikleriyle en iyi bilgisayardaki tarayıcıda çalışır. Telefonda bazı ayrıntılar (üzerine gelince açılan bilgiler, geniş grafikler) sınırlıdır.<button type="button" aria-label="Uyarıyı gizle" data-tip="Bu uyarıyı gizle">✕</button></div>
     </div>
     <div class="headbtns">
       <button class="btn f-bold" type="button" id="topBtn">Top 25</button>
       <button class="btn f-bold" type="button" id="scBtn" data-tip="Pati ve IMDb puanlarını karşılaştıran dağılım grafiği.">Pati ve IMDb</button>
       <button class="btn f-bold" type="button" id="cmpBtn">Üye karşılaştır</button>
-      <button class="btn f-bold" type="button" id="quizBtn" data-tip="15 filme puan ver, sana en çok benzeyen üyeleri ve onların sevdiği filmleri gör.">Kime benziyorum?</button>
+      <button class="btn f-bold" type="button" id="quizBtn" data-tip="Forumun en çok puanlanan filmlerine puan ver, sana en çok benzeyen üyeleri ve onların sevdiği filmleri gör. Üstte forumun yıllara göre eğilim grafiği var.">Kime benziyorum?</button>
       <button class="btn f-bold" type="button" id="oscBtn" data-tip="Her film yılı için patilerin en sevdiği filmler ve o yılın Oscar kazananları, yan yana. Karşılaştırma değil, bilgilendirme.">Oscar</button>
       <button class="btn f-bold" type="button" id="craftBtn" data-tip="Envanterden malzemeleri (üye, yıl, yönetmen, tür, puan) ızgaraya koy, çekiçle film craft et.">Crafting</button>
       <button class="btn f-bold" type="button" id="katBtn" data-tip="Filmleri afiş duvarı olarak gösterir: son 1 yıl, Pati, ortalama puan, rastgele ya da üyeye göre. Afişe tıklayınca büyür.">Katalog</button>
@@ -959,7 +982,7 @@ html.round .fbpop,html.round .fbb fieldset{border-radius:12px}
 
   <footer class="foot f-kucuk">
     <span id="footNote"></span>
-    <span>Klavye kısayolları için ? · Sürüm v8.2 · 8 Kasım 2026</span>
+    <span>Klavye kısayolları için ? · Sürüm v8.3 · 8 Kasım 2026</span>
   </footer>
 </div>
 
@@ -1516,7 +1539,7 @@ function openCard(tt,rnd=false){
   img.onload=()=>paintBg(img);
   img.onerror=()=>{if(!fellBack){fellBack=true;img.removeAttribute('crossorigin');img.src=f.poster}};
   img.src=bigPoster(f)||f.poster;
-  try{history.replaceState(null,'','#'+tt)}catch(e){}
+  try{if($('mCard').hidden&&location.hash!=='#'+tt)history.pushState(null,'','#'+tt);else history.replaceState(null,'','#'+tt)}catch(e){}
   const mb=$('moreC');if(mb)mb.addEventListener('click',()=>{const crit=pickCritics(f);const open=mb.dataset.open!=='1';
     document.querySelectorAll('#theCard [data-extra]').forEach(x=>x.hidden=!open);mb.dataset.open=open?'1':'0';
     mb.textContent=open?'Daha az göster':`Daha fazla yorum göster (${crit.length-CRIT0})`;$('srcL').textContent=srcLine(f,crit,open?crit.length:CRIT0)});
@@ -1899,7 +1922,7 @@ document.addEventListener('click',e=>{if(!e.target.closest('.sfld'))closeDrop()}
 const UF=[['q','q'],['l','fList'],['g','fGenre'],['m','fMember'],['d','fDecade'],['y','fRyear'],['s','fScore'],['v','fVotes'],['w','fShow'],['gr','grp']];
 function saveUrl(){
   const p=new URLSearchParams();UF.forEach(([k,id])=>{const v=$(id).value.trim();if(v)p.set(k,v)});
-  if(TOK.length)p.set('t',JSON.stringify(TOK));if(sortK!=='date'||sortDir!==-1)p.set('o',sortK+(sortDir>0?'+':'-'));
+  if(TOK.length)p.set('t',JSON.stringify(TOK));if(sortK!=='date'||sortDir!==-1)p.set('o',sortK+(sortDir>0?'+':'-'));if(page>1&&!showAll)p.set('s',page);try{const v=(gvMode?'g':'')+(plainMode?'l':'')+(vlines?'r':'');if(v)p.set('v',v)}catch(e){}
   const qs=p.toString();try{history.replaceState(null,'',location.pathname+(qs?'?'+qs:'')+location.hash)}catch(e){}
 }
 function loadUrl(){
@@ -1907,6 +1930,7 @@ function loadUrl(){
   UF.forEach(([k,id])=>{const v=p.get(k);if(v!=null){const el=$(id);el.value=v;if(el.tagName==='SELECT'&&el.value!==v)el.value=''}});
   try{const t=JSON.parse(p.get('t')||'[]');if(Array.isArray(t))TOK=t.filter(x=>x&&TOKL[x.t])}catch(e){}
   const o=p.get('o');if(o&&/^[a-z]+[+-]$/i.test(o)){sortK=o.slice(0,-1);sortDir=o.endsWith('+')?1:-1}
+  const pg=+p.get('s');if(pg>1)window.__pg=pg;window.__v=p.get('v');
   const li=p.get('liste');if(li)SHARED=li.split('.').map(x=>byTT.get('tt'+x)).filter(Boolean);
   renderTok();
 }
@@ -2250,7 +2274,7 @@ function profileHTML(u,s){
     <div class="prow two">      <div class="psec"><span class="f-kucuk muted">en sevdiği 5 film</span>${stripHTML(fav)}</div><div class="psec"><span class="f-kucuk muted">en sevmediği 5 film</span>${stripHTML(low)}</div></div>`}
 
 /* Zaman çizgisi mini kartı */
-document.addEventListener('mouseover',e=>{const c=e.target.closest&&e.target.closest('[data-pv]');const tp=$('tlPop');if(!c){if(!tp.hidden)tp.hidden=true;return}
+document.addEventListener('mouseover',e=>{if(!canHover)return;const c=e.target.closest&&e.target.closest('[data-pv]');const tp=$('tlPop');if(!c){if(!tp.hidden)tp.hidden=true;return}
   const f=byTT.get(c.dataset.pv);if(!f)return;const sc=+c.dataset.sc;
   tp.innerHTML=`<img src="${f.poster}" alt=""><span class="t">${esc(f.title)}</span><span class="s"><span style="background:${fbColor(sc)};color:#fff">${fmt1(sc)}</span>${f.imdb!=null?`<span style="background:#f5c518;color:#141610">★${fmt1(f.imdb)}</span>`:''}</span>`;
   tp.hidden=false;const r=c.getBoundingClientRect();let x=r.left+r.width/2-46,y=r.top-tp.offsetHeight-8;if(y<8)y=r.bottom+8;x=Math.max(8,Math.min(innerWidth-100,x));tp.style.left=x+'px';tp.style.top=y+'px'});
@@ -2683,7 +2707,7 @@ const FB_CAT=[
  ['g','Tür',()=>uniq(DATA.flatMap(f=>f.genres||[])).sort((a,b)=>gTR(a).localeCompare(gTR(b),'tr')).map(g=>[g,gTR(g)])],
  ['d','Film yılı (on yıl)',()=>uniq(DATA.map(f=>f.decade).filter(Boolean)).sort((a,b)=>b-a).map(d=>[String(d),d+"'ler"])],
  ['r','Forumda yazıldığı yıl',()=>uniq(DATA.map(f=>f.ryear)).sort((a,b)=>b-a).map(y=>[y,y])]];
-const FB_MIN=[['imdb','IMDb en az',[6,7,7.5,8,8.5]],['meta','Metacritic en az',[50,60,70,80,90]],['rt','RT en az',[50,70,80,90,95]],['lb','Letterboxd en az',[3,3.5,4,4.3]],['pati','Pati en az',[6,7,7.5,8,8.5]],['nv','En az puan veren üye',[2,3,5,8,10]]];
+const FB_MIN=[['imdb','IMDb en az',[6,7,7.5,8,8.5]],['meta','Metacritic en az',[50,60,70,80,90]],['rt','RT en az',[50,70,80,90,95]],['lb','Letterboxd en az',[3,3.5,4,4.3]],['pati','Pati en az',[6,6.5,7,7.5,8]],['nv','En az puan veren üye',[2,3,5,8,10]]];
 function fbHTML(S0){const S=S0||{g:[],d:[],r:[],u:[],m:{},flags:[],mode:'any'};
   return `<div class="fbpop" role="dialog" aria-label="Filtre oluştur"><div class="fbh"><b class="f-bold">Filtre oluştur</b><button type="button" class="xbtn" data-fb="x" aria-label="Kapat">✕</button></div>
   <div class="fbb">${FB_CAT.map(([k,lab,vals])=>`<fieldset><legend>${lab}</legend><div class="fbc">${vals().map(([v,l])=>`<label><input type="checkbox" data-fk="${k}" value="${esc(v)}" ${S[k].includes(v)?'checked':''}>${esc(l)}</label>`).join('')}</div></fieldset>`).join('')}
@@ -2736,7 +2760,37 @@ $('qList').addEventListener('click',e=>{const a=e.target.closest('[data-qa]');if
   else{QALL.slice(QOFF,QOFF+n).forEach(f=>{if(W[f.tt]){delete W[f.tt]}});saveW();render(false);renderQuiz();renderTrend()}});
 let qrT=null;window.addEventListener('resize',()=>{if($('mQuiz').hidden)return;clearTimeout(qrT);qrT=setTimeout(renderQuiz,150)});
 
-loadUrl();dash();render(true);fromHash();if(SHARED.length)openShared();
+/* ===== v8.3 ===== */
+/* 1 Filtreleri temizle özel filtreyi de anında kaldırır */
+$('reset').addEventListener('click',()=>{CF=null;CFS=null;fbChip();render(true)});
+/* 3 Katalog: üye seçimi boşa alınınca son 1 yıla dön */
+$('katU').addEventListener('change',()=>{if(!$('katU').value){katMode='yil';katRender();katBig()}});
+/* 7 Puan seçici ekranda kalsın */
+$('shMy').addEventListener('click',()=>{requestAnimationFrame(()=>{const s=document.querySelector('.scorepop');if(!s)return;const r=s.getBoundingClientRect();
+  if(r.left<6||r.right>innerWidth-6||r.bottom>innerHeight-6||r.top<6){const b=$('shMy').getBoundingClientRect();s.style.position='fixed';s.style.transform='none';s.style.right='auto';s.style.bottom='auto';
+    s.style.left=Math.max(6,Math.min(innerWidth-r.width-6,b.left+b.width/2-r.width/2))+'px';s.style.top=Math.max(6,(b.top-r.height-8>6?b.top-r.height-8:Math.min(innerHeight-r.height-6,b.bottom+8)))+'px'}})});
+/* üst uyarı */
+try{if(store.get('uyariGizli',false))$('devNote').hidden=true}catch(e){}
+$('devNote').addEventListener('click',e=>{if(e.target.closest('button')){$('devNote').hidden=true;store.set('uyariGizli',true)}});
+/* 5-6 Dokunmatik ekranlar: açıklama balonu dokununca, mini kartlar ilk dokunuşta */
+if(!canHover){
+  let tT=null;const showTip=el=>{clearTimeout(tT);tip.textContent=el.dataset.tip;tip.hidden=false;place(el,tip,6);tT=setTimeout(()=>{tip.hidden=true},3200)};
+  document.addEventListener('click',e=>{const el=e.target.closest('[data-tip]');if(!el){tip.hidden=true;return}if(el.closest('.user'))return;showTip(el)},true);
+  let pvLast=null;
+  document.addEventListener('click',e=>{const c=e.target.closest('.tline [data-pv],#trend [data-pv],.form [data-pv]');if(!c)return;if(pvLast===c){pvLast=null;return}
+    pvLast=c;e.preventDefault();e.stopImmediatePropagation();const f=byTT.get(c.dataset.pv);if(!f)return;const sc=+c.dataset.sc,tp=$('tlPop');
+    tp.innerHTML=`<img src="${f.poster}" alt=""><span class="t">${esc(f.title)}</span><span class="s"><span style="background:${fbColor(sc)};color:#fff">${fmt1(sc)}</span>${f.imdb!=null?`<span style="background:#f5c518;color:#141610">★${fmt1(f.imdb)}</span>`:''}</span><span class="t" style="font-weight:400;opacity:.7">kart için tekrar dokun</span>`;
+    tp.hidden=false;const r=c.getBoundingClientRect();let x=r.left+r.width/2-46,y=r.top-tp.offsetHeight-8;if(y<8)y=r.bottom+8;tp.style.left=Math.max(8,Math.min(innerWidth-100,x))+'px';tp.style.top=y+'px';
+    clearTimeout(tp._t);tp._t=setTimeout(()=>{tp.hidden=true;pvLast=null},4000)},true);
+  /* üye adına ilk dokunuşta mini kart, ikinci dokunuşta profil */
+  let uLast=null;
+  document.addEventListener('click',e=>{const u=e.target.closest('.user[data-user]');if(!u||e.target.closest('.bdg'))return;if(uLast===u){uLast=null;hidePop();return}
+    uLast=u;e.preventDefault();e.stopImmediatePropagation();pop.innerHTML=popHTML(u.dataset.user)+'<div class="poptap">Profil için tekrar dokun</div>';pop.hidden=false;place(u,pop);clearTimeout(pop._t);pop._t=setTimeout(()=>{hidePop();uLast=null},5000)},true);
+}
+/* 8 geri tuşu kartı kapatır */
+window.addEventListener('popstate',()=>{if(!/^#tt\d+$/.test(location.hash)&&!$('mCard').hidden){$('mCard').hidden=true;if([...document.querySelectorAll('.modal')].every(x=>x.hidden))document.body.style.overflow=''}});
+
+loadUrl();if(window.__v!=null){gvMode=__v.includes('g');plainMode=__v.includes('l');vlines=__v.includes('r');applyView()}dash();render(true);if(window.__pg){page=__pg;render(false)}fromHash();if(SHARED.length)openShared();
 })();
 </script>
 
