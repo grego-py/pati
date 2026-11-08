@@ -720,6 +720,75 @@ html.round .side .rb{border-radius:50%}
 .tablebox.vlines .others{grid-template-columns:minmax(110px,1fr) 38px 80px 46px 26px!important;width:100%}
 .tablebox.vlines .others .user .elo{background:transparent;color:var(--ink);font:700 10px var(--f-mono);border-radius:0}
 
+/* ===== v11 ===== */
+/* kesilme ve hizalama */
+.user{overflow:visible}
+.user .nm{overflow:hidden;text-overflow:ellipsis;min-width:0}
+.bdg{transform:none;vertical-align:1px}
+.gu .user{overflow:visible;flex-wrap:nowrap;align-items:center}
+.gu{grid-template-columns:minmax(0,1fr) 40px 18px;align-items:center}
+.gu .user .nm{white-space:nowrap}
+.gsc>span{display:grid;grid-template-rows:18px 22px;justify-items:center;align-items:center;gap:4px;min-width:0}
+.gsc .sico{filter:grayscale(1) contrast(1.15);opacity:.85}
+.gsc .sico.pl2{background:var(--muted);color:var(--box2);filter:none}
+.gsc .pill{height:22px;width:100%}
+#katCF svg,#cfBtn svg{width:15px;height:15px;vertical-align:-3px;margin-right:3px}
+#katCF{display:inline-flex;align-items:center}
+.worst{grid-column:1/-1;margin-top:4px}
+.worst blockquote{max-width:none}
+/* katalog: beyaz çerçeve yok */
+.kc,.kfly{border:0!important}
+/* ana tablo: puan aralığı */
+.scgrid,.th-scores{grid-template-columns:repeat(5,40px);gap:9px}
+.tablebox.vlines .scgrid>*+*::before,.tablebox.vlines .th-scores>*+*::before{left:-5px}
+/* cetvel: öneren ve diğer üyeler aynı hizada */
+.tablebox.vlines td[data-l="Öneren"]{min-width:260px}
+.tablebox.vlines td[data-l="Öneren"] .user{display:grid!important;grid-template-columns:minmax(110px,1fr) 38px 80px!important;width:100%;gap:0}
+.tablebox.vlines td[data-l="Öneren"] .user>*{padding:4px 5px;min-height:26px;display:flex;align-items:center}
+.tablebox.vlines td[data-l="Öneren"] .user>.nm{display:block;line-height:18px;white-space:nowrap}
+.tablebox.vlines td[data-l="Öneren"] .user .elo{background:transparent;color:var(--ink);font:700 10px var(--f-mono);border-radius:0;justify-content:center}
+.tablebox.vlines td[data-l="Öneren"] .user>*+*{border-left:1px solid var(--line)}
+.tablebox.vlines td[data-l="Öneren"] .user .bw .bdg{border-left:1px solid var(--line)!important}
+.tablebox.vlines .recsc{min-height:26px;padding-top:4px}
+.tablebox.vlines td{padding-top:6px}
+.tablebox.vlines .others .user>.nm,.tablebox.vlines td[data-l="Öneren"] .user>.nm{font-size:13px}
+/* düz liste */
+.tablebox.plain th:first-child,.tablebox.plain td:first-child{display:none}
+.tablebox.plain .pill,.tablebox.plain .pill.score,.tablebox.plain .pill.pati,.tablebox.plain .pill.imdb,.tablebox.plain .pill.lb{background:transparent!important;color:var(--ink)!important;border:0!important;box-shadow:none}
+.tablebox.plain .pill.none,.tablebox.plain .pill.na{color:var(--muted)!important}
+.tablebox.plain .bdg{background:transparent!important;border:0!important;color:var(--muted)}
+.tablebox.plain .chip,.tablebox.plain .tr-link{background:transparent;border:0;padding:0 4px 0 0;color:var(--muted)}
+.tablebox.plain .newtag{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.tablebox.plain tr:nth-child(even) td,.tablebox.plain tr td{background:var(--box)!important}
+.tablebox.plain th{background:var(--box2);color:var(--ink)}
+.tablebox.plain .sico{filter:grayscale(1)}
+.tablebox.plain .acts .btn{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.tablebox.plain .user .elo{color:var(--muted)!important;background:transparent!important}
+/* filtre oluşturucu */
+.cfchip{display:inline-flex;align-items:center;gap:6px;background:var(--gold);color:#141610;font:700 11px var(--f-ui);padding:3px 4px 3px 9px;border-radius:12px}
+.cfchip button{border:0;background:rgba(0,0,0,.15);border-radius:50%;width:18px;height:18px;cursor:pointer;font-size:10px}
+.fbpop{position:fixed;z-index:9995;left:50%;top:50%;transform:translate(-50%,-50%);width:min(820px,calc(100vw - 24px));max-height:calc(100vh - 40px);background:var(--box);border:1px solid var(--dark2);box-shadow:0 20px 50px rgba(0,0,0,.45);display:flex;flex-direction:column}
+.fbh,.fbf{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid var(--line)}
+.fbh{background:var(--dark);color:#fff}.fbf{border-top:1px solid var(--line);border-bottom:0}
+.fbb{overflow:auto;padding:12px 14px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}
+.fbb fieldset{border:1px solid var(--line);margin:0;padding:8px 10px;min-width:0;background:var(--box2)}
+.fbb legend{font:700 11px var(--f-ui);padding:0 4px;text-transform:uppercase;letter-spacing:.03em}
+.fbc{display:flex;flex-wrap:wrap;gap:4px 10px;max-height:160px;overflow:auto}
+.fbc label,.fbr label{display:inline-flex;align-items:center;gap:4px;font:400 12px var(--f-ui);white-space:nowrap}
+.fbu{max-height:140px;margin-top:6px}
+.fbm{display:grid;grid-template-columns:1fr 1fr;gap:6px 10px}.fbm label{display:flex;flex-direction:column;gap:2px;font:400 11px var(--f-ui)}
+.fbq{width:100%;margin-top:2px}
+.fbr{display:flex;flex-wrap:wrap;gap:4px 12px;margin-top:6px}
+html.round .fbpop,html.round .fbb fieldset{border-radius:12px}
+/* kime benziyorum */
+.qbar{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+.qgrid{gap:10px}
+/* duyarlı düzen */
+@media (max-width:1100px){.dash{grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}.taste{grid-template-columns:minmax(0,1fr)}.tright{border-left:0;padding-left:0;border-top:1px solid var(--line);padding-top:12px}}
+@media (max-width:640px){.pgrid{grid-template-columns:minmax(0,1fr)}.facts{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:820px){.headbtns{flex-wrap:wrap}.prow.two{grid-template-columns:minmax(0,1fr)}.panel.full,.panel{max-width:100%}.fbm{grid-template-columns:1fr}.toolbar{flex-wrap:wrap}}
+@media (max-width:520px){.qs{grid-template-columns:repeat(5,1fr)}.qs button{height:28px}.gv{column-width:220px}.strip,.prow.two .strip{grid-template-columns:repeat(3,minmax(0,1fr))}.pband{grid-template-columns:auto minmax(0,1fr)}.kat{--kw:110px!important}}
+@media (min-width:1700px){.wrap,.page{max-width:1640px}}
 
 /* Duyarlı düzen: tablo dar ekranda karta dönüşür */
 @media (max-width:1000px){
@@ -832,7 +901,7 @@ html.round .side .rb{border-radius:50%}
   </section>
 
   <div class="toolbar">
-    <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap"><span class="f-ana" id="info" aria-live="polite"></span><button class="btn f-kucuk ghost" type="button" id="linkBtn" data-tip="Seçili filtreler, arama ve sıralamayla bu görünümün linkini kopyalar.">Bu görünümün linki</button><button class="btn f-kucuk ghost ibtn" type="button" id="rulBtn" aria-pressed="false" data-tip="Cetvel: tabloda sütunları dikey çizgilerle ayırır."><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><rect x="2" y="6" width="16" height="8" rx="1"/><path d="M5 6v3M8 6v2M11 6v3M14 6v2"/></svg></button><button class="btn f-kucuk ghost ibtn" type="button" id="gvBtn" aria-pressed="false" data-tip="Grid görünümü: sonuçları tablodaki tüm bilgilerle kartlar halinde gösterir."><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2.5" y="2.5" width="6" height="8" rx="1"/><rect x="11.5" y="2.5" width="6" height="5" rx="1"/><rect x="2.5" y="13" width="6" height="4.5" rx="1"/><rect x="11.5" y="10" width="6" height="7.5" rx="1"/></svg></button>
+    <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap"><span class="f-ana" id="info" aria-live="polite"></span><button class="btn f-kucuk ghost" type="button" id="linkBtn" data-tip="Seçili filtreler, arama ve sıralamayla bu görünümün linkini kopyalar.">Bu görünümün linki</button><button class="btn f-kucuk ghost ibtn" type="button" id="rulBtn" aria-pressed="false" data-tip="Cetvel: tabloda sütunları dikey çizgilerle ayırır."><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><rect x="2" y="6" width="16" height="8" rx="1"/><path d="M5 6v3M8 6v2M11 6v3M14 6v2"/></svg></button><button class="btn f-kucuk ghost ibtn" type="button" id="gvBtn" aria-pressed="false" data-tip="Grid görünümü: sonuçları tablodaki tüm bilgilerle kartlar halinde gösterir."><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2.5" y="2.5" width="6" height="8" rx="1"/><rect x="11.5" y="2.5" width="6" height="5" rx="1"/><rect x="2.5" y="13" width="6" height="4.5" rx="1"/><rect x="11.5" y="10" width="6" height="7.5" rx="1"/></svg></button><button class="btn f-kucuk ghost ibtn" type="button" id="plBtn" aria-pressed="false" data-tip="Düz liste: afişsiz, renksiz, cetvelli sade tablo."><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M7 5h10M7 10h10M7 15h10"/><circle cx="3.5" cy="5" r=".9" fill="currentColor"/><circle cx="3.5" cy="10" r=".9" fill="currentColor"/><circle cx="3.5" cy="15" r=".9" fill="currentColor"/></svg></button><button class="btn f-kucuk ghost ibtn" type="button" id="cfBtn" data-tip="Filtre oluştur: tür, yıl, puan, üye ve diğer ölçütleri aynı anda seç, tüm arşive uygula."><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M2.5 3.5h15l-6 7v6l-3-1.5v-4.5z"/></svg></button><span class="cfchip" id="cfChip" hidden></span>
       <select id="mSort" class="msort" aria-label="Sırala" style="width:auto"><option value="date|-1">Sırala: en yeni</option><option value="pati|-1">Sırala: Pati</option><option value="imdb|-1">Sırala: IMDb</option><option value="meta|-1">Sırala: Metacritic</option><option value="nothers|-1">Sırala: en çok yazılan</option><option value="year|-1">Sırala: film yılı</option><option value="title|1">Sırala: ad</option></select></div>
     <div class="pager" id="pagerTop"></div>
   </div>
@@ -863,7 +932,7 @@ html.round .side .rb{border-radius:50%}
 
   <footer class="foot f-kucuk">
     <span id="footNote"></span>
-    <span>Klavye kısayolları için ? · Sürüm v8 · 8 Kasım 2026</span>
+    <span>Klavye kısayolları için ? · Sürüm v8.1 · 8 Kasım 2026</span>
   </footer>
 </div>
 
@@ -1011,7 +1080,7 @@ html.round .side .rb{border-radius:50%}
 <div class="modal" id="mKat" hidden role="dialog" aria-modal="true" aria-label="Katalog">
   <div class="panel full">
     <div class="phead"><span class="f-bold">Katalog</span><span style="display:flex;gap:8px;align-items:center"><button class="xbtn" type="button" data-close aria-label="Kapat">✕</button></span></div>
-    <div class="pbody"><div class="kbar"><button class="btn f-kucuk" type="button" data-kp="yil" data-tip="Son 1 yılda önerilen filmler, en yeniden eskiye.">Son 1 yıl</button><button class="btn f-kucuk ghost" type="button" data-kp="pati" data-tip="Pati puanı en yüksekten düşüğe. Pati: üye puanlarının medyanı, az oyda forum ortalamasına çekilir.">Pati puanı</button><button class="btn f-kucuk ghost" type="button" data-kp="ort" data-tip="Filme verilen tüm üye puanlarının düz ortalaması, en yüksekten düşüğe. Eşitlikte daha çok puan alan önde.">Ortalama puan</button><button class="btn f-kucuk ghost" type="button" data-kp="rnd" data-tip="Tüm filmler rastgele sırada. Her tıklamada yeniden karışır.">Rastgele</button><select id="katU" aria-label="Kullanıcıya göre" data-tip="Seçilen üyenin önerdiği ya da puanladığı filmler, en yeniden eskiye."><option value="">Kullanıcıya göre…</option></select></div>
+    <div class="pbody"><div class="kbar"><button class="btn f-kucuk" type="button" data-kp="yil" data-tip="Son 1 yılda önerilen filmler, en yeniden eskiye.">Son 1 yıl</button><button class="btn f-kucuk ghost" type="button" data-kp="pati" data-tip="Pati puanı en yüksekten düşüğe. Pati: üye puanlarının medyanı, az oyda forum ortalamasına çekilir.">Pati puanı</button><button class="btn f-kucuk ghost" type="button" data-kp="ort" data-tip="Filme verilen tüm üye puanlarının düz ortalaması, en yüksekten düşüğe. Eşitlikte daha çok puan alan önde.">Ortalama puan</button><button class="btn f-kucuk ghost" type="button" data-kp="rnd" data-tip="Tüm filmler rastgele sırada. Her tıklamada yeniden karışır.">Rastgele</button><button class="btn f-kucuk ghost" type="button" id="katCF" data-tip="Kendi filtreni oluştur: birden çok ölçütü aynı anda seç."><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M2.5 3.5h15l-6 7v6l-3-1.5v-4.5z"/></svg> Filtre oluştur</button><select id="katU" aria-label="Kullanıcıya göre" data-tip="Seçilen üyenin önerdiği ya da puanladığı filmler, en yeniden eskiye."><option value="">Kullanıcıya göre…</option></select></div>
       <span class="f-ana" id="katInfo"></span><div class="kat" id="katGrid"></div></div>
   </div>
 </div>
@@ -1287,7 +1356,7 @@ function filtered(){
         ms=parseFloat($('fScore').value),nv=parseFloat($('fVotes').value),show=$('fShow').value,L=LISTS[$('fList').value];
   return DATA.filter(f=>(!q||q.split(/\s+/).every(w=>f.hay.includes(w)))&&(!g||(f.genres||[]).includes(g))&&(!m||f.members.includes(m))
     &&(!dc||String(f.decade)===dc)&&(!ry||f.ryear===ry)&&(isNaN(ms)||(f.main.score!=null&&f.main.score>=ms))&&(isNaN(nv)||f.nv>=nv)
-    &&(!show||(show==='scored'?f.nv>0:show==='cart'?inCart(f.tt):show==='seen'?!!W[f.tt]:!W[f.tt]))&&(!L||L.ok(f))&&TOK.every(t=>tokOk(f,t))).sort(cmpBy(sortK,sortDir));
+    &&(!show||(show==='scored'?f.nv>0:show==='cart'?inCart(f.tt):show==='seen'?!!W[f.tt]:!W[f.tt]))&&(!L||L.ok(f))&&TOK.every(t=>tokOk(f,t))&&(typeof CF==='undefined'||!CF||CF(f))).sort(cmpBy(sortK,sortDir));
 }
 function pagerHTML(total,pages){
   if(total<=PAGE)return '';
@@ -1737,7 +1806,7 @@ function quizResult(){
     ${rec.length?`<div class="also" style="width:auto;margin-top:10px"><span class="f-bold">Benzerlerinin sevip senin izlemediğin filmler</span><div class="alist" style="grid-template-columns:repeat(auto-fill,minmax(96px,1fr))">${rec.map(x=>`<button class="aitem" type="button" data-share="${x.f.tt}"><img src="${x.f.poster}" data-big="${bigPoster(x.f)||''}" alt=""><span class="f-kucuk"><b>${esc(x.f.title)}</b></span><span class="f-kucuk muted">Pati ${fmt1(x.f.pati)}</span></button>`).join('')}</div></div>`:''}`;
 }
 $('qList').addEventListener('x-old-change',e=>{const s=e.target.closest('[data-qtt]');if(!s)return;setMy(s.dataset.qtt,s.value===''?null:+s.value);if(s.value==='')setWatched(s.dataset.qtt,false);quizResult();$('trend').innerHTML=trendSVG()});
-$('quizBtn').addEventListener('click',()=>{renderQuiz();$('trend').innerHTML=trendSVG();openModal($('mQuiz'))});
+$('quizBtn').addEventListener('click',()=>{renderQuiz();$('trend').innerHTML=trendSVG();openModal($('mQuiz'));setTimeout(renderQuiz,0)});
 
 /* Arama */
 let TOK=[];
@@ -2173,7 +2242,7 @@ function katList(){
   return [[],''];
 }
 function katRender(){const [L,lab]=katList();KAT=L;katSize();
-  document.querySelectorAll('[data-kp]').forEach(b=>{const on=b.dataset.kp===katMode;b.classList.toggle('ghost',!on)});
+  document.querySelectorAll('[data-kp]').forEach(b=>{const on=b.dataset.kp===katMode;b.classList.toggle('ghost',!on)});$('katCF').classList.toggle('ghost',katMode!=='cf');
   $('katInfo').innerHTML=`<b>${L.length} film</b> · ${esc(lab)}`;
   $('katGrid').innerHTML=L.map(f=>`<div class="kcell"><button class="kc" type="button" data-kat="${f.tt}" aria-label="${esc(f.title)}"><img src="${f.poster}" data-big="${bigPoster(f)||''}" alt="" decoding="async">${f.imdb!=null?`<span class="pt" title="IMDb">${ICO.imdb}${fmt1(f.imdb)}</span>`:''}</button><span class="kt" title="${esc(f.title)}">${esc(f.title)}</span><span class="ow">${[f.year,f.dirs].filter(Boolean).map(esc).join(' · ')||'&nbsp;'}</span><span class="ow">Öneren: <b>${esc(f.main.author)}</b></span><span class="ksc">${[['meta','META','Metacritic',f.meta??null],['rt','RTTN','Rotten Tomatoes',f.rt!=null?f.rt+'%':null],['lb','LTTR','Letterboxd',f.lb!=null?fmtN(f.lb,2):null],['pati','PATI','Pati puanı',f.pati!=null?fmt1(f.pati):null]].map(([k,l,n,v])=>`<span class="kb" title="${n}"><b>${ICO[k]}${v??'–'}</b></span>`).join('')}</span></div>`).join('')}
 /* tam çözünürlük afiş: görünür olunca arka planda yüklenip değiştirilir */
@@ -2570,6 +2639,75 @@ trendSVG=function(){setTimeout(renderTrend,0);return ''};
 
 /* Resmi logolar: repoda logos/ klasörüne imdb, meta, rt, lb (svg ya da png) konursa onları kullanır */
 ['imdb','meta','rt','lb','pati'].forEach(k=>{const tryExt=ex=>{if(!ex.length)return;const u=`logos/${k}.${ex[0]}`;const im=new Image();im.onload=()=>{const h=`<img data-site="${k}" class="sico logo" src="${u}" alt="">`;ICO[k]=h;document.querySelectorAll(`.sico[data-site="${k}"]`).forEach(el=>{el.outerHTML=h})};im.onerror=()=>tryExt(ex.slice(1));im.src=u};tryExt(['svg','png'])});
+
+/* ===== v11 ===== */
+/* Liste (düz) görünümü */
+let plainMode=!!store.get('duzListe',false);
+const _applyView=applyView;
+applyView=function(){_applyView();const tb=document.querySelector('.tablebox');tb.classList.toggle('plain',plainMode);if(plainMode)tb.classList.add('vlines');
+  $('plBtn').classList.toggle('on',plainMode);$('plBtn').classList.toggle('ghost',!plainMode);$('plBtn').setAttribute('aria-pressed',plainMode)};
+$('plBtn').addEventListener('click',()=>{plainMode=!plainMode;store.set('duzListe',plainMode);if(plainMode&&gvMode){gvMode=false;store.set('gridGorunum',false)}applyView();render(false)});
+$('gvBtn').addEventListener('click',()=>{if(gvMode&&plainMode){plainMode=false;store.set('duzListe',false);applyView()}});
+applyView();
+
+/* Filtre oluşturucu */
+var CF=null,CFS=null;
+const FB_CAT=[
+ ['g','Tür',()=>uniq(DATA.flatMap(f=>f.genres||[])).sort((a,b)=>gTR(a).localeCompare(gTR(b),'tr')).map(g=>[g,gTR(g)])],
+ ['d','Film yılı (on yıl)',()=>uniq(DATA.map(f=>f.decade).filter(Boolean)).sort((a,b)=>b-a).map(d=>[String(d),d+"'ler"])],
+ ['r','Forumda yazıldığı yıl',()=>uniq(DATA.map(f=>f.ryear)).sort((a,b)=>b-a).map(y=>[y,y])]];
+const FB_MIN=[['imdb','IMDb en az',[6,7,7.5,8,8.5]],['meta','Metacritic en az',[50,60,70,80,90]],['rt','RT en az',[50,70,80,90,95]],['lb','Letterboxd en az',[3,3.5,4,4.3]],['pati','Pati en az',[6,7,7.5,8,8.5]],['nv','En az puan veren üye',[2,3,5,8,10]]];
+function fbHTML(S0){const S=S0||{g:[],d:[],r:[],u:[],m:{},flags:[],mode:'any'};
+  return `<div class="fbpop" role="dialog" aria-label="Filtre oluştur"><div class="fbh"><b class="f-bold">Filtre oluştur</b><button type="button" class="xbtn" data-fb="x" aria-label="Kapat">✕</button></div>
+  <div class="fbb">${FB_CAT.map(([k,lab,vals])=>`<fieldset><legend>${lab}</legend><div class="fbc">${vals().map(([v,l])=>`<label><input type="checkbox" data-fk="${k}" value="${esc(v)}" ${S[k].includes(v)?'checked':''}>${esc(l)}</label>`).join('')}</div></fieldset>`).join('')}
+  <fieldset><legend>Puanlar</legend><div class="fbm">${FB_MIN.map(([k,lab,opts])=>`<label>${lab}<select data-fm="${k}"><option value="">farketmez</option>${opts.map(o=>`<option value="${o}" ${S.m[k]==o?'selected':''}>${fmtN(o,2)}</option>`).join('')}</select></label>`).join('')}</div></fieldset>
+  <fieldset><legend>Üyeler <span class="muted">(öneren ya da puanlayan)</span></legend><input type="text" class="fbq" placeholder="üye ara..." autocomplete="off"><div class="fbc fbu">${[...U.values()].filter(u=>u.films.length>=3).sort((a,b)=>b.films.length-a.films.length).map(u=>`<label><input type="checkbox" data-fk="u" value="${esc(u.name)}" ${S.u.includes(u.name)?'checked':''}>${esc(u.name)}</label>`).join('')}</div>
+   <div class="fbr"><label><input type="radio" name="fbmode" value="any" ${S.mode!=='all'?'checked':''}>seçilenlerden biri yazmış</label><label><input type="radio" name="fbmode" value="all" ${S.mode==='all'?'checked':''}>seçilenlerin hepsi yazmış</label></div></fieldset>
+  <fieldset><legend>Diğer</legend><div class="fbc">${[['rec','Önerenin puanı var'],['plot','Fragmanı var'],['cart','Sepetimde'],['seen','İzlediklerim'],['unseen','İzlemediklerim']].map(([v,l])=>`<label><input type="checkbox" data-fk="flags" value="${v}" ${S.flags.includes(v)?'checked':''}>${l}</label>`).join('')}</div></fieldset></div>
+  <div class="fbf"><span class="f-kucuk muted" id="fbN"></span><span style="display:flex;gap:6px"><button type="button" class="btn f-kucuk ghost" data-fb="clr">Temizle</button><button type="button" class="btn f-kucuk" data-fb="ok">Uygula</button></span></div></div>`}
+function fbRead(pop){const S={g:[],d:[],r:[],u:[],m:{},flags:[],mode:pop.querySelector('[name=fbmode]:checked').value};
+  pop.querySelectorAll('[data-fk]:checked').forEach(c=>S[c.dataset.fk].push(c.value));pop.querySelectorAll('[data-fm]').forEach(s=>{if(s.value!=='')S.m[s.dataset.fm]=+s.value});return S}
+function fbFn(S){const n=S.g.length+S.d.length+S.r.length+S.u.length+Object.keys(S.m).length+S.flags.length;if(!n)return null;
+  const fn=f=>(!S.g.length||S.g.some(g=>(f.genres||[]).includes(g)))&&(!S.d.length||S.d.includes(String(f.decade)))&&(!S.r.length||S.r.includes(f.ryear))
+   &&(!S.u.length||(S.mode==='all'?S.u.every(u=>f.members.includes(u)):S.u.some(u=>f.members.includes(u))))
+   &&Object.entries(S.m).every(([k,v])=>f[k]!=null&&f[k]>=v)
+   &&S.flags.every(x=>x==='rec'?f.main.score!=null:x==='plot'?!!f.trailer:x==='cart'?inCart(f.tt):x==='seen'?!!W[f.tt]:!W[f.tt]);fn.n=n;return fn}
+let fbTarget='main';
+function openFB(target,anchor){fbTarget=target;document.querySelector('.fbpop')?.remove();const w=document.createElement('div');w.innerHTML=fbHTML(target==='kat'?KCFS:CFS);const pop=w.firstElementChild;
+  (target==='kat'?$('mKat'):document.body).appendChild(pop);if(target==='kat')pop.classList.add('inkat');
+  const upd=()=>{const fn=fbFn(fbRead(pop));$('fbN').textContent=`${fn?DATA.filter(fn).length:DATA.length} film eşleşiyor`};upd();
+  pop.addEventListener('change',upd);
+  pop.querySelector('.fbq').addEventListener('input',e=>{const q=norm(e.target.value);pop.querySelectorAll('.fbu label').forEach(l=>{l.hidden=q&&!norm(l.textContent).includes(q)})});
+  pop.addEventListener('click',e=>{const b=e.target.closest('[data-fb]');if(!b)return;
+    if(b.dataset.fb==='x'){pop.remove();return}
+    if(b.dataset.fb==='clr'){pop.querySelectorAll('input[type=checkbox]').forEach(c=>c.checked=false);pop.querySelectorAll('select').forEach(s=>s.value='');upd();return}
+    if(b.dataset.fb==='ok'){const S=fbRead(pop),fn=fbFn(S);pop.remove();
+      if(target==='kat'){KCF=fn;KCFS=S;katMode='cf';katRender();katBig()}else{CF=fn;CFS=fn?S:null;fbChip();render(true)}}})}
+function fbChip(){const c=$('cfChip');if(!CF){c.hidden=true;$('cfBtn').classList.add('ghost');return}c.hidden=false;$('cfBtn').classList.remove('ghost');c.innerHTML=`Özel filtre: ${CF.n} kriter <button type="button" aria-label="Özel filtreyi kaldır">✕</button>`}
+$('cfBtn').addEventListener('click',e=>openFB('main'));
+$('cfChip').addEventListener('click',e=>{if(e.target.closest('button')){CF=null;CFS=null;fbChip();render(true)}});
+$('reset').addEventListener('click',()=>{CF=null;CFS=null;fbChip()});
+let KCF=null,KCFS=null;
+const _katList=katList;
+katList=function(){if(katMode==='cf'){const L=KCF?DATA.filter(KCF):[...DATA];return [L.sort((a,b)=>(b.pati??-1)-(a.pati??-1)||b.main.date.localeCompare(a.main.date)),KCF?`kendi filtren (${KCF.n} kriter), Pati puanına göre`:'tüm filmler']}return _katList()};
+$('katCF').addEventListener('click',()=>{const S=CFS;openFB('kat')});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&document.querySelector('.fbpop')){document.querySelector('.fbpop').remove();e.stopImmediatePropagation()}},true);
+
+/* Kime benziyorum: her zaman 2 satır, yeni liste ve temizle */
+let QOFF=0;
+function qCols(){const w=($('qList').clientWidth||Math.min(innerWidth,1240)-60);return Math.max(2,Math.floor((w+10)/160))}
+renderQuiz=function(){const c=qCols(),n=c*2;if(QOFF>=QALL.length)QOFF=0;const L=QALL.slice(QOFF,QOFF+n);
+  const rated=L.filter(f=>W[f.tt]&&W[f.tt].s!=null).length,total=Object.values(W).filter(w=>w.s!=null).length;
+  $('qList').innerHTML=`<div class="qbar"><span class="f-kucuk muted">Liste ${Math.floor(QOFF/n)+1} · bu listede ${rated} puan · toplam ${total} puanın var</span><span style="display:flex;gap:6px"><button class="btn f-kucuk ghost" type="button" data-qa="clr" ${rated?'':'disabled'} data-tip="Bu listedeki filmlere verdiğin puanları siler.">Puanları temizle</button><button class="btn f-kucuk" type="button" data-qa="new" data-tip="Forumda en çok puanlanan sıradaki filmleri getirir.">Yeni liste</button></span></div>
+  <div class="qgrid" style="grid-template-columns:repeat(${c},minmax(0,1fr))">${L.map(f=>{const w=W[f.tt],my=w&&w.s!=null?w.s:null;return `<div class="qc ${my!=null?'done':''}"><button class="qp" type="button" data-share="${f.tt}" aria-label="${esc(f.title)} kartı"><img src="${f.poster}" data-big="${bigPoster(f)||''}" alt="">${my!=null?`<b>${my}</b>`:''}</button>
+    <span class="qt" title="${esc(f.title)}">${esc(f.title)}</span><span class="f-kucuk muted">${f.year??''} · ${f.nv} üye</span>
+    <div class="qs">${SCORES.map(s=>`<button type="button" data-qtt="${f.tt}" data-qs="${s}" class="${my===s?'on':''}" style="--c:${fbColor(s)}">${s}</button>`).join('')}</div>
+    <button type="button" class="qx" data-qtt="${f.tt}" data-qs="" ${my==null?'disabled':''}>izlemedim</button></div>`}).join('')}</div>`;
+  upImgs($('qList'));quizResult()};
+$('qList').addEventListener('click',e=>{const a=e.target.closest('[data-qa]');if(!a)return;const c=qCols(),n=c*2;
+  if(a.dataset.qa==='new'){QOFF+=n;if(QOFF>=QALL.length)QOFF=0;renderQuiz()}
+  else{QALL.slice(QOFF,QOFF+n).forEach(f=>{if(W[f.tt]){delete W[f.tt]}});saveW();render(false);renderQuiz();renderTrend()}});
+let qrT=null;window.addEventListener('resize',()=>{if($('mQuiz').hidden)return;clearTimeout(qrT);qrT=setTimeout(renderQuiz,150)});
 
 loadUrl();dash();render(true);fromHash();if(SHARED.length)openShared();
 })();
