@@ -790,6 +790,33 @@ html.round .fbpop,html.round .fbb fieldset{border-radius:12px}
 @media (max-width:520px){.qs{grid-template-columns:repeat(5,1fr)}.qs button{height:28px}.gv{column-width:220px}.strip,.prow.two .strip{grid-template-columns:repeat(3,minmax(0,1fr))}.pband{grid-template-columns:auto minmax(0,1fr)}.kat{--kw:110px!important}}
 @media (min-width:1700px){.wrap,.page{max-width:1640px}}
 
+/* ===== v8.2 mobil düzeltmeler ===== */
+.user .nm{min-width:2.5em;flex:0 1 auto}
+@media (max-width:1000px){
+  .tablebox.vlines td[data-l="Öneren"],.tablebox.vlines td[data-l="Diğer üyeler"]{min-width:0}
+  .tablebox.vlines td[data-l="Öneren"] .user{display:inline-flex!important;width:auto}
+  .tablebox.vlines td[data-l="Öneren"] .user>*{padding:0;min-height:0;border-left:0!important}
+  .tablebox.vlines td[data-l="Öneren"] .user .elo{background:var(--dark);color:#fff;border-radius:2px;padding:1px 3px}
+  .tablebox.vlines .others{grid-template-columns:minmax(0,1fr) 40px 18px!important;gap:3px 6px!important}
+  .tablebox.vlines .others .oent{display:contents}
+  .tablebox.vlines .others .user{display:inline-flex}
+  .tablebox.vlines .others .user>*,.tablebox.vlines .others .oent>.c{padding:0;min-height:0;border-left:0!important}
+  .tablebox.vlines .others .user .elo.e,.tablebox.vlines .others .user .bw:empty{display:none}
+  .tablebox.plain .acts{flex-wrap:wrap}
+}
+@media (max-width:600px){
+  .panel.narrow{max-width:100%;padding:0}
+  .card{width:100%}
+  .chost{width:100%}
+  .cwrap{width:100%}
+  #alsoHost .also,#alsoHost .extra{width:100%}
+  .mtable{min-width:600px}
+  .mtable.top25{min-width:780px}
+  .tstrip{min-width:760px}
+  .headbtns{gap:6px}.headbtns .btn{padding:6px 9px}
+  .fom .fomi .msgi{display:inline-flex}
+}
+
 /* Duyarlı düzen: tablo dar ekranda karta dönüşür */
 @media (max-width:1000px){
   .msort{display:block}
@@ -932,7 +959,7 @@ html.round .fbpop,html.round .fbb fieldset{border-radius:12px}
 
   <footer class="foot f-kucuk">
     <span id="footNote"></span>
-    <span>Klavye kısayolları için ? · Sürüm v8.1 · 8 Kasım 2026</span>
+    <span>Klavye kısayolları için ? · Sürüm v8.2 · 8 Kasım 2026</span>
   </footer>
 </div>
 
@@ -2629,7 +2656,7 @@ function renderTrend(){const box=$('trend');if(!box)return;const v=trendLevel();
     const d=mk.map((k,i)=>`${i?'L':'M'}${sx(k).toFixed(1)},${sy(mv[i]).toFixed(1)}`).join(' ');const pi=mv.indexOf(mx);
     strip=`<svg class="tstrip" viewBox="0 0 ${W2} ${SH}"><path d="${d} L${sx(mk[mk.length-1])},${SH-6} L${sx(mk[0])},${SH-6}Z" class="ua"/><path d="${d}" class="ul"/><text x="${L+PW+8}" y="16" class="ax">${mx} film/ay</text><text x="${(sx(mk[pi])+6).toFixed(1)}" y="16" class="an">zirve: ${mk[pi].replace('-','/')}</text><text x="${L+PW+8}" y="${SH-8}" class="ax">0</text></svg>`}
   const leg=`<div class="tleg f-kucuk"><span><i class="dot"></i>bir üyenin bir filme verdiği puan (üzerine gel: film, tıkla: kart)</span><span><i class="ln g"></i>dönemin puan ortalaması</span>${v.lvl===0?'<span><i class="ln"></i>üstte: ayda yazılan film</span><span><i class="bg"></i>arka plan: o yıl yazılan filmlerin tür payları</span>':''}<span><i class="me"></i>sen (Kime benziyorum puanların)</span></div>`;
-  box.innerHTML=`<div class="tbox">${head}${leg}${strip}<div class="tscroll">${s}</div></div>`}
+  box.innerHTML=`<div class="tbox">${head}${leg}<div class="tscroll">${strip}${s}</div></div>`}
 $('trend').addEventListener('click',e=>{const b=e.target.closest('[data-tz]');if(!b||e.target.closest('[data-share]'))return;
   if(b.dataset.tz==='out'){TZ.st.pop();renderTrend();return}
   const [a,bb,r0,r1,lab]=b.dataset.tz.split(',');const v=trendLevel();const nl=v.lvl+1;
