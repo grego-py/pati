@@ -196,6 +196,7 @@ tr.grp td{background:var(--dark2)!important;color:#fff;padding:7px 10px}
 
 /* Başlık özet kutuları ve grafik */
 .dash{display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));gap:10px}
+@media (min-width:1280px){.dash{grid-template-columns:repeat(5,minmax(0,1fr)) minmax(0,1.9fr)}}
 .tile{background:var(--box2);border:1px solid var(--line);padding:10px 12px;display:flex;flex-direction:column;gap:4px;min-width:0}
 .tile b{overflow-wrap:anywhere}
 .tile .user .nm{white-space:normal}
@@ -342,6 +343,150 @@ th [data-k][data-tip],th[data-uk]{cursor:pointer}
 .keys{display:grid;grid-template-columns:auto 1fr;gap:8px 14px;align-items:center}
 .keys kbd{font:700 12px/1 var(--f-mono);background:var(--dark);color:#fff;border-radius:3px;padding:4px 8px;text-align:center}
 
+/* ===== v5 ===== */
+/* Liste pencereleri: tek satır başlık, eşit satır */
+.panel{max-width:960px}
+.panel.full{max-width:1240px}
+.mtable td{height:52px}
+.mtable .tl{display:block;max-width:100%;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;text-align:left}
+.mini .linkbtn,.mini a{min-width:0;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;display:block}
+.mtable td.ttl{overflow:hidden}
+/* Satıra tıklama */
+#tb tr.film{cursor:pointer}
+#tb tr.film:focus-visible,#tb tr.film.kb{outline:2px solid var(--gold);outline-offset:-2px}
+/* Forum aktivitesi */
+.tile.full{grid-column:1/-1}
+.actv{display:block;width:100%;height:auto}
+.actv rect.b1{fill:var(--ink);fill-opacity:.72} .actv rect.b2{fill:var(--line)}
+.actv rect.hit{fill:transparent}
+.actv g.y:hover rect.b1{fill:var(--gold)} .actv g.y:hover rect.b2{fill:#c9a400}
+.actv text{font-family:var(--f-mono);fill:var(--muted)}
+.actlg{display:flex;flex-wrap:wrap;gap:4px 14px;align-items:center}
+.actlg i{display:inline-block;width:10px;height:10px;margin-right:5px;vertical-align:-1px}
+/* Geçmiş yıllarda bugün */
+.seg{margin-top:auto;display:inline-flex;border:1px solid var(--line);border-radius:12px;overflow:hidden;align-self:flex-start}
+.seg button{white-space:nowrap;background:transparent;border:0;padding:2px 9px;font:700 10px/1.6 var(--f-ui);color:var(--ink);cursor:pointer}
+.seg button.on{background:var(--dark);color:#fff}
+.otdv{animation:otdIn .25s ease}
+@keyframes otdIn{from{opacity:0;transform:translateX(12px)}to{opacity:1;transform:none}}
+/* Fanboy tablosu */
+.fans{display:grid;grid-template-columns:28px minmax(0,1fr) 70px 64px;gap:6px 10px;align-items:center}
+.fans .h{font:400 10px/1.4 var(--f-ui);color:var(--muted);text-transform:uppercase}
+.fans .n{font:700 12px var(--f-mono);color:var(--muted);text-align:center}
+.fans .c{text-align:center}
+/* Kart: puan dağılımı */
+.dchart{display:block}
+.dchart text{font-family:var(--f-mono);fill:var(--muted)}
+/* Kart yanı düğmeleri */
+.cwrap{display:flex;gap:12px;justify-content:center;align-items:flex-start}
+.side{display:flex;flex-direction:column;gap:8px;position:sticky;top:12px}
+.side .sep{height:1px;background:rgba(255,255,255,.35);margin:2px 6px}
+.side .rb{width:44px;height:44px;border-radius:22px;border:0;background:var(--dark);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 10px rgba(0,0,0,.3);cursor:pointer;text-decoration:none;position:relative}
+.side .rb:hover{background:var(--gold);color:#141610}
+.side .rb.on{background:var(--mc-g)}
+.side .rb.sug{background:var(--dark2)}
+.side .rb svg{width:20px;height:20px}
+.side .rb b{position:absolute;right:-4px;top:-4px;background:var(--gold);color:#141610;border-radius:9px;font:700 10px/1 var(--f-mono);padding:3px 4px}
+.scorepop{position:absolute;right:52px;top:0;background:var(--box);border:1px solid var(--dark2);padding:8px;display:grid;grid-template-columns:repeat(5,34px);gap:4px;box-shadow:0 8px 20px rgba(0,0,0,.35);z-index:3}
+.scorepop button{height:30px;border:1px solid var(--line);background:var(--box2);font:700 12px var(--f-mono);color:var(--ink);cursor:pointer}
+.scorepop button.on{background:var(--gold);border-color:var(--gold);color:#141610}
+.scorepop .x{grid-column:1/-1;font:400 11px var(--f-ui)}
+@media (max-width:600px){.cwrap{flex-direction:column;align-items:center}.side{flex-direction:row;flex-wrap:wrap;justify-content:center;position:static}.side .sep{width:1px;height:auto;margin:6px 2px}.scorepop{right:auto;left:50%;top:auto;bottom:52px;transform:translateX(-50%)}}
+/* Mesaj balonu (her yerde) */
+.msgi{display:inline-flex;color:var(--muted);vertical-align:middle;margin-left:4px}
+.msgi:hover{color:var(--ink)}
+.msgi svg{width:15px;height:15px}
+/* Yeni etiketi ve son eklenenler */
+.newtag{display:inline-block;background:var(--gold);color:#141610;font:700 9px/1 var(--f-ui);padding:2px 5px;border-radius:2px;margin-left:6px;vertical-align:2px;text-transform:uppercase;letter-spacing:.04em}
+.recent{display:flex;gap:10px;overflow-x:auto;padding-bottom:4px}
+.recent .ri{flex:none;width:86px;background:none;border:0;padding:0;text-align:left;color:var(--ink);cursor:pointer;display:flex;flex-direction:column;gap:3px}
+.recent .ri img{width:86px;aspect-ratio:2/3;object-fit:cover;border:1px solid var(--line);display:block}
+.recent .ri span{font:700 11px/1.25 var(--f-ui);overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.recent .ri small{font:400 10px var(--f-ui);color:var(--muted)}
+/* Rozet açıklaması */
+.bdgpop{position:fixed;z-index:9997;background:var(--box);border:1px solid var(--dark2);box-shadow:0 10px 24px rgba(0,0,0,.35);padding:10px 12px;width:min(300px,calc(100vw - 24px));display:flex;flex-direction:column;gap:6px}
+.bdgpop ol{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:1px}
+.bdgpop li.on{font-weight:700}
+.bdg{cursor:help}
+/* Kart altı ekler */
+.extra{background:var(--box);border:1px solid var(--dark2);padding:10px;display:flex;flex-direction:column;gap:8px;width:420px;max-width:100%}
+.wcloud{display:flex;flex-wrap:wrap;gap:2px 8px;align-items:baseline}
+/* Üye profili */
+.prof{display:flex;flex-direction:column;gap:12px}
+.pband{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:16px;align-items:center;background:var(--box2);border:1px solid var(--line);padding:12px 14px}
+.pnums{display:flex;gap:18px}
+.pnums div{display:flex;flex-direction:column;align-items:center}
+.pnums b{font:800 21px/1.1 var(--f-ui)}
+.psum{font:400 13px/1.5 var(--f-ui)}
+.psec{background:var(--box2);border:1px solid var(--line);padding:12px 14px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.prow{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
+.strip{display:grid;grid-template-columns:repeat(5,minmax(0,130px));gap:8px}
+.strip button{background:none;border:0;padding:0;text-align:left;color:var(--ink);cursor:pointer;display:flex;flex-direction:column;gap:3px;min-width:0}
+.strip img{width:100%;aspect-ratio:2/3;object-fit:cover;border:1px solid var(--line);display:block}
+.strip span{font:700 11px/1.2 var(--f-ui);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.strip small{font:700 11px var(--f-mono)}
+.tline svg{display:block;width:100%;height:auto}
+.tline circle{cursor:pointer}
+.tline circle:hover{stroke:var(--ink);stroke-width:2}
+.gbars{display:flex;flex-direction:column;gap:4px}
+@media (max-width:560px){.pband{grid-template-columns:auto minmax(0,1fr)}.pnums{grid-column:1/-1;justify-content:space-around}.strip{grid-template-columns:repeat(3,minmax(0,1fr))}}
+/* Katalog */
+.kat{display:grid;grid-template-columns:repeat(auto-fill,minmax(118px,1fr));gap:14px;padding:4px}
+.kc{background:none;border:0;padding:0;cursor:pointer;position:relative;aspect-ratio:2/3;transition:transform .18s ease,box-shadow .18s ease;box-shadow:0 2px 6px rgba(0,0,0,.25);border:3px solid #f3f6e8}
+.kc img{width:100%;height:100%;object-fit:cover;display:block}
+.kc:hover,.kc:focus-visible{transform:translateY(-6px) rotate(-1.2deg);box-shadow:0 10px 18px rgba(0,0,0,.35);outline:none}
+.kc .pt{position:absolute;right:4px;top:4px;background:var(--gold);color:#141610;font:700 10px/1 var(--f-mono);padding:3px 4px}
+.kc.gone{visibility:hidden}
+.kz{position:fixed;inset:0;z-index:9990;background:rgba(15,18,10,0);transition:background .3s ease;display:block}
+.kz.on{background:rgba(15,18,10,.72)}
+.kfly{position:fixed;z-index:9991;border:4px solid #f3f6e8;box-shadow:0 20px 50px rgba(0,0,0,.5);transition:all .38s cubic-bezier(.2,.8,.2,1);overflow:hidden;background:#000}
+.kfly img{width:100%;height:100%;object-fit:cover;display:block}
+.kinfo{position:fixed;z-index:9992;background:var(--box);border:1px solid var(--dark2);padding:14px;width:min(340px,calc(100vw - 32px));display:flex;flex-direction:column;gap:8px;opacity:0;transform:translateY(8px);transition:opacity .25s ease .15s,transform .25s ease .15s;box-shadow:0 14px 30px rgba(0,0,0,.4)}
+.kinfo.on{opacity:1;transform:none}
+.kinfo h3{margin:0;font:800 21px/1.15 var(--f-ui)}
+.khead{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;justify-content:space-between}
+@media (prefers-reduced-motion:reduce){.kfly,.kinfo,.kc,.kz{transition:none}.otdv{animation:none}}
+
+/* v5 düzeltmeler */
+.actv.mini text{font-size:11px}
+.row2b{display:grid;grid-template-columns:minmax(0,auto) minmax(0,1fr);gap:18px;align-items:start}
+.lastc{display:flex;flex-direction:column;gap:6px;min-width:0}
+.lc{display:grid;grid-template-columns:minmax(0,1fr);gap:1px;min-width:0;border-top:1px solid var(--line);padding-top:5px}
+.lc:first-of-type{border-top:0;padding-top:0}
+.lc .hd{display:flex;align-items:center;gap:6px;min-width:0;white-space:nowrap}
+.lc .ft{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font:400 10px/1.4 var(--f-ui);color:var(--muted)}
+.lc .user .nm.lcn{font:700 11px/1.25 var(--f-ui)}
+.lc .tx{font:400 10px/1.4 var(--f-ui);overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+@media (max-width:820px){.row2b{grid-template-columns:minmax(0,1fr)}}
+.side .rb{width:37px;height:37px;border-radius:19px}
+.side .rb svg{width:17px;height:17px}
+.side{gap:7px}
+.side .slab{font:700 9px/1 var(--f-ui);color:#fff;text-transform:uppercase;letter-spacing:.06em;text-align:center;opacity:.85}
+#alsoHost{padding-right:49px}
+@media (max-width:600px){#alsoHost{padding-right:0}}
+.taste{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}
+@media (max-width:700px){.taste{grid-template-columns:minmax(0,1fr)}}
+.kvl{display:grid;grid-template-columns:auto minmax(0,1fr);gap:5px 12px;align-items:baseline}
+.kvl dt{font:400 10px/1.4 var(--f-ui);color:var(--muted);text-transform:uppercase;letter-spacing:.03em}
+.kvl dd{margin:0;font:400 13px/1.4 var(--f-ui);min-width:0}
+.worst{border-left:3px solid var(--mc-r);padding:4px 10px;display:flex;flex-direction:column;gap:4px}
+#tlPop{position:fixed;z-index:9998;pointer-events:none;background:#1f2319;border:1px solid #444b38;border-radius:10px;padding:6px;display:flex;flex-direction:column;align-items:center;gap:4px;width:92px;box-shadow:0 10px 24px rgba(0,0,0,.45);color:#eef2e2}
+#tlPop img{width:78px;aspect-ratio:2/3;object-fit:cover;border-radius:4px;display:block}
+#tlPop .t{font:700 10px/1.2 var(--f-ui);text-align:center;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#tlPop .s{display:flex;gap:4px}
+#tlPop .s span{font:700 10px/1 var(--f-mono);padding:3px 4px;border-radius:3px}
+.ulist.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:6px 14px}
+.kbar{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.kbar select{width:auto}
+.kat{grid-template-columns:repeat(auto-fill,minmax(var(--kw,130px),1fr));gap:12px}
+.kcell{border:1px solid var(--line);padding:7px;display:flex;flex-direction:column;gap:5px;min-width:0;background:var(--box2)}
+.kc{aspect-ratio:auto;height:var(--kh,195px);width:100%}
+.kc .pt{background:#f5c518;color:#141610}
+.kcell .ow{font:400 10px/1.2 var(--f-ui);color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.kcell .ow b{font-weight:700;color:var(--ink)}
+.ksc{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:3px}
+.ksc span{border:1px solid var(--line);font:700 8.5px/1 var(--f-mono);letter-spacing:-.2px;color:var(--ink);text-align:center;padding:3px 0;white-space:nowrap;overflow:hidden}
+
 /* Duyarlı düzen: tablo dar ekranda karta dönüşür */
 @media (max-width:1000px){
   .msort{display:block}
@@ -422,13 +567,12 @@ th [data-k][data-tip],th[data-uk]{cursor:pointer}
     </div>
     <div class="headbtns">
       <button class="btn f-bold" type="button" id="topBtn">Top 25</button>
-      <button class="btn f-bold" type="button" id="awBtn" data-tip="Her yılın en iyi filmi, keşfi, tartışması ve üyesi. 2026 oylaması yapım aşamasında.">Pati Ödülleri</button>
       <button class="btn f-bold" type="button" id="scBtn" data-tip="Pati ve IMDb puanlarını karşılaştıran dağılım grafiği.">Pati ve IMDb</button>
       <button class="btn f-bold" type="button" id="cmpBtn">Üye karşılaştır</button>
       <button class="btn f-bold" type="button" id="quizBtn" data-tip="15 filme puan ver, sana en çok benzeyen üyeleri ve onların sevdiği filmleri gör.">Kime benziyorum?</button>
-      <button class="btn f-bold" type="button" id="wrapBtn" data-tip="Kendi izlediklerinin ya da forumun yıllık özeti, PNG olarak paylaşılabilir.">Wrapped</button>
-      <button class="btn f-bold ghost iconbtn" type="button" id="themeBtn"></button>
+      <button class="btn f-bold" type="button" id="katBtn" data-tip="Filmleri afiş duvarı olarak gösterir: son 1 yıl, Pati, ortalama puan, rastgele ya da üyeye göre. Afişe tıklayınca büyür.">Katalog</button>
       <button class="btn f-bold on" type="button" id="rndBtn" data-tip="Şu anki filtrelere uyan filmlerden rastgele birini açar.">Ne izlesem?</button>
+      <button class="btn f-bold ghost iconbtn" type="button" id="themeBtn"></button>
     </div>
   </header>
 
@@ -481,7 +625,7 @@ th [data-k][data-tip],th[data-uk]{cursor:pointer}
 
   <footer class="foot f-kucuk">
     <span id="footNote"></span>
-    <span>Klavye kısayolları için ? · Sürüm v4 · 3 Kasım 2026</span>
+    <span>Klavye kısayolları için ? · Sürüm v6 · 8 Kasım 2026</span>
   </footer>
 </div>
 
@@ -499,20 +643,24 @@ th [data-k][data-tip],th[data-uk]{cursor:pointer}
 </div>
 
 <div class="modal" id="mCard" hidden role="dialog" aria-modal="true" aria-label="Paylaşım kartı">
-  <div class="panel narrow">
-    <div id="cardHost" class="chost"></div>
-    <div class="shbtns">
-      <button class="btn f-bold" type="button" id="shShare">Paylaş</button>
-      <button class="btn f-bold" type="button" id="shPng">PNG indir</button>
-      <button class="btn f-bold" type="button" id="shLink">Linki kopyala</button>
-      <button class="btn f-bold" type="button" id="shCart">Sepete ekle</button>
-      <button class="btn f-bold wbtn" type="button" id="shW">İzledim</button>
-      <label class="mysc f-kucuk" style="color:#fff">Puanın <select id="shMy"><option value="">–</option></select></label>
-      <button class="btn f-bold ghost" type="button" id="shClose" style="color:#fff;border-color:#fff">Kapat</button>
-    </div>
+  <div class="panel narrow" style="max-width:520px">
+    <div class="cwrap"><div id="cardHost" class="chost"></div>
+    <div class="side" aria-label="Kart işlemleri"><span class="slab" data-tip="Aşağıdaki 4 düğme bu karta göre başka bir film önerir.">Öner</span>
+      <span class="sep"></span>
+      <button class="rb" type="button" id="shShare" data-tip="Paylaş: kartı görsel olarak telefonun paylaşım menüsüyle gönderir (WhatsApp vb.). Desteklenmiyorsa linki paylaşır." aria-label="Paylaş"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="15" cy="4.5" r="2"/><circle cx="5" cy="10" r="2"/><circle cx="15" cy="15.5" r="2"/><path d="M6.8 9l6.4-3.5M6.8 11l6.4 3.5"/></svg></button>
+      <button class="rb" type="button" id="shPng" data-tip="PNG indir: bu kartı yüksek çözünürlüklü görsel olarak indirir." aria-label="PNG indir"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3v10M6 9l4 4 4-4M4 16h12"/></svg></button>
+      <button class="rb" type="button" id="shLink" data-tip="Linki kopyala: bu filmin kartını doğrudan açan linki panoya kopyalar." aria-label="Linki kopyala"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M8.5 11.5a3.5 3.5 0 0 0 5 0l2.5-2.5a3.5 3.5 0 0 0-5-5L10 5"/><path d="M11.5 8.5a3.5 3.5 0 0 0-5 0L4 11a3.5 3.5 0 0 0 5 5l1-1"/></svg></button>
+      <button class="rb" type="button" id="shCart" aria-label="Sepete ekle"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 3.5h2l2 9h9l1.5-6.5H5.5"/><circle cx="8" cy="16" r="1.2"/><circle cx="14.5" cy="16" r="1.2"/></svg></button>
+      <button class="rb" type="button" id="shW" aria-label="İzledim"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M1.5 10S4.5 4.5 10 4.5 18.5 10 18.5 10 15.5 15.5 10 15.5 1.5 10 1.5 10z"/><circle cx="10" cy="10" r="2.5"/></svg></button>
+      <button class="rb" type="button" id="shMy" data-tip="Puanın: bu filme kendi puanını ver (1-10). Yalnızca bu tarayıcıda saklanır, Kime benziyorum? testinde kullanılır." aria-label="Puanın"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M10 2.5l2.3 4.7 5.2.8-3.8 3.6.9 5.2L10 14.3l-4.6 2.5.9-5.2L2.5 8l5.2-.8z"/></svg></button>
+      <a class="rb" id="shJW" href="#" target="_blank" rel="noopener" data-tip="Nerede izlenir: JustWatch Türkiye'de bu filmi arar, hangi platformda izlenebileceğini gösterir." aria-label="Nerede izlenir"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><rect x="2.5" y="4" width="15" height="10" rx="1.5"/><path d="M7 17h6M8.5 7.5v3.5l3-1.75z"/></svg></a>
+      <button class="rb" type="button" id="shAll" data-tip="Tüm mesajlar: başlıkta bu filmin geçtiği bütün mesajları tarih sırasıyla açar." aria-label="Tüm mesajlar"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"><path d="M2.5 3.5h11v7h-6l-3 2.5v-2.5h-2z"/></svg></button>
+      <a class="rb" id="shBug" href="#" data-tip="Hata bildir: yanlış film, puan ya da üye eşleşmesini e-postayla bildirir." aria-label="Hata bildir"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2.5l8 14H2z"/><path d="M10 8v4M10 14.5v.01"/></svg></a>
+      <span class="sep"></span>
+      <button class="rb" type="button" id="shClose" data-tip="Kapat (Esc)" aria-label="Kapat"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 5l10 10M15 5L5 15"/></svg></button>
+    </div></div>
     <div class="shmsg f-ana" id="shMsg" aria-live="polite"></div>
-    <div class="shbtns2"><a id="shJW" href="#" target="_blank" rel="noopener" data-tip="JustWatch Türkiye'de bu filmi arar: hangi platformda izlenebileceğini gösterir.">Nerede izlenir?</a><button class="lnk" type="button" id="shAll">Tüm mesajlar</button><a id="shBug" href="#" data-tip="Yanlış film, puan ya da üye eşleşmesini e-postayla bildir.">Yanlış eşleşme mi? Bildir</a></div>
-    <div id="alsoHost" style="display:flex;justify-content:center"></div>
+    <div id="alsoHost" style="display:flex;flex-direction:column;align-items:center;gap:10px"></div>
   </div>
 </div>
 
@@ -520,7 +668,7 @@ th [data-k][data-tip],th[data-uk]{cursor:pointer}
   <div class="panel">
     <div class="phead"><span class="f-bold" id="uTitle"></span><span style="display:flex;gap:8px;align-items:center"><button class="btn f-kucuk ghost" type="button" id="uLink" style="color:#fff;border-color:rgba(255,255,255,.5)" data-tip="Bu üyenin profil linkini kopyalar.">Profil linki</button><button class="xbtn" type="button" data-close aria-label="Kapat">✕</button></span></div>
     <div class="pbody">
-      <div class="ugrid" id="uStats"></div>
+      <div class="prof" id="uStats"></div>
       <div class="ucharts" id="uCharts"></div>
       <div class="mt-wrap"><table class="mtable"><thead><tr id="uHead"></tr></thead><tbody id="uBody"></tbody></table></div>
     </div>
@@ -579,16 +727,6 @@ th [data-k][data-tip],th[data-uk]{cursor:pointer}
   </div>
 </div>
 
-<div class="modal" id="mAw" hidden role="dialog" aria-modal="true" aria-label="Pati Ödülleri">
-  <div class="panel full">
-    <div class="phead"><span class="f-bold">Pati Ödülleri</span><button class="xbtn" type="button" data-close aria-label="Kapat">✕</button></div>
-    <div class="pbody">
-      <div class="tabs" id="awYears"></div>
-      <div id="awOut"></div>
-    </div>
-  </div>
-</div>
-
 <div class="modal" id="mSc" hidden role="dialog" aria-modal="true" aria-label="Pati ve IMDb grafiği">
   <div class="panel full">
     <div class="phead"><span class="f-bold">Pati ve IMDb · her nokta bir film</span><button class="xbtn" type="button" data-close aria-label="Kapat">✕</button></div>
@@ -631,29 +769,24 @@ th [data-k][data-tip],th[data-uk]{cursor:pointer}
   </div>
 </div>
 
-<div class="modal" id="mWrap" hidden role="dialog" aria-modal="true" aria-label="Pati Wrapped">
-  <div class="panel">
-    <div class="phead"><span class="f-bold">Pati Wrapped</span><button class="xbtn" type="button" data-close aria-label="Kapat">✕</button></div>
-    <div class="pbody">
-      <div class="tabs"><button class="btn f-kucuk on" type="button" data-wm="me">Benim</button><button class="btn f-kucuk ghost" type="button" data-wm="forum">Forum</button></div>
-      <div class="tabs" id="wYears"></div>
-      <div class="f-kucuk muted">Benim: "İzledim" işaretlediğin ve puan verdiğin filmlerden hesaplanır, işaretleme tarihine göre yıllara ayrılır (bu sürümden önce işaretlenenler sadece "Tüm zamanlar"da). Forum: o yıl başlıkta yazılanlar.</div>
-      <div style="display:flex;justify-content:center"><div class="wcard" id="wCard"></div></div>
-      <div class="shbtns"><button class="btn f-bold" type="button" id="wShare">Paylaş</button><button class="btn f-bold" type="button" id="wPng">PNG indir</button></div>
-      <div class="f-ana" id="wMsg" style="text-align:center;min-height:1.4em"></div>
-    </div>
+<div class="modal" id="mKat" hidden role="dialog" aria-modal="true" aria-label="Katalog">
+  <div class="panel full">
+    <div class="phead"><span class="f-bold">Katalog</span><span style="display:flex;gap:8px;align-items:center"><button class="xbtn" type="button" data-close aria-label="Kapat">✕</button></span></div>
+    <div class="pbody"><div class="kbar"><button class="btn f-kucuk" type="button" data-kp="yil" data-tip="Son 1 yılda önerilen filmler, en yeniden eskiye.">Son 1 yıl</button><button class="btn f-kucuk ghost" type="button" data-kp="pati" data-tip="Pati puanı en yüksekten düşüğe. Pati: üye puanlarının medyanı, az oyda forum ortalamasına çekilir.">Pati puanı</button><button class="btn f-kucuk ghost" type="button" data-kp="ort" data-tip="Filme verilen tüm üye puanlarının düz ortalaması, en yüksekten düşüğe. Eşitlikte daha çok puan alan önde.">Ortalama puan</button><button class="btn f-kucuk ghost" type="button" data-kp="rnd" data-tip="Tüm filmler rastgele sırada. Her tıklamada yeniden karışır.">Rastgele</button><select id="katU" aria-label="Kullanıcıya göre" data-tip="Seçilen üyenin önerdiği ya da puanladığı filmler, en yeniden eskiye."><option value="">Kullanıcıya göre…</option></select></div>
+      <span class="f-ana" id="katInfo"></span><div class="kat" id="katGrid"></div></div>
   </div>
 </div>
 
 <div class="modal" id="mKeys" hidden role="dialog" aria-modal="true" aria-label="Klavye kısayolları">
   <div class="panel" style="max-width:420px">
     <div class="phead"><span class="f-bold">Klavye kısayolları</span><button class="xbtn" type="button" data-close aria-label="Kapat">✕</button></div>
-    <div class="pbody"><div class="keys f-ana"><kbd>/</kbd><span>Aramaya git</span><kbd>R</kbd><span>Rastgele film (Ne izlesem?)</span><kbd>T</kbd><span>Temayı değiştir</span><kbd>Esc</kbd><span>Açık pencereyi ya da aramayı kapat</span><kbd>↑ ↓ Enter</kbd><span>Arama sonuçlarında gezin ve seç</span><kbd>?</kbd><span>Bu listeyi göster</span></div></div>
+    <div class="pbody"><div class="keys f-ana"><kbd>/</kbd><span>Aramaya git</span><kbd>R</kbd><span>Rastgele film (Ne izlesem?)</span><kbd>T</kbd><span>Temayı değiştir</span><kbd>Esc</kbd><span>Açık pencereyi ya da aramayı kapat</span><kbd>↑ ↓ Enter</kbd><span>Arama sonuçlarında gezin ve seç</span><kbd>↑ ↓</kbd><span>Film listesinde satır seç</span><kbd>Enter</kbd><span>Seçili satırın kartını aç</span><kbd>← →</kbd><span>Kart açıkken önceki ya da sonraki film</span><kbd>?</kbd><span>Bu listeyi göster</span></div></div>
   </div>
 </div>
 
 <div id="tip" class="f-kucuk" hidden></div>
 <div id="uPop" hidden aria-hidden="true"></div>
+<div id="tlPop" hidden aria-hidden="true"></div>
 <div id="printArea"></div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
@@ -716,12 +849,22 @@ const LADDER=[
   ['Bay Pipo','Önerdiği filmlerin Metacritic ortalaması en yüksek 5 üye (en az 8 öneri, en az 10 puan).'],
   ['Gusto','Puanları forumdan en çok ayrışan 5 üye (en az 10 karşılaştırma, en az 10 puan).'],
   ['Patişist','Puanları Pati puanına en yakın 5 üye (en az 10 film, en az 10 puan).'],
+  ['Kaşif','Önerdiği filmler sonradan forumda en çok beğenilen 5 üye (en az 5 öneri, başka üyelerin puanladığı).'],
+  ['Emektar','Başlığa 2014\'te yazmaya başlamış ve son 12 ayda hâlâ yazıyor.'],
   ['Sinefil','En az 40 film önermiş.'],
   ['Finesil','En az 40 filme puan vermiş.'],
   ['Fanboi','Bir yönetmenin en az 4 filmine ortalama 8 ve üstü vermiş (en az 10 puan).'],
+  ['Muhalif','Puanları IMDb\'den en çok ayrışan 5 üye (en az 10 puan).'],
+  ['Klasikçi','Önerdiği filmlerin ortalama yapım yılı en eski 5 üye (en az 10 öneri).'],
+  ['Kapitalist','Önerdiği filmlerin en büyük kısmını çıktığı yıl ya da ertesi yıl yazmış 5 üye (en az 10 öneri).'],
+  ['Maratoncu','Tek bir günde en çok farklı film yazmış 5 üye (en az 5 film).'],
+  ['Mussolini','Tek bir türe en sadık 5 üye: yazdığı filmlerin en az yarısı aynı türden (en az 15 film).'],
   ['Çelenkli','Puan ortalaması en yüksek 5 üye (en az 10 puan).'],
   ['Pinti','Puan ortalaması en düşük 5 üye (en az 10 puan).'],
-  ['Birader','Yazdığı filmlerin en büyük kısmı başkasının önerisi olan 5 üye (en az 10 puan).'],
+  ['Düz Adam','Puanları hep birbirine yakın olan 5 üye: puan dağılımı en dar (en az 10 puan).'],
+  ['Kantarsız','1-3 ve 9-10 puanlarını en sık kullanan 5 üye (en az 5 puan).'],
+  ['Birader','Yazdığı filmlerin en büyük kısmı başkasının önerisi olan 5 üye (en az 5 puan).'],
+  ['Hıncal','Başlığa en az 2 yıl ara verip tekrar yazmaya başlamış.'],
   ['Yeni','Başlıktaki ilk mesajı son 12 ayda.'],
   ['Teneke','Başlıkta film adı geçirmiş ama hiç film önermemiş ve puan vermemiş.']
 ];
@@ -732,22 +875,35 @@ const BADGE=new Map();
   const set=(u,k,tip)=>BADGE.set(u.name,{k,tip,lv:LADDER.findIndex(x=>x[0]===k)+1});
   const top=(arr,fn,asc,k=5)=>arr.map(u=>({u,v:fn(u)})).filter(x=>x.v!=null&&!isNaN(x.v)).sort((a,b)=>asc?a.v-b.v:b.v-a.v).slice(0,k);
   const devs=n=>DEV.get(n)||[];
-  top(elig(),u=>{const r=u.films.filter(x=>x.role==='Öneren'&&x.f.meta!=null);return r.length>=8?mean(r.map(x=>x.f.meta)):null}).forEach(x=>set(x.u,'Bay Pipo',`Önerdiği filmlerin Metacritic ortalaması ${Math.round(x.v)}.`));
+  const recs=u=>u.films.filter(x=>x.role==='Öneren');
+  const cut=new Date(new Date(META.end)-365*864e5).toISOString().slice(0,10);
+  const dts=u=>u.films.map(x=>x.date).sort();
+  const sd=a=>{const m=mean(a);return Math.sqrt(mean(a.map(v=>(v-m)**2)))};
+  top(elig(),u=>{const r=recs(u).filter(x=>x.f.meta!=null);return r.length>=8?mean(r.map(x=>x.f.meta)):null}).forEach(x=>set(x.u,'Bay Pipo',`Önerdiği filmlerin Metacritic ortalaması ${Math.round(x.v)}.`));
   top(elig(),u=>devs(u.name).length>=10?mean(devs(u.name).map(x=>Math.abs(x.d))):null).forEach(x=>set(x.u,'Gusto',`Puanları forumdan ortalama ±${fmt1(x.v)} ayrışıyor.`));
   top(elig(),u=>{const r=u.films.filter(x=>x.score!=null&&x.f.nv>=3);return r.length>=10?mean(r.map(x=>Math.abs(x.score-x.f.pati))):null},true).forEach(x=>set(x.u,'Patişist',`Puanları Pati puanına ortalama ${fmt1(x.v)} uzaklıkta.`));
-  free().forEach(u=>{const r=u.films.filter(x=>x.role==='Öneren').length;if(r>=40)set(u,'Sinefil',`${r} film önerdi.`)});
+  top(free(),u=>{const r=recs(u).map(x=>x.f).filter(f=>f.others.some(o=>o.score!=null)&&f.pati!=null);return r.length>=5?mean(r.map(f=>f.pati)):null}).forEach(x=>set(x.u,'Kaşif',`Önerdiği ve başkalarının da puanladığı filmlerin Pati ortalaması ${fmt1(x.v)}.`));
+  free().forEach(u=>{const d=dts(u);if(d.length&&d[0]<'2015-01-01'&&d[d.length-1]>=cut)set(u,'Emektar',`${d[0].slice(0,4)}'ten beri yazıyor, son mesajı ${fmtDate(d[d.length-1])}.`)});
+  free().forEach(u=>{const r=recs(u).length;if(r>=40)set(u,'Sinefil',`${r} film önerdi.`)});
   free().forEach(u=>{if(u.scores.length>=40)set(u,'Finesil',`${u.scores.length} filme puan verdi.`)});
   elig().forEach(u=>{const by=new Map();u.films.forEach(x=>{if(x.score==null)return;(x.f.directors||[]).forEach(d=>{if(!by.has(d))by.set(d,[]);by.get(d).push(x.score)})});
     const best=[...by.entries()].filter(([,s])=>s.length>=4&&mean(s)>=8).sort((a,b)=>mean(b[1])-mean(a[1]))[0];if(best)set(u,'Fanboi',`${best[0]} hayranı: ${best[1].length} filmine ortalama ${fmt1(mean(best[1]))} verdi.`)});
+  top(elig(),u=>{const r=u.films.filter(x=>x.score!=null&&x.f.imdb!=null);return r.length>=10?mean(r.map(x=>Math.abs(x.score-x.f.imdb))):null}).forEach(x=>set(x.u,'Muhalif',`Puanları IMDb'den ortalama ±${fmt1(x.v)} ayrışıyor.`));
+  top(free(),u=>{const r=recs(u).filter(x=>x.f.year);return r.length>=10?mean(r.map(x=>x.f.year)):null},true).forEach(x=>set(x.u,'Klasikçi',`Önerdiği filmlerin ortalama yapım yılı ${Math.round(x.v)}.`));
+  top(free(),u=>{const r=recs(u).filter(x=>x.f.year);return r.length>=10?r.filter(x=>+x.date.slice(0,4)-x.f.year<=1).length/r.length:null}).forEach(x=>set(x.u,'Kapitalist',`Önerdiği filmlerin %${Math.round(x.v*100)}'ini çıktığı yıl ya da ertesi yıl yazdı.`));
+  top(free(),u=>{const m=new Map();u.films.forEach(x=>m.set(x.date,(m.get(x.date)||new Set()).add(x.f.tt)));const b=[...m.entries()].sort((a,b)=>b[1].size-a[1].size)[0];u._mar=b;return b&&b[1].size>=5?b[1].size:null}).forEach(x=>set(x.u,'Maratoncu',`${fmtDate(x.u._mar[0])} günü ${x.v} farklı film yazdı.`));
+  top(free(),u=>{if(u.films.length<15)return null;const gc={};u.films.forEach(x=>(x.f.genres||[]).forEach(g=>gc[g]=(gc[g]||0)+1));const b=Object.entries(gc).sort((a,b)=>b[1]-a[1])[0];u._mus=b;return b&&b[1]/u.films.length>=.5?b[1]/u.films.length:null}).forEach(x=>set(x.u,'Mussolini',`Yazdığı filmlerin %${Math.round(x.v*100)}'i ${gTR(x.u._mus[0]).toLocaleLowerCase('tr')}.`));
   top(elig(),u=>u.elo).forEach(x=>set(x.u,'Çelenkli',`Puan ortalaması ${fmt1(x.v)}.`));
   top(elig(),u=>u.elo,true).forEach(x=>set(x.u,'Pinti',`Puan ortalaması ${fmt1(x.v)}.`));
-  top(elig(),u=>u.films.filter(x=>x.role==='Puanlayan').length/u.films.length).forEach(x=>set(x.u,'Birader',`Yazdığı filmlerin %${Math.round(x.v*100)}'i başkasının önerisi.`));
-  const cut=new Date(new Date(META.end)-365*864e5).toISOString().slice(0,10);
-  free().forEach(u=>{const first=u.films.map(x=>x.date).sort()[0];if(first>=cut)set(u,'Yeni',`Başlıktaki ilk mesajı ${fmtDate(first)}.`)});
+  top(elig(),u=>sd(u.scores),true).forEach(x=>set(x.u,'Düz Adam',`Puanları ortalamasından tipik olarak yalnızca ±${fmt1(x.v)} sapıyor.`));
+  top(free().filter(u=>u.scores.length>=5),u=>u.scores.filter(s=>s<=3||s>=9).length/u.scores.length).forEach(x=>set(x.u,'Kantarsız',`Puanlarının %${Math.round(x.v*100)}'i 1-3 ya da 9-10.`));
+  top(free().filter(u=>u.scores.length>=5),u=>u.films.filter(x=>x.role==='Puanlayan').length/u.films.length).forEach(x=>set(x.u,'Birader',`Yazdığı filmlerin %${Math.round(x.v*100)}'i başkasının önerisi.`));
+  free().forEach(u=>{const d=dts(u);let g=0,at=null;for(let i=1;i<d.length;i++){const k=(new Date(d[i])-new Date(d[i-1]))/864e5;if(k>g){g=k;at=d[i]}}if(g>=730)set(u,'Hıncal',`${Math.floor(g/365)} yıl aradan sonra ${fmtDate(at)} tarihinde geri döndü.`)});
+  free().forEach(u=>{const first=dts(u)[0];if(first>=cut)set(u,'Yeni',`Başlıktaki ilk mesajı ${fmtDate(first)}.`)});
   free().forEach(u=>{if(!u.scores.length&&!u.films.some(x=>x.role==='Öneren'))set(u,'Teneke','Film adı geçirdi ama hiç öneri ya da puan yok.')});
 })();
 const bdgHTML=name=>{const b=BADGE.get(name);return b?`<span class="bdg f-dipnot ${b.lv<=3?'g':''}" title="${esc(`${b.lv}. basamak · ${b.k}: ${b.tip}`)}">${b.k}</span>`:''};
-const userBtn=(name,fc="f-bold")=>{const u=U.get(name);return `<button class="user" type="button" data-user="${esc(name)}"><span class="nm ${fc}">${esc(name)}</span>${u&&u.elo!=null?`<span class="elo f-dipnot" title="Verdiği ${u.scores.length} puanın ortalaması">${fmtN(u.elo)}</span>`:''}${bdgHTML(name)}</button>`};
+const userBtn=(name,fc="f-bold")=>{const u=U.get(name);return `<button class="user" type="button" data-user="${esc(name)}"><span class="nm ${fc}">${esc(name)}</span>${u&&u.elo!=null?`<span class="elo f-dipnot" title="Verdiği ${u.scores.length} puanın ortalaması">${fmt1(u.elo)}</span>`:''}${bdgHTML(name)}</button>`};
 
 /* Filtre seçenekleri */
 const uniq=a=>[...new Set(a)];
@@ -792,12 +948,12 @@ function dash(){
     fomH=`${cap('bu ayın filmi')}<div class="fom"><img src="${fom.poster}" alt=""><div class="fomi">
       <button class="linkbtn user" type="button" data-share="${fom.tt}"><span class="nm f-bold">${esc(fom.title)}</span><span class="elo f-dipnot" title="Pati puanı">${fmt1(fom.pati)}</span></button>
       <span class="f-kucuk">${[fom.year,(fom.genres||[]).slice(0,2).map(gTR).join(', ')].filter(Boolean).join(' · ')}</span>
-      <span class="f-kucuk">Öneren: <b>${esc(fom.main.author)}</b></span>
+      <span class="f-kucuk">Öneren: <b>${esc(fom.main.author)}</b>${msgIcon(fom.main.post)}</span>
       <span class="f-kucuk muted">son 30 günde ${writers} üye yazdı</span></div></div>`}
   $('dash').innerHTML=`<div class="tile" data-tip="Başlıkta adı geçen ve IMDb'de bulunan filmler (diziler hariç), en az bir film yazan üyeler ve verilen açık puanlar."><span class="f-kucuk muted">başlık</span><div class="cnts">${[[DATA.length,'film'],[U.size,'üye'],[allScores,'puan']].map(([v,l])=>`<div><b class="f-buyuk">${v}</b><span class="f-kucuk muted">${l}</span></div>`).join('')}</div></div>`
     +`<div class="tile" data-tip="Başlıkta en çok filme yazan üye. Altta son verdiği 5 puan.">${actH}</div>`
     +`<div class="tile" data-tip="Son 30 günde yazılan filmler arasında Pati puanı en yüksek olan. Adın yanındaki küçük sayı Pati puanı.">${fomH}</div>`+gustoTile()+onThisDay()
-    +`<div class="tile wide">${cap('yıllara göre forum aktivitesi (yazılan film sayısı)')}${bars(yk.map(y=>yrs[y]),{w:320,h:56,labels:yk.map(y=>"'"+y.slice(2)),tipf:(i,v)=>`${yk[i]}: ${v} film yazıldı`})}</div>`;
+    +activityTile()+recentRow();
 }
 
 /* Puan kutuları */
@@ -815,7 +971,6 @@ let cart=store.get('filmSepeti',[]).filter(tt=>byTT.has(tt));
 const inCart=tt=>cart.includes(tt);
 function saveCart(){store.set('filmSepeti',cart);$('cartCnt').textContent=cart.length}
 function toggleCart(tt){cart=inCart(tt)?cart.filter(x=>x!==tt):[...cart,tt];saveCart();render(false);if(!$('mCart').hidden)renderCart();syncCardCart()}
-function syncCardCart(){const b=$('shCart');if(!b||!curTT)return;const on=inCart(curTT);b.textContent=on?'Sepette ✓':'Sepete ekle';b.classList.toggle('on',on)}
 saveCart();
 let W=store.get('izlediklerim',{});if(!W||typeof W!=='object')W={};for(const k of Object.keys(W))if(!byTT.has(k))delete W[k];
 function saveW(){store.set('izlediklerim',W)}
@@ -829,12 +984,12 @@ const cmpBy=(k,dir)=>(a,b)=>{let x=a[k],y=b[k];if(x==null&&y==null)return 0;if(x
   return typeof x==='string'?x.localeCompare(y,'tr',{sensitivity:'base'})*dir:(x-y)*dir};
 
 function row(f){
-  const sp=s=>s!=null?`<span class="pill score">${fmtN(s)}</span>`:'<span class="pill score na" title="puansız">–</span>';
+  const sp=s=>s!=null?`<span class="pill score">${fmt1(s)}</span>`:'<span class="pill score na" title="puansız">–</span>';
   const mi=p=>`<a class="msg" href="${link(p)}" target="_blank" rel="noopener" title="Mesaja git" aria-label="Mesaja git"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M2.5 3.5h11v7h-6l-3 2.5v-2.5h-2z"/></svg></a>`;
   const others=f.others.length?`<div class="others">${f.others.map(o=>`${userBtn(o.author,'f-ana')}${sp(o.score)}${mi(o.post)}`).join('')}</div>`:'<span class="f-ana na">Yok</span>';
-  return `<tr class="film">
-    <td><img class="poster" src="${f.poster}" alt="${esc(f.title)} afişi" loading="lazy"></td>
-    <td><div class="ttl f-bold"><a href="https://www.imdb.com/title/${f.tt}/" target="_blank" rel="noopener">${esc(f.title)}</a></div>${f.alt&&f.alt!==f.title?`<div class="f-kucuk na">${esc(f.alt)}</div>`:''}<div class="chips" style="margin-top:4px">${(f.genres||[]).map(g=>`<span class="chip f-kucuk">${esc(gTR(g))}</span>`).join('')}</div>${f.trailer?`<a class="tr-link f-kucuk" href="${esc(f.trailer)}" target="_blank" rel="noopener">▶ Fragman</a>`:''}</td>
+  return `<tr class="film" data-film="${f.tt}">
+    <td><img class="poster" src="${f.poster}" alt="${esc(f.title)} afişi" loading="lazy" decoding="async"></td>
+    <td><div class="ttl f-bold"><a href="https://www.imdb.com/title/${f.tt}/" target="_blank" rel="noopener">${esc(f.title)}</a>${isNew(f)?'<span class="newtag" title="Son 7 günde önerildi">yeni</span>':''}</div>${f.alt&&f.alt!==f.title?`<div class="f-kucuk na">${esc(f.alt)}</div>`:''}<div class="chips" style="margin-top:4px">${(f.genres||[]).map(g=>`<span class="chip f-kucuk">${esc(gTR(g))}</span>`).join('')}</div>${f.trailer?`<a class="tr-link f-kucuk" href="${esc(f.trailer)}" target="_blank" rel="noopener">▶ Fragman</a>`:''}</td>
     <td class="num f-ana" data-l="Yıl">${f.year??'<span class="na">?</span>'}</td>
     <td class="f-ana" data-l="Yönetmen">${dirsHTML(f)}</td>
     <td><div class="scgrid">${pills.imdb(f)}${pills.meta(f)}${pills.rt(f)}${pills.lb(f)}${pills.pati(f)}</div></td>
@@ -922,10 +1077,10 @@ $('rndBtn').addEventListener('click',()=>{const r=pickR(filtered());if(r)openCar
 /* Ne izlesem? sonraki film düğmeleri */
 DATA.forEach(f=>{const v=[f.imdb,f.meta!=null?f.meta/10:null,f.rt!=null?f.rt/10:null,f.lb!=null?f.lb*2:null,f.pati].filter(x=>x!=null);f.site=v.length?mean(v):null});
 const RNAV=[
-  ['dec','Aynı on yıldan başka bir film','<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4.5" width="14" height="12" rx="1.5"/><path d="M3 8.5h14M7 2.5v4M13 2.5v4"/></svg>'],
-  ['gen','Aynı türden başka bir film','<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M3 3h7l7 7-7 7-7-7z"/><circle cx="7" cy="7" r="1.4" fill="currentColor"/></svg>'],
-  ['sco','Site puanları ortalaması buna yakın başka bir film (IMDb, Metacritic, RT, Letterboxd, Pati)','<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 15a7 7 0 0 1 14 0"/><path d="M10 15l3.5-5"/></svg>'],
-  ['any','Tamamen rastgele başka bir film','<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h3c4 0 5 8 9 8h2M3 14h3c1.6 0 2.7-1.3 3.6-3M13 6h4M15 4l2 2-2 2M15 12l2 2-2 2"/></svg>']
+  ['dec','Öner: aynı on yıldan başka bir film','<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4.5" width="14" height="12" rx="1.5"/><path d="M3 8.5h14M7 2.5v4M13 2.5v4"/></svg>'],
+  ['gen','Öner: aynı türden başka bir film','<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M3 3h7l7 7-7 7-7-7z"/><circle cx="7" cy="7" r="1.4" fill="currentColor"/></svg>'],
+  ['sco','Öner: site puanlarının ortalaması (IMDb, Metacritic, RT, Letterboxd, Pati) bu filme yakın başka bir film','<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 15a7 7 0 0 1 14 0"/><path d="M10 15l3.5-5"/></svg>'],
+  ['any','Öner: tamamen rastgele başka bir film','<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h3c4 0 5 8 9 8h2M3 14h3c1.6 0 2.7-1.3 3.6-3M13 6h4M15 4l2 2-2 2M15 12l2 2-2 2"/></svg>']
 ];
 const rnavHTML=`<div class="rnav">${RNAV.map(([k,tip,ic])=>`<button type="button" data-rn="${k}" data-tip="${esc(tip)}" aria-label="${esc(tip)}">${ic}</button>`).join('')}</div>`;
 function nextFilm(k){
@@ -946,18 +1101,19 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape'){const m=[...documen
 
 /* Paylaşım kartı */
 const bigPoster=f=>f.img?f.img.replace(/\._V1_.*\.jpg$/,'._V1_QL75_UX600_.jpg'):null;
-const CRIT0=3;
+const CRIT0=4;
 function pickCritics(f){
-  return (f.cm||[]).filter(c=>(COMMENTS[c[0]]||'').trim()).map(([post,author,score,page])=>({post,author,score,page}));
+  const m=f.main,head=(COMMENTS[m.post]||'').trim()?[{post:m.post,author:m.author,score:m.score,page:m.page,rec:1}]:[];
+  return head.concat((f.cm||[]).filter(c=>(COMMENTS[c[0]]||'').trim()).map(([post,author,score,page])=>({post,author,score,page})));
 }
 const srcLine=(f,crit,k)=>`Kaynak: Paticik Forumları › Vizyon › Bugün Ne Seyrettiniz?, sayfa ${uniq([f.main.page,...crit.slice(0,k).map(c=>c.page)]).filter(p=>p!=null).sort((a,b)=>a-b).join(', ')}`;
 function cardHTML(f){
   const crit=pickCritics(f);
   const v=(val,lab,style='')=>`<div class="sc"><span class="v ${val==null?'empty':''}" style="${style}">${val??'–'}</span><span class="lbl f-kucuk">${lab}</span></div>`;
   const facts=[`${f.n||1} kez yazıldı`,`ilk: ${f.main.date.slice(0,4)}`,f.gap!=null?`IMDb'ye göre ${sgn(f.gap)}`:null,f.nv?`medyan ${fmt1(f.med)}`:null].filter(Boolean);
-  const dist=f.nv?`<div class="dist">${bars(histOf(f.votes),{w:150,h:40,color:scoreCol,labels:[1,2,3,4,5,6,7,8,9,10]})}<div class="facts">${facts.map(x=>`<span class="chip f-kucuk">${x}</span>`).join('')}</div></div>`
+  const dist=f.nv?`<div class="dist"><span data-tip="Bu filme verilen üye puanlarının dağılımı: her çubuk o puanı kaç üyenin verdiğini gösterir. Soldaki sayılar üye sayısı, alttakiler puan.">${distChart(f.votes)}</span><div class="facts">${facts.map(x=>`<span class="chip f-kucuk">${x}</span>`).join('')}</div></div>`
     :`<div class="dist"><div class="facts">${facts.map(x=>`<span class="chip f-kucuk">${x}</span>`).join('')}</div></div>`;
-  const cq=(c,i)=>`<div class="cq" ${i>=CRIT0?'hidden data-extra':''}><div class="row">${userBtn(c.author)}<span class="s f-puan ${c.score==null?'na':''}">${fmt1(c.score)}</span></div>${quoteHTML(COMMENTS[c.post])}</div>`;
+  const cq=(c,i)=>`<div class="cq" ${i>=CRIT0?'hidden data-extra':''}><div class="row"><span style="display:flex;align-items:center;gap:6px;min-width:0">${userBtn(c.author)}${c.rec?'<span class="f-kucuk muted">öneren</span>':''}${msgIcon(c.post)}</span><span class="s f-puan ${c.score==null?'na':''}">${fmt1(c.score)}</span></div>${quoteHTML(textFor(c.post,f.tt))+partNote(c.post,f.tt)}</div>`;
   return `<article class="card" id="theCard" aria-label="${esc(f.title)} paylaşım kartı">
     <div class="top f-kucuk"><span>Paticik · Bugün Ne Seyrettiniz?</span><span>${fmtDate(f.main.date)}</span></div>
     <div class="stage"><canvas id="cBg" width="420" height="300"></canvas><img id="cImg" crossorigin="anonymous" alt="${esc(f.title)} afişi"></div>
@@ -978,7 +1134,7 @@ function cardHTML(f){
     </div>
     <section class="critics">
       <span class="f-kucuk muted">Eleştirmenler ne dedi</span>
-      ${crit.length?crit.map(cq).join(''):'<span class="f-ana muted">Bu filme henüz başka üye yorum yazmamış.</span>'}
+      ${crit.length?crit.map(cq).join(''):'<span class="f-ana muted">Bu filme henüz yorum yazılmamış.</span>'}
       ${crit.length>CRIT0?`<button class="more f-kucuk" type="button" id="moreC">Daha fazla yorum göster (${crit.length-CRIT0})</button>`:''}
       <div class="src f-kucuk" id="srcL">${srcLine(f,crit,CRIT0)}</div>
     </section>
@@ -995,7 +1151,7 @@ let curTT=null;
 let rndMode=false;
 function openCard(tt,rnd=false){
   const f=byTT.get(tt);if(!f)return;curTT=tt;rndMode=rnd;
-  $('cardHost').innerHTML=cardHTML(f)+(rnd?rnavHTML:'');$('shMsg').textContent='';
+  $('cardHost').innerHTML=cardHTML(f);document.querySelector('.scorepop')?.remove();$('shMsg').textContent='';
   const img=$('cImg');let fellBack=false;
   img.onload=()=>paintBg(img);
   img.onerror=()=>{if(!fellBack){fellBack=true;img.removeAttribute('crossorigin');img.src=f.poster}};
@@ -1004,7 +1160,7 @@ function openCard(tt,rnd=false){
   const mb=$('moreC');if(mb)mb.addEventListener('click',()=>{const crit=pickCritics(f);const open=mb.dataset.open!=='1';
     document.querySelectorAll('#theCard [data-extra]').forEach(x=>x.hidden=!open);mb.dataset.open=open?'1':'0';
     mb.textContent=open?'Daha az göster':`Daha fazla yorum göster (${crit.length-CRIT0})`;$('srcL').textContent=srcLine(f,crit,open?crit.length:CRIT0)});
-  $('alsoHost').innerHTML=alsoLiked(f);syncCardW();cardLinks(f);
+  $('alsoHost').innerHTML=extrasHTML(f);cardLinks(f);syncSide();
   syncCardCart();openModal($('mCard'));
 }
 const shareUrl=()=>location.origin+location.pathname+'#'+curTT;
@@ -1064,7 +1220,7 @@ function uStat(name){
     tens:u.scores.filter(x=>x>=10).length};
   SC.set(name,s);return s;
 }
-const formBoxes=last=>Array.from({length:5-last.length},()=>'<span class="fb e"></span>').join('')+last.map(x=>`<span class="fb f-puan" style="background:${fbColor(x.score)}" title="${esc(x.f.title)} · ${fmtDate(x.date)}">${fmt1(x.score)}</span>`).join('');
+const formBoxes=last=>Array.from({length:5-last.length},()=>'<span class="fb e"></span>').join('')+last.map(x=>`<span class="fb f-puan" style="background:${fbColor(x.score)}" data-pv="${x.f.tt}" data-sc="${x.score}">${fmt1(x.score)}</span>`).join('');
 const yrBars=(s,o={})=>bars(YEARS.map(y=>s.yrs[y]||0),{labels:YEARS.map((y,i)=>i%3===0||i===YEARS.length-1?"'"+y.slice(2):null),tipf:(i,v)=>`${YEARS[i]}: ${v} film`,...o});
 function renderUser(){
   const u=U.get(curUser);if(!u)return;
@@ -1074,29 +1230,17 @@ function renderUser(){
   $('uTitle').innerHTML=`${esc(u.name)}`;
   const st=(v,l,tip)=>`<div class="tile" data-tip="${esc(tip)}"><b>${v}</b><span class="f-kucuk muted">${l}</span></div>`;
   const fl=x=>x?`<button class="linkbtn f-bold" type="button" data-share="${x.f.tt}">${esc(x.f.title)}</button><span class="f-kucuk muted">${fmt1(x.score)}</span>`:'<b>–</b>';
-  $('uStats').innerHTML=st(fmt1(s.elo),'puan ortalaması','Verdiği tüm puanların ortalaması.')+st(fmt1(s.med),'puan medyanı','Puanlarının ortadaki değeri; uç puanlardan etkilenmez.')
-    +st(s.n,'puan verdi','Açıkça puan yazdığı film sayısı.')+st(s.rec,'film önerdi','Başlıkta ilk yazan olduğu film sayısı.')+st(s.films,'filmde yazdı','Öneri veya sonradan yorum, toplam film sayısı.')
-    +st(sgn(s.md),'IMDb farkı','Verdiği puanların IMDb puanından ortalama farkı. Artı ise IMDb\'den cömert.')
-    +st(s.rank?`${s.rank}/${genRank.n}`:'–','cömertlik sırası','En az 10 puan vermiş üyeler arasında puan ortalamasına göre sırası. 1 en cömert.')
-    +st(s.tens,'tam puan','Verdiği 10 puan sayısı.')
-    +st(s.first?s.first.slice(0,4)+' → \''+s.lastD.slice(2,4):'–','aktif yıllar','Başlıkta yazdığı ilk ve son yıl.')
-    +`<div class="tile" data-tip="Verdiği en yüksek puanlı film.">${fl(s.top)}<span class="f-kucuk muted">en sevdiği</span></div>`
-    +`<div class="tile" data-tip="Verdiği en düşük puanlı film.">${fl(s.low)}<span class="f-kucuk muted">en sevmediği</span></div>`
-    +`<div class="tile" data-tip="En az 3 ortak puanlı film içinde puanları en yakın olan üye. Yüzde = 100 - ortalama fark x 10.">${s.best?`<span class="f-bold">${userBtn(s.best.name)}</span><span class="f-kucuk muted">zevk ikizi · %${s.best.pct} uyum, ${s.best.com.length} ortak film</span>`:'<b>–</b><span class="f-kucuk muted">zevk ikizi</span>'}</div>`;
-  const gmax=s.genres[0]?s.genres[0][1]:1;
-  $('uCharts').innerHTML=`<div class="tile"><span class="f-kucuk muted">puan dağılımı (1-10)</span>${bars(s.hist,{w:240,h:60,color:scoreCol,labels:[1,2,3,4,5,6,7,8,9,10],tipf:(i,v)=>`${i+1} puan: ${v} kez`})}</div>`
-    +`<div class="tile"><span class="f-kucuk muted">yıllara göre yazdığı film</span>${yrBars(s,{w:240,h:60})}</div>`
-    +`<div class="tile"><span class="f-kucuk muted">son 5 puan</span><div class="form">${formBoxes(s.last)}</div><span class="f-kucuk muted" style="margin-top:6px">en çok yazdığı türler</span><div class="cloud">${s.genres.slice(0,8).map(([g,n])=>`<span style="font:700 ${10+Math.round(n/gmax*8)}px/1.1 var(--f-ui)" title="${n} film">${esc(gTR(g))}</span>`).join('')}</div></div>`;
+    $('uStats').innerHTML=profileHTML(u,s);$('uCharts').innerHTML='';
   const uTips={title:'Film adı, IMDb sayfasına gider.',year:'Filmin çıkış yılı.',role:'Öneren: filmi ilk yazan. Puanlayan: sonradan yazan.',score:'Üyenin verdiği puan.',imdb:'IMDb puanı.',diff:'Üyenin puanı eksi IMDb puanı.',date:'Mesaj tarihi, mesaja gider.'};
   const uW={title:'',year:'width:70px',role:'width:110px',score:'width:80px',imdb:'width:80px',diff:'width:100px',date:'width:150px'};
   $('uHead').innerHTML=uCols.map(([k,l])=>`<th class="f-kucuk ${['year','score','imdb','diff'].includes(k)?'c':''} ${uSortK===k?'on':''}" style="${uW[k]}" data-uk="${k}" tabindex="0" data-tip="${uTips[k]}">${l}<span class="ar">${uSortK===k?(uSortDir>0?'▲':'▼'):'↕'}</span></th>`).join('');
   $('uBody').innerHTML=rows.map(r=>`<tr>
-    <td class="f-bold"><button class="linkbtn f-bold" type="button" data-share="${r.tt}">${esc(r.title)}</button></td>
+    <td class="f-bold"><button class="linkbtn f-bold tl" type="button" data-share="${r.tt}" title="${esc(r.title)}">${esc(r.title)}</button></td>
     <td class="c f-ana num">${r.year??''}</td><td class="f-ana">${r.role}</td>
     <td class="c">${r.score!=null?`<span class="pill score">${fmt1(r.score)}</span>`:'<span class="pill score na">–</span>'}</td>
     <td class="c">${r.imdb!=null?`<span class="pill imdb"><span class="st">★</span>${fmt1(r.imdb)}</span>`:'<span class="pill none">–</span>'}</td>
     <td class="c f-puan num">${r.diff!=null?sgn(r.diff):'–'}</td>
-    <td class="f-ana num"><a href="${link(r.post)}" target="_blank" rel="noopener">${fmtDate(r.date)}</a></td></tr>`).join('');
+    <td class="f-ana num"><a href="${link(r.post)}" target="_blank" rel="noopener">${fmtDate(r.date)}</a>${msgIcon(r.post)}</td></tr>`).join('');
 }
 $('uHead').addEventListener('click',e=>{const th=e.target.closest('[data-uk]');if(!th)return;const k=th.dataset.uk;if(uSortK===k)uSortDir*=-1;else{uSortK=k;uSortDir=['title','role'].includes(k)?1:-1}renderUser()});
 $('uHead').addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&e.target.dataset.uk){e.preventDefault();e.target.click()}});
@@ -1184,7 +1328,7 @@ function popHTML(name){
 }
 function hidePop(){clearTimeout(popT);pop.hidden=true;popEl=null}
 document.addEventListener('mouseover',e=>{
-  if(!canHover)return;const el=e.target.closest('.user[data-user]');
+  if(!canHover)return;if(e.target.closest('.bdg')){hidePop();return}const el=e.target.closest('.user[data-user]');
   if(!el){return}
   if(el===popEl)return;hidePop();popEl=el;
   popT=setTimeout(()=>{pop.innerHTML=popHTML(el.dataset.user);pop.hidden=false;place(el,pop)},280);
@@ -1204,8 +1348,9 @@ function renderCmp(){
   const t=(v,l,tip)=>`<div class="tile" data-tip="${esc(tip)}"><b class="f-buyuk">${v}</b><span class="f-kucuk muted">${l}</span></div>`;
   $('cmpOut').innerHTML=`<div class="ugrid">${t('%'+m.pct,'zevk uyumu','100 - ortalama puan farkı x 10.')}${t(m.com.length,'ortak puanlı film','İkisinin de puan verdiği film sayısı.')}${t(fmt1(m.mae),'ortalama fark','Aynı filme verdikleri puanlar arasındaki ortalama fark.')}
     ${t(da===0?'eşit':esc(da>0?a.name:b.name),'daha cömert olan',`Ortak filmlerde ortalama ${fmt1(Math.abs(da))} puan daha yüksek veriyor.`)}</div>
+    <div class="psec" style="margin-top:10px"><span class="f-kucuk muted">en çok ayrıştıkları filmler</span><div class="strip">${m.com.slice(0,5).map(c=>`<button type="button" data-share="${c.f.tt}" title="${esc(c.f.title)}"><img src="${c.f.poster}" alt=""><span>${esc(c.f.title)}</span><small>${fmt1(c.a)} · ${fmt1(c.b)}</small></button>`).join('')}</div></div>
     <div class="mt-wrap" style="margin-top:10px"><table class="mtable"><thead><tr><th class="f-kucuk">Film</th><th class="f-kucuk c" style="width:130px">${esc(a.name)}</th><th class="f-kucuk c" style="width:130px">${esc(b.name)}</th><th class="f-kucuk c" style="width:80px">Fark</th><th class="f-kucuk c" style="width:80px">Pati</th></tr></thead><tbody>
-    ${m.com.map(c=>`<tr><td><div class="mini" style="grid-template-columns:30px minmax(0,1fr)"><img src="${c.f.poster}" alt=""><button class="linkbtn f-bold" type="button" data-share="${c.f.tt}">${esc(c.f.title)}</button></div></td><td class="c"><span class="pill score">${fmt1(c.a)}</span></td><td class="c"><span class="pill score">${fmt1(c.b)}</span></td><td class="c f-puan num">${sgn(c.a-c.b)}</td><td class="c">${pills.pati(c.f)}</td></tr>`).join('')}</tbody></table></div>`;
+    ${m.com.map(c=>`<tr><td><div class="mini" style="grid-template-columns:30px minmax(0,1fr)"><img src="${c.f.poster}" alt=""><button class="linkbtn f-bold" type="button" data-share="${c.f.tt}">${esc(c.f.title)}</button></div></td><td class="c"><span class="pill score">${fmt1(c.a)}</span>${msgIcon(postOf(c.f,a.name))}</td><td class="c"><span class="pill score">${fmt1(c.b)}</span>${msgIcon(postOf(c.f,b.name))}</td><td class="c f-puan num">${sgn(c.a-c.b)}</td><td class="c">${pills.pati(c.f)}</td></tr>`).join('')}</tbody></table></div>`;
 }
 ['cA','cB'].forEach(id=>$(id).addEventListener('change',renderCmp));
 $('cmpBtn').addEventListener('click',()=>{renderCmp();openModal($('mCmp'))});
@@ -1227,10 +1372,6 @@ const SCORES=[1,2,3,4,5,6,7,8,9,10];
 const today=()=>new Date().toISOString().slice(0,10);
 function setWatched(tt,on){if(on)W[tt]=W[tt]||{w:1,s:null,d:today()};else delete W[tt];saveW();render(false);syncCardW()}
 function setMy(tt,s){if(s==null||isNaN(s)){if(W[tt])W[tt].s=null}else W[tt]={w:1,s,d:(W[tt]&&W[tt].d)||today()};saveW();render(false);syncCardW()}
-function syncCardW(){const b=$('shW'),sel=$('shMy');if(!b||!curTT)return;const w=W[curTT];b.textContent=w?'İzledim ✓':'İzledim';b.classList.toggle('on',!!w);sel.value=w&&w.s!=null?String(w.s):''}
-fill($('shMy'),SCORES);
-$('shW').addEventListener('click',()=>{if(curTT)setWatched(curTT,!W[curTT])});
-$('shMy').addEventListener('change',()=>{if(curTT)setMy(curTT,$('shMy').value===''?null:+$('shMy').value)});
 document.addEventListener('click',e=>{const b=e.target.closest('[data-watch]');if(b)setWatched(b.dataset.watch,!W[b.dataset.watch])});
 /* Yedek */
 $('cBak').addEventListener('click',()=>{dl('pati-yedek.json',JSON.stringify({v:1,tarih:new Date().toISOString(),sepet:cart,izlediklerim:W},null,1),'application/json');$('cNote').textContent='Yedek dosyası indirildi (pati-yedek.json). Başka cihazda "Yedekten yükle" ile geri alabilirsin.'});
@@ -1256,8 +1397,7 @@ function openDir(d){
   const t=(v,l,tip)=>`<div class="tile" data-tip="${esc(tip)}"><span class="f-kucuk muted">${l}</span><b class="f-buyuk">${v}</b></div>`;
   $('dTitle').textContent=d;
   $('dOut').innerHTML=`<div class="ugrid">${t(fs.length,'forumdaki film','Başlıkta yazılan film sayısı.')}${t(fmt1(mean(pat)),'ortalama Pati','Pati puanı olan filmlerinin ortalaması.')}${t(fmt1(mean(im)),'ortalama IMDb','IMDb puanlarının ortalaması.')}${t(fs.reduce((a,f)=>a+f.nv,0),'üye puanı','Filmlerine verilen toplam üye puanı.')}</div>
-    <div class="tile"><span class="f-kucuk muted">Fanboy'lar · en az 2 filmine puan verip en yüksek ortalamayı verenler</span>
-      ${fans.length?`<div class="ugrid" style="grid-template-columns:repeat(auto-fit,minmax(170px,1fr))">${fans.map(x=>`<div class="mini" style="grid-template-columns:minmax(0,1fr) auto">${userBtn(x.n)}<span class="f-kucuk">${x.c} film <span class="pill score">${fmt1(x.a)}</span></span></div>`).join('')}</div>`:'<span class="f-ana muted">Henüz en az 2 filmine puan veren üye yok.</span>'}</div>
+    <div class="tile"><span class="f-kucuk muted" data-tip="Bu yönetmenin en az 2 filmine puan veren üyeler, ortalama puanlarına göre sıralı.">Fanboy'lar · en az 2 filmine puan verip en yüksek ortalamayı verenler</span>${fansHTML(fans)}</div>
     <div class="mt-wrap"><table class="mtable"><thead><tr><th class="f-kucuk">Film</th><th class="f-kucuk c" style="width:70px">Yıl</th><th class="f-kucuk c" style="width:80px">IMDb</th><th class="f-kucuk c" style="width:80px">Pati</th><th class="f-kucuk" style="width:32%">Öneren</th></tr></thead><tbody>
     ${fs.map(f=>`<tr><td><div class="mini" style="grid-template-columns:30px minmax(0,1fr)"><img src="${f.poster}" alt=""><button class="linkbtn f-bold" type="button" data-share="${f.tt}">${esc(f.title)}</button></div></td><td class="c f-ana num">${f.year??''}</td><td class="c">${pills.imdb(f)}</td><td class="c">${pills.pati(f)}</td><td>${userBtn(f.main.author)}</td></tr>`).join('')}</tbody></table></div>`;
   openModal($('mDir'));
@@ -1279,16 +1419,16 @@ function alsoLiked(f){
 const GUSTO=[...DEV.entries()].filter(([n,v])=>v.length>=10&&U.get(n).scores.length>=15).map(([n,v])=>({n,d:mean(v.map(x=>Math.abs(x.d))),v})).sort((a,b)=>b.d-a.d).slice(0,10);
 const gToday=GUSTO.length?GUSTO[Math.floor(Date.now()/864e5)%GUSTO.length]:null;
 fill($('gSel'),GUSTO.map(g=>g.n),n=>`${n} (±${fmt1(GUSTO.find(g=>g.n===n).d)})`);
-function gustoTable(rows,title){
+function gustoTable(rows,title,name){
   if(!rows.length)return '';
   return `<div class="mt-wrap"><table class="mtable"><thead><tr><th class="f-kucuk">${title}</th><th class="f-kucuk c" style="width:90px">Diğer üye</th><th class="f-kucuk c" style="width:90px">Puanı</th><th class="f-kucuk c" style="width:150px">Diğerleri (medyan)</th><th class="f-kucuk c" style="width:90px">Fark</th></tr></thead><tbody>
-  ${rows.map(x=>`<tr><td><div class="mini" style="grid-template-columns:30px minmax(0,1fr)"><img src="${x.f.poster}" alt=""><button class="linkbtn f-bold" type="button" data-share="${x.f.tt}">${esc(x.f.title)}</button></div></td><td class="c f-ana num">${x.n}</td><td class="c"><span class="pill score">${fmt1(x.s)}</span></td><td class="c"><span class="pill pati">${fmt1(x.m)}</span></td><td class="c f-puan num">${sgn(x.d)}</td></tr>`).join('')}</tbody></table></div>`;
+  ${rows.map(x=>`<tr><td><div class="mini" style="grid-template-columns:30px minmax(0,1fr)"><img src="${x.f.poster}" alt=""><button class="linkbtn f-bold" type="button" data-share="${x.f.tt}">${esc(x.f.title)}</button></div></td><td class="c f-ana num">${x.n}</td><td class="c"><span class="pill score">${fmt1(x.s)}</span>${msgIcon(postOf(x.f,name))}</td><td class="c"><span class="pill pati">${fmt1(x.m)}</span></td><td class="c f-puan num">${sgn(x.d)}</td></tr>`).join('')}</tbody></table></div>`;
 }
 function renderGusto(){
   const g=GUSTO.find(x=>x.n===$('gSel').value);if(!g){$('gOut').innerHTML='';return}
   const up=g.v.filter(x=>x.d>0).sort((a,b)=>b.d-a.d),dn=g.v.filter(x=>x.d<0).sort((a,b)=>a.d-b.d);
   $('gOut').innerHTML=`<div class="ugrid">${[[userBtn(g.n),'üye'],['±'+fmt1(g.d),'ortalama ayrışma'],[g.v.length,'karşılaştırılan film'],[up.length+' / '+dn.length,'fazla / az sevdiği']].map(([v,l])=>`<div class="tile"><span class="f-kucuk muted">${l}</span><b class="f-bold">${v}</b></div>`).join('')}</div>
-    ${gustoTable(up,'Forumdan fazla sevdikleri')}${gustoTable(dn,'Forumdan az sevdikleri')}`;
+    ${gustoTable(up,'Forumdan fazla sevdikleri',g.n)}${gustoTable(dn,'Forumdan az sevdikleri',g.n)}`;
 }
 $('gSel').addEventListener('change',renderGusto);
 function openGusto(n){if(n)$('gSel').value=n;renderGusto();openModal($('mGusto'))}
@@ -1310,39 +1450,6 @@ function renderKasif(){
 }
 document.querySelectorAll('[data-tt]').forEach(b=>b.addEventListener('click',()=>{topTab=b.dataset.tt;document.querySelectorAll('[data-tt]').forEach(x=>{x.classList.toggle('on',x===b);x.classList.toggle('ghost',x!==b)});
   $('topNote').hidden=topTab!=='n';if(topTab==='n')renderTop();else if(topTab==='k')renderKasif();else renderBadges()}));
-
-/* Pati Ödülleri */
-const VOTE={year:2026,formUrl:'',closes:'31 Aralık 2026'};
-const AWY=uniq(DATA.map(f=>f.ryear)).sort();
-function awardsOf(y){
-  const fy=DATA.filter(f=>f.ryear===y);
-  const cnt=new Map();DATA.forEach(f=>[f.main,...f.others].forEach(e=>{if(e.date.startsWith(y))cnt.set(e.author,(cnt.get(e.author)||0)+1)}));
-  return [
-    {k:'Yılın filmi',d:'O yıl ya da bir önceki yıl çıkan, o yıl başlığa ilk kez yazılan, en az 2 puanlı filmler içinde Pati puanı en yüksek olan.',l:fy.filter(f=>f.nv>=2&&f.year&&f.year>=+y-1).sort((a,b)=>b.pati-a.pati).map(f=>({f,v:'Pati '+fmt1(f.pati)}))},
-    {k:'Yılın keşfi',d:'O yıl önerilen, en az 10 yaşında, en az 2 puanlı filmler içinde Pati puanı en yüksek olan.',l:fy.filter(f=>f.nv>=2&&f.year&&f.year<=+y-10).sort((a,b)=>b.pati-a.pati).map(f=>({f,v:'Pati '+fmt1(f.pati)}))},
-    {k:'Yılın tartışması',d:'O yıl önerilen, en az 3 puanlı filmler içinde puanları en çok ayrışan.',l:fy.filter(f=>f.sd!=null).sort((a,b)=>b.sd-a.sd).map(f=>({f,v:'sapma ±'+fmt1(f.sd)}))},
-    {k:'Yılın üyesi',d:'O yıl başlıkta en çok filme yazan üye.',l:[...cnt.entries()].sort((a,b)=>b[1]-a[1]).map(([n,c])=>({u:n,v:c+' film'}))}
-  ];
-}
-function awItem(x,big){
-  if(x.f)return big?`<div class="win"><img src="${x.f.poster}" alt=""><div style="display:flex;flex-direction:column;gap:3px;min-width:0"><button class="linkbtn f-bold" type="button" data-share="${x.f.tt}">${esc(x.f.title)}</button><span class="f-kucuk muted">${x.f.year??''} · ${x.v}</span><span class="f-kucuk">Öneren: <b>${esc(x.f.main.author)}</b></span></div></div>`
-    :`<div class="mini"><img src="${x.f.poster}" alt=""><button class="linkbtn f-ana" type="button" data-share="${x.f.tt}">${esc(x.f.title)}</button><span class="f-kucuk muted">${x.v}</span></div>`;
-  return `<div class="mini" style="grid-template-columns:minmax(0,1fr) auto">${userBtn(x.u)}<span class="f-kucuk muted">${x.v}</span></div>`;
-}
-function renderAw(y){
-  $('awYears').innerHTML=[...AWY].reverse().map(x=>`<button class="btn f-kucuk ${x===y?'on':'ghost'}" type="button" data-awy="${x}">${x}${+x===VOTE.year?' · oylama':''}</button>`).join('');
-  const A=awardsOf(y),live=+y===VOTE.year;
-  const head=live?`<div class="uc"><div><div style="display:flex;flex-direction:column;gap:3px"><b class="f-bold">${y} Pati Ödülleri · Oylama yapım aşamasında</b><span class="f-kucuk muted">Adaylar bu yılki forum verisinden çıkarıldı, liste yıl boyunca güncellenir. Kazananları üyeler oylayacak, oylama ${VOTE.closes} tarihinde kapanır.</span></div>
-      ${VOTE.formUrl?`<a class="btn f-bold on" href="${esc(VOTE.formUrl)}" target="_blank" rel="noopener">Oy ver</a>`:'<button class="btn f-bold" type="button" disabled data-tip="Oylama formu hazırlanıyor.">Oy ver · yakında</button>'}</div></div>`
-    :`<div class="f-kucuk muted">${y} kazananları forum verisinden hesaplandı (üye oylaması yok). Her kategoride kazanan ve iki aday.</div>`;
-  $('awOut').innerHTML=head+`<div class="aw" style="margin-top:10px">${A.map(c=>`<div class="awc"><div><b class="f-bold">${c.k}</b>${live?' <span class="f-kucuk muted">· adaylar</span>':''}<div class="f-kucuk muted">${c.d}</div></div>
-    ${c.l.length?(live?c.l.slice(0,5).map(x=>awItem(x,false)).join(''):awItem(c.l[0],true)+c.l.slice(1,3).map(x=>awItem(x,false)).join('')):'<span class="f-ana muted">Bu yıl için yeterli veri yok.</span>'}</div>`).join('')}</div>`;
-}
-document.addEventListener('click',e=>{const b=e.target.closest('[data-awy]');if(b)renderAw(b.dataset.awy)});
-$('awBtn').addEventListener('click',()=>{renderAw(String(VOTE.year));openModal($('mAw'))});
-
-
-$('scBtn').addEventListener('click',()=>{renderSc();openModal($('mSc'))});
 
 /* Hangi üyeye benziyorsun? */
 const QF=[...DATA].filter(f=>f.nv>=2).sort((a,b)=>b.nv-a.nv||(b.pati??0)-(a.pati??0)).slice(0,15);
@@ -1409,7 +1516,7 @@ function search(){
     add('Yıllar',[fy&&{h:`<span class="ic">▣</span><span class="f-bold">${q} yapımı filmler</span><span class="f-kucuk muted">${fy} film</span>`,go:()=>addTok({t:'year',v:q,l:q})},ry&&{h:`<span class="ic">▣</span><span class="f-bold">Forumda ${q} yılında yazılanlar</span><span class="f-kucuk muted">${ry} film</span>`,go:()=>addTok({t:'ryear',v:q,l:q})}].filter(Boolean))}
   if(q.length>=3){const hits=normC().filter(([,t])=>t.includes(q));
     add('Yorumlarda geçen',hits.slice(0,6).map(([p])=>{const m=POSTS[p]||[],f=m[3]&&m[3][0]?byTT.get(m[3][0]):null;
-      return {h:`<span class="ic">❝</span><span style="min-width:0"><span class="f-bold">${esc(m[0]||'')}</span> <span class="f-kucuk muted">${m[1]?fmtDate(m[1]):''}${f?' · '+esc(f.title):''}</span><div class="snip f-kucuk">${hl(COMMENTS[p],q)}</div></span><span class="f-kucuk muted">${f?'kart':'mesaj'}</span>`,
+      return {h:`<span class="ic">❝</span><span style="min-width:0"><span class="f-bold">${esc(m[0]||'')}</span>${msgIcon(p)} <span class="f-kucuk muted">${m[1]?fmtDate(m[1]):''}${f?' · '+esc(f.title):''}</span><div class="snip f-kucuk">${hl(COMMENTS[p],q)}</div></span><span class="f-kucuk muted">${f?'kart':'mesaj'}</span>`,
         go:()=>{closeDrop();if(f)openCard(f.tt);else window.open(link(p),'_blank','noopener')}}}),hits.length)}
   let h='';grp.forEach(g=>{h+=`<div class="sgh f-kucuk"><span>${g.title}</span>${g.more>g.items.length?`<span>${g.items.length} / ${g.more}</span>`:''}</div>`;g.items.forEach(it=>{h+=`<div class="sit" role="option" data-si="${SI.length}">${it.h}</div>`;SI.push(it)})});
   $('sdrop').innerHTML=h||'<div class="sempty f-ana muted">Eşleşme yok. Enter ile metin araması tabloya uygulanır.</div>';$('sdrop').hidden=false;$('q').setAttribute('aria-expanded','true');
@@ -1425,7 +1532,7 @@ $('q').addEventListener('keydown',e=>{
   else if(e.key==='Escape'){if(!$('sdrop').hidden){e.stopPropagation();closeDrop()}}
   else if(e.key==='Backspace'&&!$('q').value&&TOK.length){TOK.pop();renderTok();render(true)}
 });
-$('sdrop').addEventListener('mousedown',e=>{const it=e.target.closest('[data-si]');if(it){e.preventDefault();SI[+it.dataset.si].go()}});
+$('sdrop').addEventListener('mousedown',e=>{const mi=e.target.closest('.msgi');if(mi){e.preventDefault();e.stopPropagation();window.open(mi.href,'_blank','noopener');return}const it=e.target.closest('[data-si]');if(it){e.preventDefault();SI[+it.dataset.si].go()}});
 document.addEventListener('click',e=>{if(!e.target.closest('.sfld'))closeDrop()});
 
 /* Linkte filtre durumu */
@@ -1461,7 +1568,7 @@ function openAll(tt){
   const f=byTT.get(tt);if(!f)return;const ps=postsOf(tt);
   const sc=new Map([f.main,...f.others].map(e=>[e.post,e.score]));
   $('aTitle').textContent=`${f.title} · tüm mesajlar (${ps.length})`;
-  $('aOut').innerHTML=ps.length?ps.map(p=>{const m=POSTS[p];return `<div class="cq"><div class="row">${userBtn(m[0])}<span style="display:flex;gap:8px;align-items:center"><span class="f-kucuk muted">${fmtDate(m[1])} · sayfa ${m[2]}</span>${sc.has(p)&&sc.get(p)!=null?`<span class="s f-puan">${fmt1(sc.get(p))}</span>`:''}<a class="msg" href="${link(p)}" target="_blank" rel="noopener" title="Mesaja git" aria-label="Mesaja git"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M2.5 3.5h11v7h-6l-3 2.5v-2.5h-2z"/></svg></a></span></div>${quoteHTML(COMMENTS[p])}</div>`}).join(''):'<div class="f-ana muted">Bu film için mesaj metni yok.</div>';
+  $('aOut').innerHTML=ps.length?ps.map(p=>{const m=POSTS[p];return `<div class="cq"><div class="row">${userBtn(m[0])}<span style="display:flex;gap:8px;align-items:center"><span class="f-kucuk muted">${fmtDate(m[1])} · sayfa ${m[2]}</span>${sc.has(p)&&sc.get(p)!=null?`<span class="s f-puan">${fmt1(sc.get(p))}</span>`:''}<a class="msg" href="${link(p)}" target="_blank" rel="noopener" title="Mesaja git" aria-label="Mesaja git"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M2.5 3.5h11v7h-6l-3 2.5v-2.5h-2z"/></svg></a></span></div>${quoteHTML(textFor(p,tt))}${partNote(p,tt)}</div>`}).join(''):'<div class="f-ana muted">Bu film için mesaj metni yok.</div>';
   openModal($('mAll'));
 }
 $('shAll').addEventListener('click',()=>{if(curTT)openAll(curTT)});
@@ -1470,7 +1577,7 @@ $('shAll').addEventListener('click',()=>{if(curTT)openAll(curTT)});
 const BUGMAIL='koyu2siyah@gmail.com';
 function cardLinks(f){
   $('shJW').href='https://www.justwatch.com/tr/arama?q='+encodeURIComponent(f.alt||f.title);
-  const n=postsOf(f.tt).length;$('shAll').textContent=`Tüm mesajlar (${n})`;$('shAll').disabled=!n;
+  
   const body=`Film: ${f.title} (${f.year??'?'})\nIMDb: https://www.imdb.com/title/${f.tt}/\nSite linki: ${location.origin+location.pathname}#${f.tt}\n\nNe yanlış? (yanlış film, yanlış puan, yanlış üye vb.)\n`;
   $('shBug').href=`mailto:${BUGMAIL}?subject=${encodeURIComponent('Pati film listesi hata: '+f.title)}&body=${encodeURIComponent(body)}`;
 }
@@ -1494,17 +1601,9 @@ document.addEventListener('click',e=>{if(e.target.closest('#lOut [data-cart]'))s
 function renderBadges(){
   $('topHead').innerHTML='<th class="f-kucuk c" style="width:70px">Basamak</th><th class="f-kucuk" style="width:110px">Rozet</th><th class="f-kucuk" style="width:34%">Ölçüt</th><th class="f-kucuk">Üyeler</th>';
   $('topBody').innerHTML=LADDER.map(([k,d],i)=>{const us=[...BADGE.entries()].filter(([,b])=>b.k===k).map(([n])=>n).sort((a,b)=>U.get(b).films.length-U.get(a).films.length);
-    return `<tr><td class="c rank f-bold">${i+1}</td><td><span class="bdg f-dipnot ${i<3?'g':''}" style="font-size:10px;padding:2px 6px">${k}</span></td><td class="f-kucuk">${d}</td><td><div class="ulist">${us.slice(0,30).map(n=>userBtn(n,'f-ana')).join('')}${us.length>30?`<span class="f-kucuk muted">ve ${us.length-30} üye daha</span>`:''}${!us.length?'<span class="f-kucuk muted">Henüz yok</span>':''}</div></td></tr>`}).join('');
+    return `<tr><td class="c rank f-bold">${i+1}</td><td><span class="bdg f-dipnot ${i<3?'g':''}" style="font-size:10px;padding:2px 6px">${k}</span></td><td class="f-kucuk">${d}</td><td><div class="ulist grid">${us.slice(0,30).map(n=>userBtn(n,'f-ana')).join('')}${us.length>30?`<span class="f-kucuk muted">ve ${us.length-30} üye daha</span>`:''}${!us.length?'<span class="f-kucuk muted">Henüz yok</span>':''}</div></td></tr>`}).join('');
 }
 
-/* Geçmiş yıllarda bugün */
-function onThisDay(){
-  const now=new Date(),md=d=>d.slice(5);const today=now.toISOString().slice(5,10);
-  const near=(y)=>{for(let k=0;k<=3;k++){for(const s of k?[k,-k]:[0]){const d=new Date(Date.UTC(y,now.getUTCMonth(),now.getUTCDate()+s)).toISOString().slice(0,10);
-      const fs=DATA.filter(f=>[f.main,...f.others].some(e=>e.date===d));if(fs.length)return {d,fs:fs.sort((a,b)=>(b.pati??0)-(a.pati??0))}}}return null};
-  const rows=[1,5,10].map(k=>{const y=now.getUTCFullYear()-k,r=near(y);return r?`<div class="otd"><span class="f-puan">${k} yıl</span><span style="min-width:0"><button class="linkbtn f-bold" type="button" data-share="${r.fs[0].tt}">${esc(r.fs[0].title)}</button> <span class="f-kucuk muted">${fmtDate(r.d)}${r.fs.length>1?` · +${r.fs.length-1} film`:''}</span></span></div>`:`<div class="otd"><span class="f-puan">${k} yıl</span><span class="f-kucuk muted">o günlerde film yazılmamış</span></div>`}).join('');
-  return `<div class="tile" data-tip="1, 5 ve 10 yıl önce bugün (ya da en yakın gün) başlıkta yazılan filmler. Her gün değişir."><span class="f-kucuk muted">geçmiş yıllarda bugün</span>${rows}</div>`;
-}
 
 /* Klavye kısayolları */
 document.addEventListener('keydown',e=>{
@@ -1515,54 +1614,6 @@ document.addEventListener('keydown',e=>{
   else if(e.key==='t'||e.key==='T'){$('themeBtn').click()}
   else if(e.key==='?'){openModal($('mKeys'))}
 });
-
-/* Wrapped */
-let wrapMode='me',wrapYear='';
-function wrapMe(y){
-  const ent=Object.entries(W).filter(([tt,v])=>byTT.has(tt)&&(!y||(v.d||'').startsWith(y))).map(([tt,v])=>({f:byTT.get(tt),...v}));
-  if(!ent.length)return {empty:'Bu dönem için işaretlediğin film yok. Tabloda ya da kartta "İzledim" ve puan vererek başla.'};
-  const sc=ent.filter(x=>x.s!=null);const gc={};ent.forEach(x=>(x.f.genres||[]).forEach(g=>gc[g]=(gc[g]||0)+1));
-  const g=Object.entries(gc).sort((a,b)=>b[1]-a[1]);const diffs=sc.filter(x=>x.f.pati!=null).map(x=>Math.abs(x.s-x.f.pati));
-  const best=[...sc].sort((a,b)=>b.s-a.s)[0],old=[...ent].filter(x=>x.f.year).sort((a,b)=>a.f.year-b.f.year)[0];
-  const res=[];for(const u of U.values()){if(u.scores.length<3)continue;const m=new Map(u.films.filter(x=>x.score!=null).map(x=>[x.f.tt,x.score]));const c=sc.filter(x=>m.has(x.f.tt)).map(x=>Math.abs(x.s-m.get(x.f.tt)));if(c.length>=3)res.push({n:u.name,p:Math.max(0,Math.round(100-mean(c)*10)),c:c.length})}
-  res.sort((a,b)=>b.p-a.p||b.c-a.c);
-  return {title:y?`${y} Pati Wrapped'ım`:'Pati Wrapped\'ım',big:[[ent.length,'film izledin'],[fmt1(mean(sc.map(x=>x.s))),'puan ortalaman'],[diffs.length?'%'+Math.max(0,Math.round(100-mean(diffs)*10)):'–','forumla uyumun']],
-    rows:[['En sevdiğin tür',g[0]?`${gTR(g[0][0])} (${g[0][1]})`:'–'],['En yüksek puanın',best?`${best.f.title} · ${fmt1(best.s)}`:'–'],['En eski filmin',old?`${old.f.title} (${old.f.year})`:'–'],['Zevk ikizin',res[0]?`${res[0].n} · %${res[0].p}`:'en az 3 ortak puan gerekiyor']],
-    hist:sc.length?histOf(sc.map(x=>x.s)):null,genres:g.slice(0,5)};
-}
-function wrapForum(y){
-  const fy=DATA.filter(f=>f.ryear===y);const ents=[];DATA.forEach(f=>[f.main,...f.others].forEach(e=>{if(e.date.startsWith(y))ents.push({...e,f})}));
-  const cnt=new Map();ents.forEach(e=>cnt.set(e.author,(cnt.get(e.author)||0)+1));const act=[...cnt.entries()].sort((a,b)=>b[1]-a[1]);
-  const firstY=new Map();U.forEach(u=>firstY.set(u.name,u.films.map(x=>x.date).sort()[0].slice(0,4)));
-  const newbies=[...cnt.keys()].filter(n=>firstY.get(n)===y).length;
-  const gc={};fy.forEach(f=>(f.genres||[]).forEach(g=>gc[g]=(gc[g]||0)+1));const g=Object.entries(gc).sort((a,b)=>b[1]-a[1]);
-  const A=awardsOf(y);const mon=Array(12).fill(0);ents.forEach(e=>mon[+e.date.slice(5,7)-1]++);
-  const sc=ents.filter(e=>e.score!=null).map(e=>e.score);
-  return {title:`${y} Forum Wrapped`,big:[[fy.length,'yeni film'],[cnt.size,'aktif üye'],[sc.length,'puan']],
-    rows:[['Yılın filmi',A[0].l[0]?`${A[0].l[0].f.title} · ${A[0].l[0].v}`:'–'],['En aktif üye',act[0]?`${act[0][0]} · ${act[0][1]} film`:'–'],['En çok yazılan tür',g[0]?`${gTR(g[0][0])} (${g[0][1]})`:'–'],['Puan ortalaması',fmt1(mean(sc))],['Aramıza katılan',newbies+' üye']],
-    hist:mon,histLab:['O','Ş','M','N','M','H','T','A','E','E','K','A'],genres:g.slice(0,5)};
-}
-function renderWrap(){
-  const myYears=uniq(Object.values(W).map(v=>(v.d||'').slice(0,4)).filter(Boolean)).sort().reverse();
-  const ys=wrapMode==='me'?['',...myYears]:[...AWY].reverse();if(!ys.includes(wrapYear))wrapYear=ys[0];
-  $('wYears').innerHTML=ys.map(y=>`<button class="btn f-kucuk ${y===wrapYear?'on':'ghost'}" type="button" data-wy="${y}">${y||'Tüm zamanlar'}</button>`).join('');
-  document.querySelectorAll('[data-wm]').forEach(b=>{b.classList.toggle('on',b.dataset.wm===wrapMode);b.classList.toggle('ghost',b.dataset.wm!==wrapMode)});
-  const d=wrapMode==='me'?wrapMe(wrapYear):wrapForum(wrapYear);
-  if(d.empty){$('wCard').innerHTML=`<div class="f-ana" style="padding:20px">${d.empty}</div>`;return}
-  $('wCard').innerHTML=`<div class="top f-kucuk"><span>Paticik · Bugün Ne Seyrettiniz?</span><span>${fmtDate(new Date().toISOString().slice(0,10))}</span></div>
-    <div class="wbody"><h2 class="f-buyuk" style="margin:0">${esc(d.title)}</h2>
-    <div class="wbig">${d.big.map(([v,l])=>`<div><b>${v}</b><span class="f-kucuk">${l}</span></div>`).join('')}</div>
-    <div class="wrows">${d.rows.map(([l,v])=>`<div><span class="f-kucuk muted">${l}</span><b class="f-bold">${esc(v)}</b></div>`).join('')}</div>
-    ${d.hist?`<div><span class="f-kucuk muted">${wrapMode==='me'?'verdiğin puanlar (1-10)':'aylara göre yazılan film'}</span>${bars(d.hist,{w:380,h:56,color:wrapMode==='me'?scoreCol:'var(--dark)',labels:d.histLab||[1,2,3,4,5,6,7,8,9,10]})}</div>`:''}
-    ${d.genres.length?`<div class="chips">${d.genres.map(([g,n])=>`<span class="chip f-kucuk">${esc(gTR(g))} ${n}</span>`).join('')}</div>`:''}</div>
-    <div class="bot f-kucuk"><span>Pati Wrapped</span><span>forum.paticik.com</span></div>`;
-}
-document.addEventListener('click',e=>{const a=e.target.closest('[data-wy]');if(a){wrapYear=a.dataset.wy;renderWrap()}const b=e.target.closest('[data-wm]');if(b){wrapMode=b.dataset.wm;wrapYear=wrapMode==='me'?'':String(new Date().getFullYear());renderWrap()}});
-$('wrapBtn').addEventListener('click',()=>{wrapMode='me';wrapYear='';renderWrap();openModal($('mWrap'))});
-$('wPng').addEventListener('click',async()=>{$('wMsg').textContent='Görsel hazırlanıyor…';try{if(!window.html2canvas)throw 0;const c=await html2canvas($('wCard'),{scale:2,backgroundColor:null,logging:false});const b=await new Promise(r=>c.toBlob(r,'image/png'));
-  const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='pati-wrapped.png';document.body.appendChild(a);a.click();a.remove();$('wMsg').textContent='PNG indirildi.'}catch(e){$('wMsg').textContent='Görsel oluşturulamadı.'}});
-$('wShare').addEventListener('click',async()=>{try{const c=await html2canvas($('wCard'),{scale:2,backgroundColor:null,logging:false});const b=await new Promise(r=>c.toBlob(r,'image/png'));const file=new File([b],'pati-wrapped.png',{type:'image/png'});
-  if(navigator.canShare&&navigator.canShare({files:[file]})){await navigator.share({files:[file],title:'Pati Wrapped'});return}$('wMsg').textContent='Bu tarayıcı doğrudan paylaşımı desteklemiyor. PNG indirip paylaşabilirsin.'}catch(e){if(e&&e.name==='AbortError')return;$('wMsg').textContent='Paylaşım açılamadı.'}});
 
 /* Pati ve IMDb grafiği (yakınlaştırmalı) */
 fill($('scG'),uniq(DATA.flatMap(f=>f.genres||[])).sort((a,b)=>gTR(a).localeCompare(gTR(b),'tr')),gTR);
@@ -1637,13 +1688,267 @@ function renderSc(){
   const rs=$('scReset');if(rs)rs.addEventListener('click',()=>{scDom=null;renderSc()});
 }
 ['scMin','scG','scD','scC'].forEach(id=>$(id).addEventListener('change',()=>{scDom=null;renderSc()}));
+$('scBtn').addEventListener('click',()=>{scDom=null;renderSc();openModal($('mSc'))});
 
 function sizeOthers(){
   try{const c=document.createElement('canvas').getContext('2d');c.font='400 13px Montserrat, sans-serif';let mx=0;
-    DATA.forEach(f=>f.others.forEach(o=>{const u=U.get(o.author);let w=c.measureText(o.author).width;if(u&&u.elo!=null){c.font='700 8px Montserrat, sans-serif';w+=c.measureText(fmtN(u.elo)).width+10;{const b=BADGE.get(o.author);if(b)w+=c.measureText(b.k).width+10}c.font='400 13px Montserrat, sans-serif'}if(w>mx)mx=w}));
+    DATA.forEach(f=>f.others.forEach(o=>{const u=U.get(o.author);let w=c.measureText(o.author).width;if(u&&u.elo!=null){c.font='700 8px Montserrat, sans-serif';w+=c.measureText(fmt1(u.elo)).width+10;{const b=BADGE.get(o.author);if(b)w+=c.measureText(b.k).width+10}c.font='400 13px Montserrat, sans-serif'}if(w>mx)mx=w}));
     document.documentElement.style.setProperty('--othw',Math.ceil(mx+4)+'px')}catch(e){}
 }
 sizeOthers();if(document.fonts&&document.fonts.ready)document.fonts.ready.then(sizeOthers);
+/* ===== v5 ===== */
+const SVG_MSG='<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M2.5 3.5h11v7h-6l-3 2.5v-2.5h-2z"/></svg>';
+function msgIcon(p){return p?`<a class="msgi" href="${link(p)}" target="_blank" rel="noopener" title="Forumdaki mesaja git" aria-label="Forumdaki mesaja git">${SVG_MSG}</a>`:''}
+function postOf(f,a){const e=[f.main,...f.others].find(x=>x.author===a);return e?e.post:null}
+const END=new Date(META.end);const CUT7=new Date(END-7*864e5).toISOString().slice(0,10);
+const isNew=f=>f.main.date>=CUT7;
+
+/* Satıra tıklayınca kart */
+$('tb').addEventListener('click',e=>{if(e.target.closest('a,button,select,input,label,.user,.dirbtn,.msgi'))return;const tr=e.target.closest('tr.film');if(tr&&tr.dataset.film)openCard(tr.dataset.film)});
+
+
+/* Çok filmli mesajlarda yalnızca o filmin bölümü */
+const SEGH=/(\((19|20)\d\d\)|\bsezon\b|\bseason\b|\(\s*(netflix|apple|prime|hbo|disney|mubi|blutv|exxen)[^)]*\))/i;
+const nmz=s=>norm(s).replace(/[^a-z0-9]+/g,' ').trim();
+const SEGC=new Map();
+function segOf(p,tt){const key=p+'|'+tt;if(SEGC.has(key))return SEGC.get(key);let r=null;
+  try{const txt=COMMENTS[p]||'',m=POSTS[p],tts=(m&&m[3])||[];const lines=txt.split('\n');
+    const nm={};tts.forEach(x=>{const f=byTT.get(x);nm[x]=f?[f.title,f.alt].filter(Boolean).map(nmz).filter(n=>n.length>=3):[]});
+    const heads=[];lines.forEach((l,i)=>{const n=nmz(l);if(!n||l.length>110)return;let o=null,ol=0;
+      for(const x of tts)for(const s of nm[x])if(n.startsWith(s)||(n.includes(s)&&n.length<=s.length+25)){o=x;ol=s.length;break}
+      if(o||SEGH.test(l))heads.push({i,o,ol})});
+    if(heads.length>=2){const k=heads.findIndex(h=>h.o===tt);if(k>=0){const e=k+1<heads.length?heads[k+1].i:lines.length;const s=lines.slice(heads[k].i,e).join('\n').trim();
+      if(nmz(s).length>=heads[k].ol+6)r=s}}}catch(e){}
+  SEGC.set(key,r);return r}
+const textFor=(p,tt)=>segOf(p,tt)||COMMENTS[p]||'';
+const partNote=(p,tt)=>segOf(p,tt)?`<span class="f-kucuk muted">Mesajda birden çok yapım var, yalnızca bu filmle ilgili bölüm gösteriliyor.${msgIcon(p)}</span>`:'';
+
+/* Karttaki puan dağılımı: ızgaralı */
+function distChart(votes){
+  const h=histOf(votes),mx=Math.max(1,...h),W2=190,H2=78,L=18,B=14,T=6,R=4,bw=(W2-L-R)/10;
+  const Y=v=>T+(H2-T-B)*(1-v/mx);
+  let s=`<svg class="dchart" viewBox="0 0 ${W2} ${H2}" width="${W2}" height="${H2}" role="img" aria-label="Üye puanlarının dağılımı">`;
+  const step=mx<=4?1:Math.ceil(mx/4);
+  for(let v=0;v<=mx;v+=step)s+=`<line x1="${L}" x2="${W2-R}" y1="${Y(v).toFixed(1)}" y2="${Y(v).toFixed(1)}" stroke="var(--line)" stroke-width=".6" ${v?'stroke-dasharray="2 2"':''}/><text x="${L-4}" y="${(Y(v)+3).toFixed(1)}" text-anchor="end" font-size="8">${v}</text>`;
+  for(let i=0;i<=10;i++)s+=`<line x1="${(L+i*bw).toFixed(1)}" x2="${(L+i*bw).toFixed(1)}" y1="${T}" y2="${H2-B}" stroke="var(--line)" stroke-width=".4" opacity=".6"/>`;
+  h.forEach((v,i)=>{const x=L+i*bw+2;if(v)s+=`<rect x="${x.toFixed(1)}" y="${Y(v).toFixed(1)}" width="${(bw-4).toFixed(1)}" height="${(H2-B-Y(v)).toFixed(1)}" rx="1.5" fill="${scoreCol(i)}"/>`;
+    s+=`<text x="${(x+(bw-4)/2).toFixed(1)}" y="${H2-3}" text-anchor="middle" font-size="8">${i+1}</text>`});
+  return s+'</svg>';
+}
+
+/* Kart yanı düğmeleri */
+function syncSide(){
+  if(!curTT)return;const f=byTT.get(curTT);const c=inCart(curTT),w=W[curTT];
+  const sc=$('shCart');sc.classList.toggle('on',c);sc.dataset.tip=c?'Sepetten çıkar. Film şu an izlenecekler sepetinde.':'Sepete ekle: filmi izlenecekler sepetine koyar. Sepet sağ alttaki düğmeden açılır, bu tarayıcıda saklanır.';
+  const sw=$('shW');sw.classList.toggle('on',!!w);sw.dataset.tip=w?'İzlediklerimden çıkar. Bu filmi izledin olarak işaretlemişsin.':'İzledim olarak işaretle: film "İzlediklerim" filtresinde ve Kime benziyorum? testinde kullanılır.';
+  const sm=$('shMy');sm.querySelector('b')?.remove();if(w&&w.s!=null)sm.insertAdjacentHTML('beforeend',`<b>${w.s}</b>`);sm.classList.toggle('on',!!(w&&w.s!=null));
+  const n=postsOf(curTT).length;const sa=$('shAll');sa.querySelector('b')?.remove();sa.insertAdjacentHTML('beforeend',`<b>${n}</b>`);sa.disabled=!n;
+}
+function syncCardCart(){syncSide()}
+function syncCardW(){syncSide()}
+$('shW').addEventListener('click',()=>{if(curTT)setWatched(curTT,!W[curTT])});
+$('shMy').addEventListener('click',e=>{e.stopPropagation();const old=document.querySelector('.scorepop');if(old){old.remove();return}
+  const cur=W[curTT]&&W[curTT].s;const p=document.createElement('div');p.className='scorepop';
+  p.innerHTML=SCORES.map(s=>`<button type="button" data-my="${s}" class="${cur===s?'on':''}">${s}</button>`).join('')+`<button type="button" class="x" data-my="">Puanımı kaldır</button>`;
+  $('shMy').parentElement.style.position='relative';$('shMy').insertAdjacentElement('afterend',p);
+  p.addEventListener('click',ev=>{const b=ev.target.closest('[data-my]');if(!b)return;ev.stopPropagation();setMy(curTT,b.dataset.my===''?null:+b.dataset.my);p.remove()})});
+document.addEventListener('click',e=>{if(!e.target.closest('.scorepop,#shMy'))document.querySelector('.scorepop')?.remove()});
+
+/* Fanboy'lar */
+function fansHTML(fans){
+  if(!fans.length)return '<span class="f-ana muted">Henüz en az 2 filmine puan veren üye yok.</span>';
+  return `<div class="fans"><span class="h c">#</span><span class="h">Üye</span><span class="h c">Film</span><span class="h c">Ortalama</span>${fans.map((x,i)=>`<span class="n">${i+1}</span><span style="min-width:0">${userBtn(x.n)}</span><span class="c f-ana">${x.c}</span><span class="c"><span class="pill score">${fmt1(x.a)}</span></span>`).join('')}</div>`;
+}
+
+/* Forum aktivitesi (üst bantta küçük) */
+function activityTile(){
+  const Y={};DATA.forEach(f=>[f.main,...f.others].forEach((e,j)=>{const y=e.date.slice(0,4);const o=Y[y]||(Y[y]={rec:0,oth:0,mem:new Set(),cnt:new Map(),films:[]});
+    if(j===0){o.rec++;o.films.push(f)}else o.oth++;o.mem.add(e.author);o.cnt.set(e.author,(o.cnt.get(e.author)||0)+1)}));
+  const ys=Object.keys(Y).sort();const mx=Math.max(...ys.map(y=>Y[y].rec+Y[y].oth));
+  const W2=440,H2=150,L=4,T=14,B=16,R=4,n=ys.length,gw=(W2-L-R)/n,bw=gw*0.68;
+  const yv=v=>T+(H2-T-B)*(1-v/mx);
+  let s=`<svg class="actv mini" viewBox="0 0 ${W2} ${H2}" role="img" aria-label="Yıllara göre forum aktivitesi">`;
+  [250,500,750].filter(v=>v<mx).forEach(v=>s+=`<line x1="${L}" x2="${W2-R}" y1="${yv(v)}" y2="${yv(v)}" stroke="var(--line)" stroke-width=".7" stroke-dasharray="3 3"/>`);
+  ys.forEach((y,i)=>{const o=Y[y],x=L+i*gw+(gw-bw)/2,tot=o.rec+o.oth;
+    const pat=mean(o.films.filter(f=>f.pati!=null).map(f=>f.pati));const top=[...o.cnt.entries()].sort((a,b)=>b[1]-a[1])[0];const best=o.films.filter(f=>f.nv>=2).sort((a,b)=>b.pati-a.pati)[0];
+    const tip=`${y}: ${tot} film yazıldı (${o.rec} yeni öneri, ${o.oth} sonradan yazılan). ${o.mem.size} aktif üye, önerilen filmlerin Pati ortalaması ${pat!=null?fmt1(pat):'-'}. En çok yazan: ${top?top[0]+' ('+top[1]+')':'-'}. Yılın en iyi filmi: ${best?best.title+' (Pati '+fmt1(best.pati)+')':'-'}.`;
+    s+=`<g class="y" data-tip="${esc(tip)}"><rect class="hit" x="${L+i*gw}" y="0" width="${gw}" height="${H2}"/>
+      <rect class="b1" x="${x}" y="${yv(o.rec)}" width="${bw}" height="${H2-B-yv(o.rec)}"/>
+      <rect class="b2" x="${x}" y="${yv(tot)}" width="${bw}" height="${yv(o.rec)-yv(tot)}"/>
+      <text x="${x+bw/2}" y="${yv(tot)-3}" text-anchor="middle" font-size="9">${tot}</text>
+      <text x="${x+bw/2}" y="${H2-3}" text-anchor="middle" font-size="10" style="fill:var(--ink);font-weight:700">'${y.slice(2)}</text></g>`});
+  s+='</svg>';
+  return `<div class="tile" style="gap:2px"><div class="khead"><span class="f-kucuk muted">yıllara göre forum aktivitesi</span><span class="actlg f-kucuk"><span><i style="background:var(--ink);opacity:.72"></i>öneri</span><span><i style="background:var(--line)"></i>sonradan</span></span></div>${s}<span class="f-kucuk muted">Yılın üzerine gel: aktif üye, Pati, en çok yazan, en iyi film.</span></div>`;
+}
+
+/* Geçmiş yıllarda bugün */
+let OTD=null,otdK=1;
+function otdData(){if(OTD)return OTD;const now=new Date();OTD={};
+  [1,5,10].forEach(k=>{const y=now.getUTCFullYear()-k;let r=null;
+    for(let d=0;d<=3&&!r;d++)for(const sgn2 of d?[d,-d]:[0]){const ds=new Date(Date.UTC(y,now.getUTCMonth(),now.getUTCDate()+sgn2)).toISOString().slice(0,10);
+      const fs=DATA.filter(f=>[f.main,...f.others].some(e=>e.date===ds));if(fs.length){r={d:ds,fs:fs.sort((a,b)=>(b.pati??0)-(a.pati??0))};break}}
+    OTD[k]=r});return OTD}
+function otdBody(k){const r=otdData()[k];
+  if(!r)return `<div class="otdv f-kucuk muted">${k} yıl önce bu günlerde başlıkta film yazılmamış.</div>`;
+  const f=r.fs[0];const who=[f.main,...f.others].find(e=>e.date===r.d);
+  return `<div class="fom otdv"><img src="${f.poster}" alt=""><div class="fomi">
+    <button class="linkbtn user" type="button" data-share="${f.tt}"><span class="nm f-bold">${esc(f.title)}</span><span class="elo f-dipnot" title="Pati puanı">${fmt1(f.pati)}</span></button>
+    <span class="f-kucuk">${[f.year,(f.genres||[]).slice(0,2).map(gTR).join(', ')].filter(Boolean).join(' · ')}</span>
+    <span class="f-kucuk">Yazan: <b>${esc(who?who.author:f.main.author)}</b>${who?msgIcon(who.post):''}</span>
+    <span class="f-kucuk muted">${fmtDate(r.d)}${r.fs.length>1?` · o gün ${r.fs.length} film`:''}</span></div></div>`}
+function onThisDay(){return `<div class="tile" id="otdTile" data-tip="1, 5 ve 10 yıl önce bugün (ya da en yakın gün) başlıkta yazılan filmlerden Pati puanı en yüksek olanı. Her gün değişir.">
+  <span class="f-kucuk muted">geçmiş yıllarda bugün</span><div id="otdBody">${otdBody(otdK)}</div><span class="seg" role="group" aria-label="Kaç yıl önce">${[1,5,10].map(k=>`<button type="button" data-otd="${k}" class="${k===otdK?'on':''}">${k} yıl</button>`).join('')}</span></div>`}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-otd]');if(!b)return;otdK=+b.dataset.otd;document.querySelectorAll('[data-otd]').forEach(x=>x.classList.toggle('on',x===b));$('otdBody').innerHTML=otdBody(otdK)});
+
+/* Son eklenenler ve son yorumlar */
+function recentRow(){const fs=DATA.filter(isNew).sort((a,b)=>b.main.date.localeCompare(a.main.date));
+  const ps=Object.keys(COMMENTS).filter(p=>POSTS[p]&&(POSTS[p][3]||[]).length&&(COMMENTS[p]||'').trim()).sort((a,b)=>(POSTS[b][1]||'').localeCompare(POSTS[a][1]||'')||(+b- +a)).slice(0,4);
+  const rec=fs.length?`<div style="display:flex;flex-direction:column;gap:6px;min-width:0"><span class="f-kucuk muted">son 7 günde önerilen filmler · ${fs.length} film</span><div class="recent">${fs.map(f=>`<button class="ri" type="button" data-share="${f.tt}"><img src="${f.poster}" alt=""><span>${esc(f.title)}</span><small>${esc(f.main.author)} · ${fmtDate(f.main.date).replace(/ \d{4}$/,'')}</small></button>`).join('')}</div></div>`:'';
+  const lc=ps.map(p=>{const m=POSTS[p],f=m[3]&&m[3][0]?byTT.get(m[3][0]):null;
+    return `<div class="lc"><div class="hd">${userBtn(m[0],'lcn')}${msgIcon(p)}<span class="ft">${fmtDate(m[1])}${f?` · <button class="linkbtn" type="button" data-share="${f.tt}" style="font:inherit;color:inherit">${esc(f.title)}</button>`:''}</span></div><div class="tx">${esc(f?textFor(p,f.tt):COMMENTS[p])}</div></div>`}).join('');
+  return `<div class="tile full"><div class="row2b">${rec}<div class="lastc"><span class="f-kucuk muted">son film yorumları</span>${lc}</div></div></div>`}
+
+/* Kart altı: benzer filmler */
+const STOP=new Set('ve ile ama bir bu şu o da de ki mi mı mu mü çok daha en gibi için ne ben sen biz siz onlar var yok olarak olan olan bence film filmi filme filmde filmin filmler filmleri izledim izlemek izleyin izledik güzel iyi kötü hiç her şey kadar sonra önce sadece bile artık zaten yani tam hem değil oldu olmuş olsa olur oldukça baya bayağı biraz pek göre karşı ise eğer diye gerçekten bana beni benim seni sana onu ona the a of and to in is it that was for on with as this film movie bi bir de da'.split(' '));
+function similar(f){const d=new Set(f.directors||[]),g=(f.genres||[])[0];
+  const sc=x=>((x.directors||[]).some(y=>d.has(y))?2:0)+((x.genres||[]).includes(g)?1:0);
+  const top=DATA.filter(x=>x.tt!==f.tt&&x.pati!=null&&sc(x)>0).sort((a,b)=>sc(b)-sc(a)||b.pati-a.pati).slice(0,3);if(!top.length)return '';
+  return `<span class="f-bold">Benzer filmler</span><span class="f-kucuk muted">Aynı yönetmenden ya da aynı türden, Pati puanı en yüksek filmler</span><div class="alist">${top.map(x=>`<button class="aitem" type="button" data-share="${x.tt}"><img src="${x.poster}" alt=""><span class="f-kucuk"><b>${esc(x.title)}</b></span><span class="f-kucuk muted">${x.year??''} · Pati ${fmt1(x.pati)}${(x.directors||[]).some(y=>d.has(y))?' · aynı yönetmen':''}</span></button>`).join('')}</div>`}
+function extrasHTML(f){const a=alsoLiked(f),s=similar(f);return (a||'')+(s?`<div class="extra">${s}</div>`:'')}
+
+/* Rozet açıklaması */
+document.addEventListener('click',e=>{const b=e.target.closest('.bdg');document.querySelector('.bdgpop')?.remove();if(!b)return;e.preventDefault();e.stopPropagation();
+  const k=b.textContent.trim();const i=LADDER.findIndex(x=>x[0]===k);if(i<0)return;const p=document.createElement('div');p.className='bdgpop';
+  p.innerHTML=`<b class="f-bold">${esc(k)} · ${i+1}. basamak</b><span class="f-kucuk">${esc(LADDER[i][1])}</span><span class="f-kucuk muted">Rozet merdiveni (her üye şartını sağladığı en üst basamağın rozetini alır):</span><ol class="f-kucuk">${LADDER.map((x,j)=>`<li class="${j===i?'on':''}">${esc(x[0])}</li>`).join('')}</ol>`;
+  document.body.appendChild(p);const r=b.getBoundingClientRect();p.style.left=Math.max(8,Math.min(r.left,innerWidth-p.offsetWidth-8))+'px';p.style.top=Math.max(8,Math.min(innerHeight-p.offsetHeight-8,r.bottom+6+p.offsetHeight>innerHeight?r.top-p.offsetHeight-6:r.bottom+6))+'px'},true);
+
+/* Klavye: listede gezinme, kartta önceki/sonraki */
+let kbRow=-1;
+document.addEventListener('keydown',e=>{
+  if(e.ctrlKey||e.metaKey||e.altKey)return;const tg=e.target.tagName;if(tg==='INPUT'||tg==='SELECT'||tg==='TEXTAREA')return;
+  const cardOpen=!$('mCard').hidden;
+  if(cardOpen&&(e.key==='ArrowRight'||e.key==='ArrowLeft')){const L=filtered();const i=L.findIndex(f=>f.tt===curTT);if(i<0)return;const j=i+(e.key==='ArrowRight'?1:-1);if(L[j]){e.preventDefault();openCard(L[j].tt)}return}
+  if([...document.querySelectorAll('.modal')].some(m=>!m.hidden))return;
+  if(e.key==='ArrowDown'||e.key==='ArrowUp'){const rows=[...document.querySelectorAll('#tb tr.film')];if(!rows.length)return;e.preventDefault();
+    kbRow=Math.max(0,Math.min(rows.length-1,kbRow+(e.key==='ArrowDown'?1:-1)));rows.forEach((r,i)=>r.classList.toggle('kb',i===kbRow));rows[kbRow].scrollIntoView&&rows[kbRow].scrollIntoView({block:'nearest'})}
+  else if(e.key==='Enter'&&kbRow>=0){const r=document.querySelectorAll('#tb tr.film')[kbRow];if(r){e.preventDefault();openCard(r.dataset.film)}}
+});
+
+/* Üye profili */
+function ringL(v){const r=22,c=2*Math.PI*r,p=v==null?0:Math.max(0,Math.min(1,v/10));
+  return `<svg width="58" height="58" viewBox="0 0 58 58" aria-hidden="true"><circle cx="29" cy="29" r="${r}" fill="none" stroke="var(--line)" stroke-width="6" opacity=".5"/><circle cx="29" cy="29" r="${r}" fill="none" stroke="${v==null?'var(--line)':fbColor(v)}" stroke-width="6" stroke-linecap="round" stroke-dasharray="${(c*p).toFixed(1)} ${c.toFixed(1)}" transform="rotate(-90 29 29)"/><text x="29" y="33" text-anchor="middle" font-family="Space Mono, monospace" font-size="13" fill="var(--ink)">${fmt1(v)}</text></svg>`}
+function timeline(u){const sc=u.films.filter(x=>x.score!=null);if(sc.length<2)return '<span class="f-kucuk muted">Zaman çizgisi için en az 2 puan gerekiyor.</span>';
+  const t=d=>new Date(d).getTime();const t0=t(sc.map(x=>x.date).sort()[0]),t1=t(sc.map(x=>x.date).sort().slice(-1)[0])||t0+1;
+  const W2=innerWidth<640?560:1000,H2=innerWidth<640?220:190,L=30,R=12,T=10,B=24;const X=d=>L+(t(d)-t0)/Math.max(1,t1-t0)*(W2-L-R),Y=v=>T+(H2-T-B)*(1-(v-1)/9);
+  let s=`<svg viewBox="0 0 ${W2} ${H2}" role="img" aria-label="Zaman içinde verdiği puanlar">`;
+  [2,4,6,8,10].forEach(v=>s+=`<line x1="${L}" x2="${W2-R}" y1="${Y(v)}" y2="${Y(v)}" stroke="var(--line)" stroke-width=".6" stroke-dasharray="3 3"/><text x="${L-6}" y="${Y(v)+4}" text-anchor="end" font-family="Space Mono, monospace" font-size="11" fill="var(--muted)">${v}</text>`);
+  const y0=new Date(t0).getFullYear(),y1=new Date(t1).getFullYear();for(let y=y0;y<=y1;y++){const x=X(y+'-01-01');if(x<L||x>W2-R)continue;s+=`<line x1="${x}" x2="${x}" y1="${T}" y2="${H2-B}" stroke="var(--line)" stroke-width=".6"/><text x="${x+3}" y="${H2-8}" font-family="Space Mono, monospace" font-size="11" fill="var(--muted)">${y}</text>`}
+  const m=mean(sc.map(x=>x.score));s+=`<line x1="${L}" x2="${W2-R}" y1="${Y(m)}" y2="${Y(m)}" stroke="var(--gold)" stroke-width="1.5"/>`;
+  sc.forEach(x=>s+=`<circle cx="${X(x.date).toFixed(1)}" cy="${Y(x.score).toFixed(1)}" r="5" fill="${fbColor(x.score)}" fill-opacity=".85" data-share="${x.f.tt}" data-pv="${x.f.tt}" data-sc="${x.score}"></circle>`);
+  return s+'</svg>'}
+const GAVG=(()=>{const m=new Map();DATA.forEach(f=>{if(!f.votes.length)return;(f.genres||[]).forEach(g=>{if(!m.has(g))m.set(g,[]);m.get(g).push(...f.votes)})});return new Map([...m].map(([k,v])=>[k,mean(v)]))})();
+function tasteBars(name){const u=U.get(name);const m=new Map();u.films.forEach(x=>{if(x.score==null)return;(x.f.genres||[]).forEach(g=>{if(!m.has(g))m.set(g,[]);m.get(g).push(x.score)})});
+  const rows=[...m.entries()].map(([k,v])=>({k,a:mean(v),v:mean(v)-GAVG.get(k),n:v.length})).sort((a,b)=>b.v-a.v);
+  if(!rows.length)return '<span class="f-kucuk muted">Henüz puan vermemiş.</span>';
+  const mx2=Math.max(.5,...rows.map(r=>Math.abs(r.v)));
+  return `<div class="divb">${rows.map(r=>`<div class="dvr" data-tip="${esc(`${gTR(r.k)}: ${r.n} filme ortalama ${fmt1(r.a)} verdi. Forumda bu türün ortalaması ${fmt1(GAVG.get(r.k))}.`)}"><span class="f-kucuk">${esc(gTR(r.k))} <span class="muted">${r.n}</span></span><span class="dvt"><i style="${r.v>=0?'left:50%':'right:50%'};width:${(Math.abs(r.v)/mx2*50).toFixed(1)}%;background:${r.v>=0?'var(--mc-g)':'var(--mc-r)'}"></i></span><span class="f-puan r">${sgn(r.v)}</span></div>`).join('')}</div>`}
+function stripHTML(list){return list.length?`<div class="strip">${list.map(x=>`<button type="button" data-share="${x.f.tt}" title="${esc(x.f.title)}"><img src="${x.f.poster}" alt=""><span>${esc(x.f.title)}</span><small>${fmt1(x.score)}</small></button>`).join('')}</div>`:'<span class="f-kucuk muted">Yeterli puan yok.</span>'}
+function opposite(u,ex){let w=null;for(const v of U.values()){if(v===u||v.name===ex||v.scores.length<3)continue;const m=matchOf(u,v);if(m.com.length>=3&&(!w||m.mae>w.mae))w={name:v.name,...m}}return w}
+function tasteFacts(u,s){
+  const sc=u.films.filter(x=>x.score!=null);const out=[];
+  const dec=new Map();sc.forEach(x=>{if(!x.f.decade)return;if(!dec.has(x.f.decade))dec.set(x.f.decade,[]);dec.get(x.f.decade).push(x.score)});
+  const dk=[...dec.entries()].filter(([,v])=>v.length>=3).map(([k,v])=>({k,v:mean(v),n:v.length})).sort((a,b)=>b.v-a.v);
+  if(dk.length>=2)out.push(['En sevdiği dönem',`${dk[0].k}'ler (ort. ${fmt1(dk[0].v)}, ${dk[0].n} film); en az sevdiği ${dk[dk.length-1].k}'ler (${fmt1(dk[dk.length-1].v)})`]);
+  if(s.md!=null)out.push(['IMDb\'ye göre',`ortalama ${sgn(s.md)} ${s.md>=0?'(IMDb\'den cömert)':'(IMDb\'den sert)'}`]);
+  if(sc.length>=5){const m=mean(sc.map(x=>x.score)),sd=Math.sqrt(mean(sc.map(x=>(x.score-m)**2)));out.push(['Tutarlılık',`puanları ortalamadan tipik olarak ±${fmt1(sd)} sapıyor: ${sd<1?'hep benzer puan veriyor':sd<1.8?'dengeli':'uçlarda geziyor'}`])}
+  const dr=new Map();u.films.forEach(x=>(x.f.directors||[]).forEach(d=>dr.set(d,(dr.get(d)||0)+1)));const td=[...dr.entries()].sort((a,b)=>b[1]-a[1])[0];
+  if(td&&td[1]>=2)out.push(['En çok yazdığı yönetmen',`${dirBtn(td[0])} (${td[1]} film)`]);
+  out.push(['Öneri ve puanlama',`${s.rec} öneri, ${s.films-s.rec} başkasının önerisine yazdı (%${Math.round(s.rec/Math.max(1,s.films)*100)} öneri)`]);
+  const dv=DEV.get(u.name)||[];const gm=new Map();dv.forEach(x=>(x.f.genres||[]).forEach(g=>{if(!gm.has(g))gm.set(g,[]);gm.get(g).push(x.d)}));
+  const gr=[...gm.entries()].filter(([,v])=>v.length>=3).map(([k,v])=>({k,v:mean(v)})).sort((a,b)=>a.v-b.v);
+  if(gr.length&&gr[0].v<0)out.push(['En sert olduğu tür',`${esc(gTR(gr[0].k))} (forumdan ${sgn(gr[0].v)})`]);
+  if(s.tens)out.push(['Tam puan',`${s.tens} kez 10 verdi`]);
+  return out}
+function worstHTML(u){const sc=u.films.filter(x=>x.score!=null);if(!sc.length)return '';
+  const w=[...sc].sort((a,b)=>a.score-b.score||(COMMENTS[b.post]?1:0)-(COMMENTS[a.post]?1:0))[0];const txt=textFor(w.post,w.f.tt).trim();
+  return `<div class="worst"><span class="f-kucuk muted">verdiği en kötü puan: <b style="color:var(--ink)">${fmt1(w.score)}</b> · <button class="linkbtn f-bold" type="button" data-share="${w.f.tt}">${esc(w.f.title)}</button> · ${fmtDate(w.date)}${msgIcon(w.post)}</span>${txt?quoteHTML(txt.length>420?txt.slice(0,419)+'…':txt):'<span class="f-kucuk muted">Bu puanla birlikte yorum yazmamış.</span>'}</div>`}
+function profileHTML(u,s){
+  const dv=DEV.get(u.name)||[];const gen=dv.length>=5?mean(dv.map(x=>x.d)):null;
+  const yrs=Object.entries(s.yrs).sort((a,b)=>b[1]-a[1]);const g2=s.genres.slice(0,2).map(([g])=>gTR(g).toLocaleLowerCase('tr'));
+  const sum=[g2.length?`Çoğunlukla ${g2.join(' ve ')} izliyor`:null,gen!=null?`forumdan ortalama ${fmt1(Math.abs(gen))} ${gen>=0?'daha cömert':'daha sert'}`:null,yrs[0]?`en aktif yılı ${yrs[0][0]} (${yrs[0][1]} film)`:null,s.first?`${s.first.slice(0,4)}'ten beri yazıyor`:null].filter(Boolean).join(', ')+'.';
+  const sc=u.films.filter(x=>x.score!=null);const fav=[...sc].sort((a,b)=>b.score-a.score||b.date.localeCompare(a.date)).slice(0,5),low=[...sc].sort((a,b)=>a.score-b.score||b.date.localeCompare(a.date)).slice(0,5);
+  const op=opposite(u,s.best&&s.best.name);const b=BADGE.get(u.name);
+  const person=(x,lab,tip)=>x?`<div class="mini" style="grid-template-columns:minmax(0,1fr) auto" data-tip="${esc(tip)}"><span style="min-width:0">${userBtn(x.name)}</span><span class="f-kucuk muted">%${x.pct} uyum · ${x.com.length} ortak film</span></div>`:`<span class="f-kucuk muted">${lab} için en az 3 ortak puanlı film gerekiyor.</span>`;
+  const facts=tasteFacts(u,s);
+  return `<div class="pband">${ringL(s.elo)}<div style="min-width:0;display:flex;flex-direction:column;gap:4px"><span><b class="f-buyuk">${esc(u.name)}</b> ${b?bdgHTML(u.name):''}</span>${s.first?`<span class="f-kucuk muted">${s.first.slice(0,4)} → ${s.lastD.slice(0,4)} · puan ortalaması ${fmt1(s.elo)}</span>`:''}</div>
+    <div class="pnums"><div><b>${s.n}</b><span class="f-kucuk muted">puan</span></div><div><b>${s.rec}</b><span class="f-kucuk muted">öneri</span></div><div><b>${s.films}</b><span class="f-kucuk muted">film</span></div></div></div>
+    <div class="psec"><span class="f-kucuk muted">zaman çizgisi · her nokta bir film, yatayda tarih, dikeyde verdiği puan; sarı çizgi ortalaması (${fmt1(s.elo)}). Noktanın üzerine gelince film, tıklayınca kart açılır.</span><div class="tline">${timeline(u)}</div></div>
+    <div class="psec"><span class="f-bold">Taste</span><span class="psum">${esc(sum)}</span>
+      <div class="taste"><div style="display:flex;flex-direction:column;gap:6px;min-width:0"><span class="f-kucuk muted">türlere göre: puan verdiği her türde ortalaması, forumun o türe verdiği ortalamadan ne kadar yüksek ya da düşük (yanındaki sayı film adedi)</span>${tasteBars(u.name)}</div>
+      <dl class="kvl" style="margin:0">${facts.map(([k,v])=>`<dt>${k}</dt><dd>${v}</dd>`).join('')}</dl></div>
+      ${worstHTML(u)}</div>
+    <div class="prow"><div class="psec"><span class="f-kucuk muted">insanlar</span><span class="f-bold">Benzeri</span>${person(s.best,'Benzeri','Ortak filmlerde puanları en yakın üye.')}<span class="f-bold" style="margin-top:6px">Zıt kutup</span>${person(op,'Zıt kutup','Ortak filmlerde puanları en çok ayrışan üye.')}<span class="f-bold" style="margin-top:6px">Son 5 puan</span><div class="form">${formBoxes(s.last)}</div></div>
+      <div class="psec"><span class="f-kucuk muted">en sevdiği 5 film</span>${stripHTML(fav)}</div><div class="psec"><span class="f-kucuk muted">en sevmediği 5 film</span>${stripHTML(low)}</div></div>`}
+
+/* Zaman çizgisi mini kartı */
+document.addEventListener('mouseover',e=>{const c=e.target.closest&&e.target.closest('[data-pv]');const tp=$('tlPop');if(!c){if(!tp.hidden)tp.hidden=true;return}
+  const f=byTT.get(c.dataset.pv);if(!f)return;const sc=+c.dataset.sc;
+  tp.innerHTML=`<img src="${f.poster}" alt=""><span class="t">${esc(f.title)}</span><span class="s"><span style="background:${fbColor(sc)};color:#fff">${fmt1(sc)}</span>${f.imdb!=null?`<span style="background:#f5c518;color:#141610">★${fmt1(f.imdb)}</span>`:''}</span>`;
+  tp.hidden=false;const r=c.getBoundingClientRect();let x=r.left+r.width/2-46,y=r.top-tp.offsetHeight-8;if(y<8)y=r.bottom+8;x=Math.max(8,Math.min(innerWidth-100,x));tp.style.left=x+'px';tp.style.top=y+'px'});
+
+/* Katalog: yalnızca afişlerden oluşan arama sayfası */
+let KAT=[],katZoom=null,katMode='yil';
+fill($('katU'),[...U.values()].filter(u=>u.films.length>=3).sort((a,b)=>a.name.localeCompare(b.name,'tr',{sensitivity:'base'})).map(u=>u.name),n=>`${n} (${U.get(n).films.length})`);
+function katSize(){const h=Math.max(150,Math.floor((innerHeight-230)/3)-40);$('katGrid').style.setProperty('--kh',h+'px');$('katGrid').style.setProperty('--kw',Math.round(h*2/3+30)+'px')}
+function katList(){
+  const yr=new Date(new Date(META.end)-365*864e5).toISOString().slice(0,10);
+  if(katMode==='yil')return [DATA.filter(f=>f.main.date>=yr).sort((a,b)=>b.main.date.localeCompare(a.main.date)),'son 1 yılda önerilen filmler, en yeniden eskiye'];
+  if(katMode==='pati')return [DATA.filter(f=>f.pati!=null).sort((a,b)=>b.pati-a.pati||b.nv-a.nv),'Pati puanına göre, en yüksekten'];
+  if(katMode==='ort')return [DATA.filter(f=>f.nv>0).sort((a,b)=>b.avg-a.avg||b.nv-a.nv),'tüm üye puanlarının ortalamasına göre, en yüksekten'];
+  if(katMode==='rnd'){const a=[...DATA];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return [a,'rastgele sırada tüm filmler']}
+  if(katMode==='u'){const n=$('katU').value;return [U.get(n).films.map(x=>x.f).filter((f,i,a)=>a.indexOf(f)===i).sort((a,b)=>b.main.date.localeCompare(a.main.date)),`${n} üyesinin önerdiği ya da puanladığı filmler, en yeniden eskiye`]}
+  return [[],''];
+}
+function katRender(){const [L,lab]=katList();KAT=L;katSize();
+  document.querySelectorAll('[data-kp]').forEach(b=>{const on=b.dataset.kp===katMode;b.classList.toggle('ghost',!on)});
+  $('katInfo').innerHTML=`<b>${L.length} film</b> · ${esc(lab)}`;
+  $('katGrid').innerHTML=L.map(f=>`<div class="kcell"><button class="kc" type="button" data-kat="${f.tt}" aria-label="${esc(f.title)}"><img src="${f.poster}" data-big="${bigPoster(f)||''}" alt="" decoding="async">${f.imdb!=null?`<span class="pt" title="IMDb">★${fmt1(f.imdb)}</span>`:''}</button><span class="ow" title="${esc(f.title)}">Öneren: <b>${esc(f.main.author)}</b></span><span class="ksc"><span title="IMDb">${f.imdb!=null?fmt1(f.imdb):'–'}</span><span title="Metacritic">${f.meta??'–'}</span><span title="Rotten Tomatoes">${f.rt!=null?f.rt+'%':'–'}</span><span title="Letterboxd">${f.lb!=null?fmtN(f.lb,2):'–'}</span><span title="Pati">${f.pati!=null?fmt1(f.pati):'–'}</span></span><span class="ow">${[f.year,f.dirs].filter(Boolean).map(esc).join(' · ')||'&nbsp;'}</span></div>`).join('')}
+/* tam çözünürlük afiş: görünür olunca arka planda yüklenip değiştirilir */
+const katIO='IntersectionObserver' in window?new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const im=e.target;katIO.unobserve(im);const u=im.dataset.big;if(!u)return;const pre=new Image();pre.onload=()=>{im.src=u};pre.src=u}),{rootMargin:'300px'}):null;
+function katBig(){if(!katIO)return;katIO.disconnect();$('katGrid').querySelectorAll('img[data-big]').forEach(im=>katIO.observe(im))}
+function openKat(){katRender();openModal($('mKat'));katBig()}
+$('katBtn').addEventListener('click',openKat);
+document.addEventListener('click',e=>{const b=e.target.closest('[data-kp]');if(!b)return;katMode=b.dataset.kp;$('katU').value='';katRender();katBig();$('mKat').querySelector('.panel').scrollIntoView({block:'start'})});
+$('katU').addEventListener('change',()=>{if(!$('katU').value)return;katMode='u';katRender();katBig()});
+window.addEventListener('resize',()=>{if(!$('mKat').hidden)katSize()});
+$('katGrid').addEventListener('click',e=>{const c=e.target.closest('.kc');if(c)katOpen(c)});
+function katOpen(c){if(katZoom)return;const f=byTT.get(c.dataset.kat);if(!f)return;
+  const r=c.getBoundingClientRect();const z=document.createElement('div');z.className='kz';const fl=document.createElement('div');fl.className='kfly';fl.innerHTML=`<img src="${f.poster}" alt="">`;{const bp=bigPoster(f);if(bp){const im=new Image();im.onload=()=>{const i2=fl.querySelector('img');if(i2)i2.src=bp};im.src=bp}}
+  Object.assign(fl.style,{left:r.left+'px',top:r.top+'px',width:r.width+'px',height:r.height+'px'});
+  const info=document.createElement('div');info.className='kinfo';
+  info.innerHTML=`<h3>${esc(f.title)}</h3><span class="f-ana">${[f.year,(f.genres||[]).map(gTR).join(', ')].filter(Boolean).join(' · ')}</span><span class="f-ana">Yönetmen: ${esc(f.dirs)||'?'}</span>
+    <div class="scgrid" style="grid-template-columns:repeat(5,auto);justify-content:start">${pills.imdb(f)}${pills.meta(f)}${pills.rt(f)}${pills.lb(f)}${pills.pati(f)}</div>
+    <span class="f-ana">Öneren: <b>${esc(f.main.author)}</b> ${f.main.score!=null?`<span class="pill score">${fmt1(f.main.score)}</span>`:''}${msgIcon(f.main.post)}</span>
+    ${f.plot?`<span class="f-kucuk">${esc(f.plot)}</span>`:''}
+    <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn f-bold" type="button" data-katcard="${f.tt}">Kartı aç</button><button class="btn f-bold ${inCart(f.tt)?'on':''}" type="button" data-cart="${f.tt}">${inCart(f.tt)?'Sepette ✓':'Sepete ekle'}</button></div>
+    <span class="f-kucuk muted">Boş bir yere tıklayınca afiş yerine döner.</span>`;
+  document.body.append(z,fl,info);c.classList.add('gone');katZoom={c,z,fl,info,r};
+  const vw=innerWidth,vh=innerHeight,narrow=vw<700;const h=Math.min(vh*(narrow?.5:.78),narrow?380:620),w=h*2/3;
+  const lx=narrow?(vw-w)/2:Math.max(16,vw/2-w-20),ty=narrow?16:(vh-h)/2;
+  requestAnimationFrame(()=>{z.classList.add('on');Object.assign(fl.style,{left:lx+'px',top:ty+'px',width:w+'px',height:h+'px',transform:'rotate(-1.5deg)'});
+    if(narrow){info.style.left=Math.max(16,(vw-info.offsetWidth)/2)+'px';info.style.top=(ty+h+12)+'px';info.style.maxHeight=(vh-ty-h-28)+'px';info.style.overflowY='auto'}
+    else{info.style.left=(lx+w+24)+'px';info.style.top=Math.max(16,(vh-info.offsetHeight)/2)+'px'}
+    info.classList.add('on')});
+  z.addEventListener('click',katClose);fl.addEventListener('click',katClose);
+  info.addEventListener('click',ev=>{const cb=ev.target.closest('[data-cart]');if(cb)setTimeout(()=>{const on=inCart(cb.dataset.cart);cb.classList.toggle('on',on);cb.textContent=on?'Sepette ✓':'Sepete ekle'},0);const b=ev.target.closest('[data-katcard]');if(b){const tt=b.dataset.katcard;katClose(true);openCard(tt)}});
+}
+function katClose(silent){if(!katZoom)return;const {c,z,fl,info}=katZoom;katZoom=null;
+  const r=c.getBoundingClientRect();info.classList.remove('on');z.classList.remove('on');Object.assign(fl.style,{left:r.left+'px',top:r.top+'px',width:r.width+'px',height:r.height+'px',transform:'none'});
+  setTimeout(()=>{c.classList.remove('gone');z.remove();fl.remove();info.remove()},silent===true?0:390)}
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&katZoom){e.stopPropagation();katClose()}},true);
+
+$('shClose').dataset.x='1';document.querySelector('.side .slab').insertAdjacentHTML('afterend',RNAV.map(([k,tip,ic])=>`<button class="rb sug" type="button" data-rn="${k}" data-tip="${esc(tip)}" aria-label="${esc(tip)}">${ic}</button>`).join(''));
+
 loadUrl();dash();render(true);fromHash();if(SHARED.length)openShared();
 })();
 </script>
